@@ -1,6 +1,6 @@
 # RanniGPT
 
-A Text-To-Speech narrator tool that allows for easy inference with user-customisable voice models.
+A Text-To-Speech narrator tool that allows for easy inference with custom user voice models and robust quality speech generation.
 The project currently aims to support XTTS and RVC voice engines, with potentiatl for some kind of LLM support or integration further down the line.
 
 The exploratory research and logs that go into this project can be found at my [Python AI Voice Cloning](https://github.com/TahaDidIt/Python-AI-Voice-Cloning-Log) repo.
