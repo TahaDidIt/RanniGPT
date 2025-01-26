@@ -1,0 +1,11 @@
+for py script, define variables for local paths and set them at the top with imports
+with a warning to let people know to change them to their respective local dir
+May consider "config" txt also
+
+
+Update: 
+No, we are using os path
+can still consider a config file for other purposes (maybe xtts checkpoint and vocab)
+
+Update 26/01/2025:
+If doing different models (or even just one)- an init script that sets up the file paths for model files like (foundation checkpoints, vocab files, modules or fine-tunes).
