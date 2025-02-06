@@ -54,7 +54,6 @@ rvc_models_dir = os.path.join(base_dir, "voices\\rvc")
 
 
 
-
 ### PARAMETERS 
 
 # REFERENCE AUDIO - by default looks in temp folder
@@ -87,6 +86,7 @@ rvc_model = RVCInference(models_dir = rvc_models_dir, device = "cuda:0")
 rvc_model.f0method = "rmvpe"
 rvc_model.rms_mix_rate = 0.25
 rvc_model.index_rate = 0.75
+
 
 
 
@@ -150,6 +150,8 @@ for sentence in sentences:
         "en",
         gpt_cond_latent,
         speaker_embedding,
+        temperature = xtts_temp,
+        speed = xtts_spd
     )
 
     #Hold output as variable so we can append it to joined audio
