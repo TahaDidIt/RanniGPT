@@ -1,0 +1,624 @@
+(coquiTTStest) PS C:\Users\Taha\TTS> conda list -n coquiTTStest
+# packages in environment at C:\ProgramData\anaconda3\envs\coquiTTStest:
+#
+# Name                    Version                   Build  Channel
+annotated-types           0.7.0                    pypi_0    pypi
+anyio                     4.6.0                    pypi_0    pypi
+blas                      1.0                         mkl
+brotli-python             1.0.9           py310hd77b12b_8
+bzip2                     1.0.8                h2bbff1b_6
+ca-certificates           2024.9.24            haa95532_0
+certifi                   2024.8.30       py310haa95532_0
+charset-normalizer        3.3.2              pyhd3eb1b0_0
+cuda-cccl                 12.6.77                       0    nvidia
+cuda-cccl_win-64          12.6.77                       0    nvidia
+cuda-cudart               12.1.105                      0    nvidia
+cuda-cudart-dev           12.1.105                      0    nvidia
+cuda-cupti                12.1.105                      0    nvidia
+cuda-libraries            12.1.0                        0    nvidia
+cuda-libraries-dev        12.1.0                        0    nvidia
+cuda-nvrtc                12.1.105                      0    nvidia
+cuda-nvrtc-dev            12.1.105                      0    nvidia
+cuda-nvtx                 12.1.105                      0    nvidia
+cuda-opencl               12.6.77                       0    nvidia
+cuda-opencl-dev           12.6.77                       0    nvidia
+cuda-profiler-api         12.6.77                       0    nvidia
+cuda-runtime              12.1.0                        0    nvidia
+cuda-version              12.6                          3    nvidia
+exceptiongroup            1.2.2                    pypi_0    pypi
+fastapi                   0.110.0                  pypi_0    pypi
+filelock                  3.13.1          py310haa95532_0
+freetype                  2.12.1               ha860e81_0
+gmpy2                     2.1.2           py310h7f96b67_0
+idna                      3.7             py310haa95532_0
+intel-openmp              2023.1.0         h59b6b97_46320
+jinja2                    3.1.4           py310haa95532_0
+jpeg                      9e                   h827c3e9_3
+lcms2                     2.12                 h83e58a3_0
+lerc                      3.0                  hd77b12b_0
+libcublas                 12.1.0.26                     0    nvidia
+libcublas-dev             12.1.0.26                     0    nvidia
+libcufft                  11.0.2.4                      0    nvidia
+libcufft-dev              11.0.2.4                      0    nvidia
+libcurand                 10.3.7.77                     0    nvidia
+libcurand-dev             10.3.7.77                     0    nvidia
+libcusolver               11.4.4.55                     0    nvidia
+libcusolver-dev           11.4.4.55                     0    nvidia
+libcusparse               12.0.2.55                     0    nvidia
+libcusparse-dev           12.0.2.55                     0    nvidia
+libdeflate                1.17                 h2bbff1b_1
+libffi                    3.4.4                hd77b12b_1
+libjpeg-turbo             2.0.0                h196d8e1_0
+libnpp                    12.0.2.50                     0    nvidia
+libnpp-dev                12.0.2.50                     0    nvidia
+libnvjitlink              12.1.105                      0    nvidia
+libnvjitlink-dev          12.1.105                      0    nvidia
+libnvjpeg                 12.1.1.14                     0    nvidia
+libnvjpeg-dev             12.1.1.14                     0    nvidia
+libpng                    1.6.39               h8cc25b3_0
+libtiff                   4.5.1                hd77b12b_0
+libuv                     1.48.0               h827c3e9_0
+libwebp-base              1.3.2                h2bbff1b_0
+lz4-c                     1.9.4                h2bbff1b_1
+markupsafe                2.1.3           py310h2bbff1b_0
+mkl                       2023.1.0         h6b88ed4_46358
+mkl-service               2.4.0           py310h2bbff1b_1
+mkl_fft                   1.3.10          py310h827c3e9_0
+mkl_random                1.2.7           py310hc64d2fc_0
+mpc                       1.1.0                h7edee0f_1
+mpfr                      4.0.2                h62dcd97_1
+mpir                      3.0.0                hec2e145_1
+mpmath                    1.3.0           py310haa95532_0
+networkx                  3.2.1           py310haa95532_0
+numpy                     2.0.1           py310h055cbcc_1
+numpy-base                2.0.1           py310h65a83cf_1
+openjpeg                  2.5.2                hae555c5_0
+openssl                   3.0.15               h827c3e9_0
+pillow                    10.4.0          py310h827c3e9_0
+pip                       24.2            py310haa95532_0
+pydantic                  2.9.2                    pypi_0    pypi
+pydantic-core             2.23.4                   pypi_0    pypi
+pysocks                   1.7.1           py310haa95532_0
+python                    3.10.14              he1021f5_1
+pytorch                   2.4.1           py3.10_cuda12.1_cudnn9_0    pytorch
+pytorch-cuda              12.1                 hde6ce7c_5    pytorch
+pytorch-mutex             1.0                        cuda    pytorch
+pyyaml                    6.0.1           py310h2bbff1b_0
+requests                  2.32.3          py310haa95532_0
+setuptools                75.1.0          py310haa95532_0
+sniffio                   1.3.1                    pypi_0    pypi
+sqlite                    3.45.3               h2bbff1b_0
+starlette                 0.36.3                   pypi_0    pypi
+sympy                     1.13.2          py310haa95532_0
+tbb                       2021.8.0             h59b6b97_0
+tk                        8.6.14               h0416ee5_0
+torchaudio                2.4.1                    pypi_0    pypi
+torchvision               0.19.1                   pypi_0    pypi
+typing_extensions         4.11.0          py310haa95532_0
+tzdata                    2024a                h04d1e81_0
+urllib3                   2.2.3           py310haa95532_0
+vc                        14.40                h2eaa2aa_1
+vs2015_runtime            14.40.33807          h98bb1dd_1
+wheel                     0.44.0          py310haa95532_0
+win_inet_pton             1.1.0           py310haa95532_0
+xz                        5.4.6                h8cc25b3_1
+yaml                      0.2.5                he774522_0
+zlib                      1.2.13               h8cc25b3_1
+zstd                      1.5.5                hd43e919_2
+(coquiTTStest) PS C:\Users\Taha\TTS> conda list -n coquiTTStest cython
+# packages in environment at C:\ProgramData\anaconda3\envs\coquiTTStest:
+#
+# Name                    Version                   Build  Channel
+(coquiTTStest) PS C:\Users\Taha\TTS> pip install -e .[all,dev,notebooks]
+Obtaining file:///C:/Users/Taha/TTS
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Collecting cython==0.29.30 (from TTS==0.22.0)
+  Using cached Cython-0.29.30-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting scipy>=1.11.2 (from TTS==0.22.0)
+  Using cached scipy-1.14.1-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Requirement already satisfied: torch>=2.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (2.4.1)
+Requirement already satisfied: torchaudio in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (2.4.1)
+Collecting soundfile>=0.12.0 (from TTS==0.22.0)
+  Using cached soundfile-0.12.1-py2.py3-none-win_amd64.whl.metadata (14 kB)
+Collecting librosa>=0.10.0 (from TTS==0.22.0)
+  Using cached librosa-0.10.2.post1-py3-none-any.whl.metadata (8.6 kB)
+Collecting scikit-learn>=1.3.0 (from TTS==0.22.0)
+  Using cached scikit_learn-1.5.2-cp310-cp310-win_amd64.whl.metadata (13 kB)
+Collecting inflect>=5.6.0 (from TTS==0.22.0)
+  Using cached inflect-7.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting tqdm>=4.64.1 (from TTS==0.22.0)
+  Using cached tqdm-4.66.5-py3-none-any.whl.metadata (57 kB)
+Collecting anyascii>=0.3.0 (from TTS==0.22.0)
+  Using cached anyascii-0.3.2-py3-none-any.whl.metadata (1.5 kB)
+Requirement already satisfied: pyyaml>=6.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (6.0.1)
+Collecting fsspec>=2023.6.0 (from TTS==0.22.0)
+  Using cached fsspec-2024.9.0-py3-none-any.whl.metadata (11 kB)
+Collecting aiohttp>=3.8.1 (from TTS==0.22.0)
+  Using cached aiohttp-3.10.8-cp310-cp310-win_amd64.whl.metadata (7.8 kB)
+Collecting packaging>=23.1 (from TTS==0.22.0)
+  Using cached packaging-24.1-py3-none-any.whl.metadata (3.2 kB)
+Collecting mutagen==1.47.0 (from TTS==0.22.0)
+  Using cached mutagen-1.47.0-py3-none-any.whl.metadata (1.7 kB)
+Collecting flask>=2.0.1 (from TTS==0.22.0)
+  Using cached flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting pysbd>=0.3.4 (from TTS==0.22.0)
+  Using cached pysbd-0.3.4-py3-none-any.whl.metadata (6.1 kB)
+Collecting umap-learn>=0.5.1 (from TTS==0.22.0)
+  Using cached umap_learn-0.5.6-py3-none-any.whl.metadata (21 kB)
+Collecting pandas<2.0,>=1.4 (from TTS==0.22.0)
+  Using cached pandas-1.5.3-cp310-cp310-win_amd64.whl.metadata (12 kB)
+Collecting matplotlib>=3.7.0 (from TTS==0.22.0)
+  Using cached matplotlib-3.9.2-cp310-cp310-win_amd64.whl.metadata (11 kB)
+Collecting trainer>=0.0.36 (from TTS==0.22.0)
+  Using cached trainer-0.0.36-py3-none-any.whl.metadata (8.1 kB)
+Collecting coqpit>=0.0.16 (from TTS==0.22.0)
+  Using cached coqpit-0.0.17-py3-none-any.whl.metadata (11 kB)
+Collecting jieba (from TTS==0.22.0)
+  Using cached jieba-0.42.1-py3-none-any.whl
+Collecting pypinyin (from TTS==0.22.0)
+  Using cached pypinyin-0.53.0-py2.py3-none-any.whl.metadata (12 kB)
+Collecting hangul-romanize (from TTS==0.22.0)
+  Using cached hangul_romanize-0.1.0-py3-none-any.whl.metadata (1.2 kB)
+Collecting gruut==2.2.3 (from gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached gruut-2.2.3-py3-none-any.whl
+Collecting jamo (from TTS==0.22.0)
+  Using cached jamo-0.4.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting nltk (from TTS==0.22.0)
+  Using cached nltk-3.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting g2pkk>=0.1.1 (from TTS==0.22.0)
+  Using cached g2pkk-0.1.2-py3-none-any.whl.metadata (2.0 kB)
+Collecting bangla (from TTS==0.22.0)
+  Using cached bangla-0.0.2-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting bnnumerizer (from TTS==0.22.0)
+  Using cached bnnumerizer-0.0.2-py3-none-any.whl
+Collecting bnunicodenormalizer (from TTS==0.22.0)
+  Using cached bnunicodenormalizer-0.1.7-py3-none-any.whl.metadata (22 kB)
+Collecting einops>=0.6.0 (from TTS==0.22.0)
+  Using cached einops-0.8.0-py3-none-any.whl.metadata (12 kB)
+Collecting transformers>=4.33.0 (from TTS==0.22.0)
+  Using cached transformers-4.45.1-py3-none-any.whl.metadata (44 kB)
+Collecting encodec>=0.1.1 (from TTS==0.22.0)
+  Using cached encodec-0.1.1-py3-none-any.whl
+Collecting unidecode>=1.3.2 (from TTS==0.22.0)
+  Using cached Unidecode-1.3.8-py3-none-any.whl.metadata (13 kB)
+Collecting num2words (from TTS==0.22.0)
+  Using cached num2words-0.5.13-py3-none-any.whl.metadata (12 kB)
+Collecting spacy==2.3.9 (from spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached spacy-2.3.9-cp310-cp310-win_amd64.whl.metadata (16 kB)
+Collecting numpy==1.22.0 (from TTS==0.22.0)
+  Using cached numpy-1.22.0-cp310-cp310-win_amd64.whl.metadata (2.1 kB)
+Collecting numba>=0.57.0 (from TTS==0.22.0)
+  Using cached numba-0.60.0-cp310-cp310-win_amd64.whl.metadata (2.8 kB)
+Collecting Babel<3.0.0,>=2.8.0 (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached babel-2.16.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting dateparser~=1.1.0 (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached dateparser-1.1.8-py2.py3-none-any.whl.metadata (27 kB)
+Collecting gruut-ipa<1.0,>=0.12.0 (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached gruut_ipa-0.13.0-py3-none-any.whl
+Collecting gruut-lang-en~=2.0.0 (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached gruut_lang_en-2.0.1-py3-none-any.whl
+Collecting jsonlines~=1.2.0 (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached jsonlines-1.2.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting networkx<3.0.0,>=2.5.0 (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached networkx-2.8.8-py3-none-any.whl.metadata (5.1 kB)
+Collecting python-crfsuite~=0.9.7 (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached python_crfsuite-0.9.11-cp310-cp310-win_amd64.whl.metadata (4.4 kB)
+Collecting gruut-lang-de~=2.0.0 (from gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached gruut_lang_de-2.0.1-py3-none-any.whl
+Collecting gruut-lang-fr~=2.0.0 (from gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached gruut_lang_fr-2.0.2-py3-none-any.whl
+Collecting gruut-lang-es~=2.0.0 (from gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached gruut_lang_es-2.0.1-py3-none-any.whl
+Collecting murmurhash<1.1.0,>=0.28.0 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached murmurhash-1.0.10-cp310-cp310-win_amd64.whl.metadata (2.0 kB)
+Collecting cymem<2.1.0,>=2.0.2 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached cymem-2.0.8-cp310-cp310-win_amd64.whl.metadata (8.6 kB)
+Collecting preshed<3.1.0,>=3.0.2 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached preshed-3.0.9-cp310-cp310-win_amd64.whl.metadata (2.2 kB)
+Collecting thinc<7.5.0,>=7.4.1 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached thinc-7.4.6-cp310-cp310-win_amd64.whl.metadata (23 kB)
+Collecting blis<0.8.0,>=0.4.0 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached blis-0.7.11-cp310-cp310-win_amd64.whl.metadata (7.6 kB)
+Collecting wasabi<1.1.0,>=0.4.0 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached wasabi-0.10.1-py3-none-any.whl.metadata (28 kB)
+Collecting srsly<1.1.0,>=1.0.2 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached srsly-1.0.7-cp310-cp310-win_amd64.whl.metadata (14 kB)
+Collecting catalogue<1.1.0,>=0.0.7 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached catalogue-1.0.2-py2.py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: setuptools in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (75.1.0)
+Collecting plac<1.2.0,>=0.9.6 (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached plac-1.1.3-py2.py3-none-any.whl.metadata (2.3 kB)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.32.3)
+Collecting sudachipy>=0.4.5 (from spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached SudachiPy-0.6.8-cp310-cp310-win_amd64.whl.metadata (13 kB)
+Collecting sudachidict-core>=20200330 (from spacy[ja]==2.3.9->TTS==0.22.0)
+  Using cached SudachiDict_core-20240716-py3-none-any.whl.metadata (2.5 kB)
+Collecting bokeh==1.4.0 (from TTS==0.22.0)
+  Using cached bokeh-1.4.0-py3-none-any.whl
+Collecting black (from TTS==0.22.0)
+  Using cached black-24.8.0-cp310-cp310-win_amd64.whl.metadata (78 kB)
+Collecting coverage (from TTS==0.22.0)
+  Using cached coverage-7.6.1-cp310-cp310-win_amd64.whl.metadata (8.5 kB)
+Collecting isort (from TTS==0.22.0)
+  Using cached isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting nose2 (from TTS==0.22.0)
+  Using cached nose2-0.15.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting pylint==2.10.2 (from TTS==0.22.0)
+  Using cached pylint-2.10.2-py3-none-any.whl.metadata (7.7 kB)
+Collecting mecab-python3==1.0.6 (from TTS==0.22.0)
+  Using cached mecab_python3-1.0.6-cp310-cp310-win_amd64.whl.metadata (6.3 kB)
+Collecting unidic-lite==1.0.8 (from TTS==0.22.0)
+  Using cached unidic_lite-1.0.8-py3-none-any.whl
+Collecting cutlet (from TTS==0.22.0)
+  Using cached cutlet-0.4.0-py3-none-any.whl
+Collecting six>=1.5.2 (from bokeh==1.4.0->TTS==0.22.0)
+  Using cached six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting python-dateutil>=2.1 (from bokeh==1.4.0->TTS==0.22.0)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Requirement already satisfied: Jinja2>=2.7 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (3.1.4)
+Requirement already satisfied: pillow>=4.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (10.4.0)
+Collecting tornado>=4.3 (from bokeh==1.4.0->TTS==0.22.0)
+  Using cached tornado-6.4.1-cp38-abi3-win_amd64.whl.metadata (2.6 kB)
+Collecting platformdirs>=2.2.0 (from pylint==2.10.2->TTS==0.22.0)
+  Using cached platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting astroid<2.8,>=2.7.2 (from pylint==2.10.2->TTS==0.22.0)
+  Using cached astroid-2.7.3-py3-none-any.whl.metadata (4.7 kB)
+Collecting mccabe<0.7,>=0.6 (from pylint==2.10.2->TTS==0.22.0)
+  Using cached mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 kB)
+Collecting toml>=0.7.1 (from pylint==2.10.2->TTS==0.22.0)
+  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting colorama (from pylint==2.10.2->TTS==0.22.0)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting aiohappyeyeballs>=2.3.0 (from aiohttp>=3.8.1->TTS==0.22.0)
+  Using cached aiohappyeyeballs-2.4.3-py3-none-any.whl.metadata (6.1 kB)
+Collecting aiosignal>=1.1.2 (from aiohttp>=3.8.1->TTS==0.22.0)
+  Using cached aiosignal-1.3.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting attrs>=17.3.0 (from aiohttp>=3.8.1->TTS==0.22.0)
+  Using cached attrs-24.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting frozenlist>=1.1.1 (from aiohttp>=3.8.1->TTS==0.22.0)
+  Using cached frozenlist-1.4.1-cp310-cp310-win_amd64.whl.metadata (12 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp>=3.8.1->TTS==0.22.0)
+  Using cached multidict-6.1.0-cp310-cp310-win_amd64.whl.metadata (5.1 kB)
+Collecting yarl<2.0,>=1.12.0 (from aiohttp>=3.8.1->TTS==0.22.0)
+  Using cached yarl-1.13.1-cp310-cp310-win_amd64.whl.metadata (52 kB)
+Collecting async-timeout<5.0,>=4.0 (from aiohttp>=3.8.1->TTS==0.22.0)
+  Using cached async_timeout-4.0.3-py3-none-any.whl.metadata (4.2 kB)
+Collecting Werkzeug>=3.0.0 (from flask>=2.0.1->TTS==0.22.0)
+  Using cached werkzeug-3.0.4-py3-none-any.whl.metadata (3.7 kB)
+Collecting itsdangerous>=2.1.2 (from flask>=2.0.1->TTS==0.22.0)
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from flask>=2.0.1->TTS==0.22.0)
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting blinker>=1.6.2 (from flask>=2.0.1->TTS==0.22.0)
+  Using cached blinker-1.8.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting more-itertools>=8.5.0 (from inflect>=5.6.0->TTS==0.22.0)
+  Using cached more_itertools-10.5.0-py3-none-any.whl.metadata (36 kB)
+Collecting typeguard>=4.0.1 (from inflect>=5.6.0->TTS==0.22.0)
+  Using cached typeguard-4.3.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting audioread>=2.1.9 (from librosa>=0.10.0->TTS==0.22.0)
+  Using cached audioread-3.0.1-py3-none-any.whl.metadata (8.4 kB)
+INFO: pip is looking at multiple versions of librosa to determine which version is compatible with other requirements. This could take a while.
+Collecting librosa>=0.10.0 (from TTS==0.22.0)
+  Using cached librosa-0.10.2-py3-none-any.whl.metadata (8.6 kB)
+  Using cached librosa-0.10.1-py3-none-any.whl.metadata (8.3 kB)
+  Using cached librosa-0.10.0.post2-py3-none-any.whl.metadata (8.3 kB)
+  Using cached librosa-0.10.0.post1-py3-none-any.whl.metadata (8.3 kB)
+  Using cached librosa-0.10.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting joblib>=0.14 (from librosa>=0.10.0->TTS==0.22.0)
+  Using cached joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting decorator>=4.3.0 (from librosa>=0.10.0->TTS==0.22.0)
+  Using cached decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting pooch>=1.0 (from librosa>=0.10.0->TTS==0.22.0)
+  Using cached pooch-1.8.2-py3-none-any.whl.metadata (10 kB)
+Collecting soxr>=0.3.2 (from librosa>=0.10.0->TTS==0.22.0)
+  Using cached soxr-0.5.0.post1-cp310-cp310-win_amd64.whl.metadata (5.6 kB)
+Requirement already satisfied: typing-extensions>=4.1.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (4.11.0)
+Collecting lazy-loader>=0.1 (from librosa>=0.10.0->TTS==0.22.0)
+  Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Collecting msgpack>=1.0 (from librosa>=0.10.0->TTS==0.22.0)
+  Using cached msgpack-1.1.0-cp310-cp310-win_amd64.whl.metadata (8.6 kB)
+Collecting contourpy>=1.0.1 (from matplotlib>=3.7.0->TTS==0.22.0)
+  Using cached contourpy-1.3.0-cp310-cp310-win_amd64.whl.metadata (5.4 kB)
+Collecting cycler>=0.10 (from matplotlib>=3.7.0->TTS==0.22.0)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib>=3.7.0->TTS==0.22.0)
+  Using cached fonttools-4.54.1-cp310-cp310-win_amd64.whl.metadata (167 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib>=3.7.0->TTS==0.22.0)
+  Using cached kiwisolver-1.4.7-cp310-cp310-win_amd64.whl.metadata (6.4 kB)
+INFO: pip is looking at multiple versions of matplotlib to determine which version is compatible with other requirements. This could take a while.
+Collecting matplotlib>=3.7.0 (from TTS==0.22.0)
+  Using cached matplotlib-3.9.1.post1-cp310-cp310-win_amd64.whl.metadata (11 kB)
+  Using cached matplotlib-3.9.0-cp310-cp310-win_amd64.whl.metadata (11 kB)
+  Using cached matplotlib-3.8.4-cp310-cp310-win_amd64.whl.metadata (5.9 kB)
+Collecting pyparsing>=2.3.1 (from matplotlib>=3.7.0->TTS==0.22.0)
+  Using cached pyparsing-3.1.4-py3-none-any.whl.metadata (5.1 kB)
+Collecting docopt>=0.6.2 (from num2words->TTS==0.22.0)
+  Using cached docopt-0.6.2-py2.py3-none-any.whl
+Collecting llvmlite<0.44,>=0.43.0dev0 (from numba>=0.57.0->TTS==0.22.0)
+  Using cached llvmlite-0.43.0-cp310-cp310-win_amd64.whl.metadata (4.9 kB)
+Collecting pytz>=2020.1 (from pandas<2.0,>=1.4->TTS==0.22.0)
+  Using cached pytz-2024.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting threadpoolctl>=3.1.0 (from scikit-learn>=1.3.0->TTS==0.22.0)
+  Using cached threadpoolctl-3.5.0-py3-none-any.whl.metadata (13 kB)
+INFO: pip is looking at multiple versions of scipy to determine which version is compatible with other requirements. This could take a while.
+Collecting scipy>=1.11.2 (from TTS==0.22.0)
+  Using cached scipy-1.14.0-cp310-cp310-win_amd64.whl.metadata (60 kB)
+  Using cached scipy-1.13.1-cp310-cp310-win_amd64.whl.metadata (60 kB)
+  Using cached scipy-1.13.0-cp310-cp310-win_amd64.whl.metadata (60 kB)
+  Using cached scipy-1.12.0-cp310-cp310-win_amd64.whl.metadata (60 kB)
+  Using cached scipy-1.11.4-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Collecting cffi>=1.0 (from soundfile>=0.12.0->TTS==0.22.0)
+  Using cached cffi-1.17.1-cp310-cp310-win_amd64.whl.metadata (1.6 kB)
+Requirement already satisfied: filelock in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from torch>=2.1->TTS==0.22.0) (3.13.1)
+Requirement already satisfied: sympy in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from torch>=2.1->TTS==0.22.0) (1.13.2)
+Collecting psutil (from trainer>=0.0.36->TTS==0.22.0)
+  Using cached psutil-6.0.0-cp37-abi3-win_amd64.whl.metadata (22 kB)
+Collecting tensorboard (from trainer>=0.0.36->TTS==0.22.0)
+  Using cached tensorboard-2.18.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting huggingface-hub<1.0,>=0.23.2 (from transformers>=4.33.0->TTS==0.22.0)
+  Using cached huggingface_hub-0.25.1-py3-none-any.whl.metadata (13 kB)
+Collecting regex!=2019.12.17 (from transformers>=4.33.0->TTS==0.22.0)
+  Using cached regex-2024.9.11-cp310-cp310-win_amd64.whl.metadata (41 kB)
+Collecting safetensors>=0.4.1 (from transformers>=4.33.0->TTS==0.22.0)
+  Using cached safetensors-0.4.5-cp310-none-win_amd64.whl.metadata (3.9 kB)
+Collecting tokenizers<0.21,>=0.20 (from transformers>=4.33.0->TTS==0.22.0)
+  Using cached tokenizers-0.20.0-cp310-none-win_amd64.whl.metadata (6.9 kB)
+Collecting pynndescent>=0.5 (from umap-learn>=0.5.1->TTS==0.22.0)
+  Using cached pynndescent-0.5.13-py3-none-any.whl.metadata (6.8 kB)
+Collecting mypy-extensions>=0.4.3 (from black->TTS==0.22.0)
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=0.9.0 (from black->TTS==0.22.0)
+  Using cached pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Collecting tomli>=1.1.0 (from black->TTS==0.22.0)
+  Using cached tomli-2.0.2-py3-none-any.whl.metadata (10.0 kB)
+Collecting jaconv (from cutlet->TTS==0.22.0)
+  Using cached jaconv-0.4.0-py3-none-any.whl
+Collecting fugashi (from cutlet->TTS==0.22.0)
+  Using cached fugashi-1.3.2-cp310-cp310-win_amd64.whl.metadata (7.1 kB)
+Collecting mojimoji (from cutlet->TTS==0.22.0)
+  Using cached mojimoji-0.0.13-cp310-cp310-win_amd64.whl.metadata (3.6 kB)
+Collecting lazy-object-proxy>=1.4.0 (from astroid<2.8,>=2.7.2->pylint==2.10.2->TTS==0.22.0)
+  Using cached lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.whl.metadata (8.1 kB)
+Collecting wrapt<1.13,>=1.11 (from astroid<2.8,>=2.7.2->pylint==2.10.2->TTS==0.22.0)
+  Using cached wrapt-1.12.1-py3-none-any.whl
+Collecting pycparser (from cffi>=1.0->soundfile>=0.12.0->TTS==0.22.0)
+  Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+INFO: pip is looking at multiple versions of contourpy to determine which version is compatible with other requirements. This could take a while.
+Collecting contourpy>=1.0.1 (from matplotlib>=3.7.0->TTS==0.22.0)
+  Using cached contourpy-1.2.1-cp310-cp310-win_amd64.whl.metadata (5.8 kB)
+Collecting tzlocal (from dateparser~=1.1.0->gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached tzlocal-5.2-py3-none-any.whl.metadata (7.8 kB)
+Requirement already satisfied: MarkupSafe>=2.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from Jinja2>=2.7->bokeh==1.4.0->TTS==0.22.0) (2.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2024.8.30)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from sympy->torch>=2.1->TTS==0.22.0) (1.3.0)
+Collecting absl-py>=0.4 (from tensorboard->trainer>=0.0.36->TTS==0.22.0)
+  Using cached absl_py-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting grpcio>=1.48.2 (from tensorboard->trainer>=0.0.36->TTS==0.22.0)
+  Using cached grpcio-1.66.2-cp310-cp310-win_amd64.whl.metadata (4.0 kB)
+Collecting markdown>=2.6.8 (from tensorboard->trainer>=0.0.36->TTS==0.22.0)
+  Using cached Markdown-3.7-py3-none-any.whl.metadata (7.0 kB)
+Collecting protobuf!=4.24.0,>=3.19.6 (from tensorboard->trainer>=0.0.36->TTS==0.22.0)
+  Using cached protobuf-5.28.2-cp310-abi3-win_amd64.whl.metadata (592 bytes)
+Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard->trainer>=0.0.36->TTS==0.22.0)
+  Using cached tensorboard_data_server-0.7.2-py3-none-any.whl.metadata (1.1 kB)
+Collecting tzdata (from tzlocal->dateparser~=1.1.0->gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0)
+  Using cached tzdata-2024.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Using cached Cython-0.29.30-py2.py3-none-any.whl (985 kB)
+Using cached mutagen-1.47.0-py3-none-any.whl (194 kB)
+Using cached numpy-1.22.0-cp310-cp310-win_amd64.whl (14.7 MB)
+Using cached spacy-2.3.9-cp310-cp310-win_amd64.whl (9.1 MB)
+Using cached mecab_python3-1.0.6-cp310-cp310-win_amd64.whl (501 kB)
+Using cached pylint-2.10.2-py3-none-any.whl (392 kB)
+Using cached aiohttp-3.10.8-cp310-cp310-win_amd64.whl (380 kB)
+Using cached anyascii-0.3.2-py3-none-any.whl (289 kB)
+Using cached coqpit-0.0.17-py3-none-any.whl (13 kB)
+Using cached einops-0.8.0-py3-none-any.whl (43 kB)
+Using cached flask-3.0.3-py3-none-any.whl (101 kB)
+Using cached fsspec-2024.9.0-py3-none-any.whl (179 kB)
+Using cached g2pkk-0.1.2-py3-none-any.whl (25 kB)
+Using cached inflect-7.4.0-py3-none-any.whl (34 kB)
+Using cached isort-5.13.2-py3-none-any.whl (92 kB)
+Using cached librosa-0.10.0-py3-none-any.whl (252 kB)
+Using cached matplotlib-3.8.4-cp310-cp310-win_amd64.whl (7.7 MB)
+Using cached num2words-0.5.13-py3-none-any.whl (143 kB)
+Using cached numba-0.60.0-cp310-cp310-win_amd64.whl (2.7 MB)
+Using cached packaging-24.1-py3-none-any.whl (53 kB)
+Using cached pandas-1.5.3-cp310-cp310-win_amd64.whl (10.4 MB)
+Using cached pysbd-0.3.4-py3-none-any.whl (71 kB)
+Using cached scikit_learn-1.5.2-cp310-cp310-win_amd64.whl (11.0 MB)
+Using cached scipy-1.11.4-cp310-cp310-win_amd64.whl (44.1 MB)
+Using cached soundfile-0.12.1-py2.py3-none-win_amd64.whl (1.0 MB)
+Using cached tqdm-4.66.5-py3-none-any.whl (78 kB)
+Using cached trainer-0.0.36-py3-none-any.whl (51 kB)
+Using cached transformers-4.45.1-py3-none-any.whl (9.9 MB)
+Using cached umap_learn-0.5.6-py3-none-any.whl (85 kB)
+Using cached Unidecode-1.3.8-py3-none-any.whl (235 kB)
+Using cached bangla-0.0.2-py2.py3-none-any.whl (6.2 kB)
+Using cached black-24.8.0-cp310-cp310-win_amd64.whl (1.4 MB)
+Using cached bnunicodenormalizer-0.1.7-py3-none-any.whl (23 kB)
+Using cached coverage-7.6.1-cp310-cp310-win_amd64.whl (210 kB)
+Using cached hangul_romanize-0.1.0-py3-none-any.whl (4.6 kB)
+Using cached jamo-0.4.1-py3-none-any.whl (9.5 kB)
+Using cached nltk-3.9.1-py3-none-any.whl (1.5 MB)
+Using cached nose2-0.15.1-py3-none-any.whl (211 kB)
+Using cached pypinyin-0.53.0-py2.py3-none-any.whl (834 kB)
+Using cached aiohappyeyeballs-2.4.3-py3-none-any.whl (14 kB)
+Using cached aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
+Using cached astroid-2.7.3-py3-none-any.whl (240 kB)
+Using cached async_timeout-4.0.3-py3-none-any.whl (5.7 kB)
+Using cached attrs-24.2.0-py3-none-any.whl (63 kB)
+Using cached audioread-3.0.1-py3-none-any.whl (23 kB)
+Using cached babel-2.16.0-py3-none-any.whl (9.6 MB)
+Using cached blinker-1.8.2-py3-none-any.whl (9.5 kB)
+Using cached blis-0.7.11-cp310-cp310-win_amd64.whl (6.6 MB)
+Using cached catalogue-1.0.2-py2.py3-none-any.whl (16 kB)
+Using cached cffi-1.17.1-cp310-cp310-win_amd64.whl (181 kB)
+Using cached click-8.1.7-py3-none-any.whl (97 kB)
+Using cached contourpy-1.2.1-cp310-cp310-win_amd64.whl (187 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached cymem-2.0.8-cp310-cp310-win_amd64.whl (39 kB)
+Using cached dateparser-1.1.8-py2.py3-none-any.whl (293 kB)
+Using cached decorator-5.1.1-py3-none-any.whl (9.1 kB)
+Using cached fonttools-4.54.1-cp310-cp310-win_amd64.whl (2.2 MB)
+Using cached frozenlist-1.4.1-cp310-cp310-win_amd64.whl (50 kB)
+Using cached huggingface_hub-0.25.1-py3-none-any.whl (436 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached joblib-1.4.2-py3-none-any.whl (301 kB)
+Using cached jsonlines-1.2.0-py2.py3-none-any.whl (7.6 kB)
+Using cached kiwisolver-1.4.7-cp310-cp310-win_amd64.whl (55 kB)
+Using cached lazy_loader-0.4-py3-none-any.whl (12 kB)
+Using cached llvmlite-0.43.0-cp310-cp310-win_amd64.whl (28.1 MB)
+Using cached mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Using cached more_itertools-10.5.0-py3-none-any.whl (60 kB)
+Using cached msgpack-1.1.0-cp310-cp310-win_amd64.whl (74 kB)
+Using cached multidict-6.1.0-cp310-cp310-win_amd64.whl (28 kB)
+Using cached murmurhash-1.0.10-cp310-cp310-win_amd64.whl (25 kB)
+Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Using cached networkx-2.8.8-py3-none-any.whl (2.0 MB)
+Using cached pathspec-0.12.1-py3-none-any.whl (31 kB)
+Using cached plac-1.1.3-py2.py3-none-any.whl (20 kB)
+Using cached platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Using cached pooch-1.8.2-py3-none-any.whl (64 kB)
+Using cached preshed-3.0.9-cp310-cp310-win_amd64.whl (122 kB)
+Using cached pynndescent-0.5.13-py3-none-any.whl (56 kB)
+Using cached pyparsing-3.1.4-py3-none-any.whl (104 kB)
+Using cached python_crfsuite-0.9.11-cp310-cp310-win_amd64.whl (301 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached pytz-2024.2-py2.py3-none-any.whl (508 kB)
+Using cached regex-2024.9.11-cp310-cp310-win_amd64.whl (274 kB)
+Using cached safetensors-0.4.5-cp310-none-win_amd64.whl (285 kB)
+Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Using cached soxr-0.5.0.post1-cp310-cp310-win_amd64.whl (166 kB)
+Using cached srsly-1.0.7-cp310-cp310-win_amd64.whl (356 kB)
+Downloading SudachiDict_core-20240716-py3-none-any.whl (72.0 MB)
+   ---------------------------------------- 72.0/72.0 MB 16.0 MB/s eta 0:00:00
+Downloading SudachiPy-0.6.8-cp310-cp310-win_amd64.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 12.7 MB/s eta 0:00:00
+Using cached thinc-7.4.6-cp310-cp310-win_amd64.whl (812 kB)
+Using cached threadpoolctl-3.5.0-py3-none-any.whl (18 kB)
+Using cached tokenizers-0.20.0-cp310-none-win_amd64.whl (2.3 MB)
+Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Using cached tomli-2.0.2-py3-none-any.whl (13 kB)
+Using cached tornado-6.4.1-cp38-abi3-win_amd64.whl (438 kB)
+Using cached typeguard-4.3.0-py3-none-any.whl (35 kB)
+Using cached wasabi-0.10.1-py3-none-any.whl (26 kB)
+Using cached werkzeug-3.0.4-py3-none-any.whl (227 kB)
+Using cached yarl-1.13.1-cp310-cp310-win_amd64.whl (111 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached fugashi-1.3.2-cp310-cp310-win_amd64.whl (499 kB)
+Using cached mojimoji-0.0.13-cp310-cp310-win_amd64.whl (43 kB)
+Using cached psutil-6.0.0-cp37-abi3-win_amd64.whl (257 kB)
+Using cached tensorboard-2.18.0-py3-none-any.whl (5.5 MB)
+Using cached absl_py-2.1.0-py3-none-any.whl (133 kB)
+Using cached grpcio-1.66.2-cp310-cp310-win_amd64.whl (4.3 MB)
+Using cached lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.whl (27 kB)
+Using cached Markdown-3.7-py3-none-any.whl (106 kB)
+Using cached protobuf-5.28.2-cp310-abi3-win_amd64.whl (431 kB)
+Using cached tensorboard_data_server-0.7.2-py3-none-any.whl (2.4 kB)
+Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+Using cached tzlocal-5.2-py3-none-any.whl (17 kB)
+Using cached tzdata-2024.2-py2.py3-none-any.whl (346 kB)
+Building wheels for collected packages: TTS
+  Building editable for TTS (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+
+  × Building editable for TTS (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [85 lines of output]
+      running editable_wheel
+      creating C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info
+      writing C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\PKG-INFO
+      writing dependency_links to C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\dependency_links.txt
+      writing entry points to C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\entry_points.txt
+      writing requirements to C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\requires.txt
+      writing top-level names to C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\top_level.txt
+      writing manifest file 'C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\SOURCES.txt'
+      reading manifest file 'C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\SOURCES.txt'
+      reading manifest template 'MANIFEST.in'
+      warning: no previously-included files matching '*' found under directory 'tests'
+      no previously-included directories found matching 'tests*'
+      adding license file 'LICENSE.txt'
+      writing manifest file 'C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS.egg-info\SOURCES.txt'
+      creating 'C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS-0.22.0.dist-info'
+      C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\command\bdist_wheel.py:115: RuntimeWarning: Config variable 'Py_DEBUG' is unset, Python ABI tag may be incorrect
+        if get_flag("Py_DEBUG", hasattr(sys, "gettotalrefcount"), warn=(impl == "cp")):
+      creating C:\Users\Taha\AppData\Local\Temp\pip-wheel-gunnlfe5\.tmp-tx1c57bd\TTS-0.22.0.dist-info\WHEEL
+      running build_py
+      running build_ext
+      building 'TTS.tts.utils.monotonic_align.core' extension
+      Traceback (most recent call last):
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\command\editable_wheel.py", line 138, in run
+          self._create_wheel_file(bdist_wheel)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\command\editable_wheel.py", line 341, in _create_wheel_file
+          files, mapping = self._run_build_commands(dist_name, unpacked, lib, tmp)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\command\editable_wheel.py", line 264, in _run_build_commands
+          self._run_build_subcommands()
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\command\editable_wheel.py", line 291, in _run_build_subcommands
+          self.run_command(name)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\cmd.py", line 316, in run_command
+          self.distribution.run_command(command)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\dist.py", line 950, in run_command
+          super().run_command(command)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\dist.py", line 973, in run_command
+          cmd_obj.run()
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\command\build_ext.py", line 98, in run
+          _build_ext.run(self)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\command\build_ext.py", line 359, in run
+          self.build_extensions()
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\command\build_ext.py", line 476, in build_extensions
+          self._build_extensions_serial()
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\command\build_ext.py", line 502, in _build_extensions_serial
+          self.build_extension(ext)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\command\build_ext.py", line 263, in build_extension
+          _build_ext.build_extension(self, ext)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\command\build_ext.py", line 557, in build_extension
+          objects = self.compiler.compile(
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\_msvccompiler.py", line 379, in compile
+          self.initialize()
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\_msvccompiler.py", line 289, in initialize
+          vc_env = _get_vc_env(plat_spec)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\_msvccompiler.py", line 150, in _get_vc_env
+          raise DistutilsPlatformError(
+      distutils.errors.DistutilsPlatformError: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+      C:\Users\Taha\AppData\Local\Temp\pip-build-env-b784w14t\overlay\Lib\site-packages\setuptools\_distutils\dist.py:973: _DebuggingTips: Problem in editable installation.
+      !!
+
+              ********************************************************************************
+              An error happened while installing `TTS` in editable mode.
+
+              The following steps are recommended to help debug this problem:
+
+              - Try to install the project normally, without using the editable mode.
+                Does the error still persist?
+                (If it does, try fixing the problem before attempting the editable mode).
+              - If you are using binary extensions, make sure you have all OS-level
+                dependencies installed (e.g. compilers, toolchains, binary libraries, ...).
+              - Try the latest version of setuptools (maybe the error was already fixed).
+              - If you (or your project dependencies) are using any setuptools extension
+                or customization, make sure they support the editable mode.
+
+              After following the steps above, if the problem still persists and
+              you think this is related to how setuptools handles editable installations,
+              please submit a reproducible example
+              (see https://stackoverflow.com/help/minimal-reproducible-example) to:
+
+                  https://github.com/pypa/setuptools/issues
+
+              See https://setuptools.pypa.io/en/latest/userguide/development_mode.html for details.
+              ********************************************************************************
+
+      !!
+        cmd_obj.run()
+      error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building editable for TTS
+Failed to build TTS
+ERROR: ERROR: Failed to build installable wheels for some pyproject.toml based projects (TTS)

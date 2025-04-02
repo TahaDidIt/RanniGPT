@@ -1,0 +1,186 @@
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+  Downloading spacy-3.0.6.tar.gz (7.1 MB)
+     ---------------------------------------- 7.1/7.1 MB 6.3 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... error
+  error: subprocess-exited-with-error
+
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [164 lines of output]
+
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          int length
+
+
+      cdef class Vocab:
+          cdef Pool mem
+          cpdef readonly StringStore strings
+                ^
+      ------------------------------------------------------------
+
+      spacy\vocab.pxd:28:10: Variables cannot be declared with 'cpdef'. Use 'cdef' instead.
+
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+
+
+      cdef class Vocab:
+          cdef Pool mem
+          cpdef readonly StringStore strings
+          cpdef public Morphology morphology
+                ^
+      ------------------------------------------------------------
+
+      spacy\vocab.pxd:29:10: Variables cannot be declared with 'cpdef'. Use 'cdef' instead.
+
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+
+      cdef class Vocab:
+          cdef Pool mem
+          cpdef readonly StringStore strings
+          cpdef public Morphology morphology
+          cpdef public object vectors
+                ^
+      ------------------------------------------------------------
+
+      spacy\vocab.pxd:30:10: Variables cannot be declared with 'cpdef'. Use 'cdef' instead.
+
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+      cdef class Vocab:
+          cdef Pool mem
+          cpdef readonly StringStore strings
+          cpdef public Morphology morphology
+          cpdef public object vectors
+          cpdef public object _lookups
+                ^
+      ------------------------------------------------------------
+
+      spacy\vocab.pxd:31:10: Variables cannot be declared with 'cpdef'. Use 'cdef' instead.
+
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          cdef Pool mem
+          cpdef readonly StringStore strings
+          cpdef public Morphology morphology
+          cpdef public object vectors
+          cpdef public object _lookups
+          cpdef public object writing_system
+                ^
+      ------------------------------------------------------------
+
+      spacy\vocab.pxd:32:10: Variables cannot be declared with 'cpdef'. Use 'cdef' instead.
+
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          cpdef readonly StringStore strings
+          cpdef public Morphology morphology
+          cpdef public object vectors
+          cpdef public object _lookups
+          cpdef public object writing_system
+          cpdef public object get_noun_chunks
+                ^
+      ------------------------------------------------------------
+
+      spacy\vocab.pxd:33:10: Variables cannot be declared with 'cpdef'. Use 'cdef' instead.
+
+      Error compiling Cython file:
+      ------------------------------------------------------------
+      ...
+          cdef float prior_prob
+
+
+      cdef class KnowledgeBase:
+          cdef Pool mem
+          cpdef readonly Vocab vocab
+                ^
+      ------------------------------------------------------------
+
+      spacy\kb.pxd:31:10: Variables cannot be declared with 'cpdef'. Use 'cdef' instead.
+      Copied C:\Users\Taha\AppData\Local\Temp\pip-install-1xlawfih\spacy_4c90466064dd4e5f81abc51722b7319b\setup.cfg -> C:\Users\Taha\AppData\Local\Temp\pip-install-1xlawfih\spacy_4c90466064dd4e5f81abc51722b7319b\spacy\tests\package
+      Copied C:\Users\Taha\AppData\Local\Temp\pip-install-1xlawfih\spacy_4c90466064dd4e5f81abc51722b7319b\pyproject.toml -> C:\Users\Taha\AppData\Local\Temp\pip-install-1xlawfih\spacy_4c90466064dd4e5f81abc51722b7319b\spacy\tests\package
+      Cythonizing sources
+      Compiling spacy/training/example.pyx because it changed.
+      Compiling spacy/parts_of_speech.pyx because it changed.
+      Compiling spacy/strings.pyx because it changed.
+      Compiling spacy/lexeme.pyx because it changed.
+      Compiling spacy/vocab.pyx because it changed.
+      Compiling spacy/attrs.pyx because it changed.
+      Compiling spacy/kb.pyx because it changed.
+      Compiling spacy/ml/parser_model.pyx because it changed.
+      Compiling spacy/morphology.pyx because it changed.
+      Compiling spacy/pipeline/dep_parser.pyx because it changed.
+      Compiling spacy/pipeline/morphologizer.pyx because it changed.
+      Compiling spacy/pipeline/multitask.pyx because it changed.
+      Compiling spacy/pipeline/ner.pyx because it changed.
+      Compiling spacy/pipeline/pipe.pyx because it changed.
+      Compiling spacy/pipeline/trainable_pipe.pyx because it changed.
+      Compiling spacy/pipeline/sentencizer.pyx because it changed.
+      Compiling spacy/pipeline/senter.pyx because it changed.
+      Compiling spacy/pipeline/tagger.pyx because it changed.
+      Compiling spacy/pipeline/transition_parser.pyx because it changed.
+      Compiling spacy/pipeline/_parser_internals/arc_eager.pyx because it changed.
+      Compiling spacy/pipeline/_parser_internals/ner.pyx because it changed.
+      Compiling spacy/pipeline/_parser_internals/nonproj.pyx because it changed.
+      Compiling spacy/pipeline/_parser_internals/_state.pyx because it changed.
+      Compiling spacy/pipeline/_parser_internals/stateclass.pyx because it changed.
+      Compiling spacy/pipeline/_parser_internals/transition_system.pyx because it changed.
+      Compiling spacy/pipeline/_parser_internals/_beam_utils.pyx because it changed.
+      Compiling spacy/tokenizer.pyx because it changed.
+      Compiling spacy/training/align.pyx because it changed.
+      Compiling spacy/training/gold_io.pyx because it changed.
+      Compiling spacy/tokens/doc.pyx because it changed.
+      Compiling spacy/tokens/span.pyx because it changed.
+      Compiling spacy/tokens/token.pyx because it changed.
+      Compiling spacy/tokens/span_group.pyx because it changed.
+      Compiling spacy/tokens/graph.pyx because it changed.
+      Compiling spacy/tokens/morphanalysis.pyx because it changed.
+      Compiling spacy/tokens/_retokenize.pyx because it changed.
+      Compiling spacy/matcher/matcher.pyx because it changed.
+      Compiling spacy/matcher/phrasematcher.pyx because it changed.
+      Compiling spacy/matcher/dependencymatcher.pyx because it changed.
+      Compiling spacy/symbols.pyx because it changed.
+      Compiling spacy/vectors.pyx because it changed.
+      [ 1/41] Cythonizing spacy/attrs.pyx
+      [ 2/41] Cythonizing spacy/kb.pyx
+      Traceback (most recent call last):
+        File "C:\ProgramData\anaconda3\envs\coquiTTStest\lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 353, in <module>
+          main()
+        File "C:\ProgramData\anaconda3\envs\coquiTTStest\lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 335, in main
+          json_out['return_val'] = hook(**hook_input['kwargs'])
+        File "C:\ProgramData\anaconda3\envs\coquiTTStest\lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py", line 118, in get_requires_for_build_wheel
+          return hook(config_settings)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-ti8jsqu0\overlay\Lib\site-packages\setuptools\build_meta.py", line 332, in get_requires_for_build_wheel
+          return self._get_build_requires(config_settings, requirements=[])
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-ti8jsqu0\overlay\Lib\site-packages\setuptools\build_meta.py", line 302, in _get_build_requires
+          self.run_setup()
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-ti8jsqu0\overlay\Lib\site-packages\setuptools\build_meta.py", line 318, in run_setup
+          exec(code, locals())
+        File "<string>", line 224, in <module>
+        File "<string>", line 211, in setup_package
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-ti8jsqu0\overlay\Lib\site-packages\Cython\Build\Dependencies.py", line 1154, in cythonize
+          cythonize_one(*args)
+        File "C:\Users\Taha\AppData\Local\Temp\pip-build-env-ti8jsqu0\overlay\Lib\site-packages\Cython\Build\Dependencies.py", line 1321, in cythonize_one
+          raise CompileError(None, pyx_file)
+      Cython.Compiler.Errors.CompileError: spacy/kb.pyx
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.

@@ -1,0 +1,944 @@
+(base) PS C:\Users\Taha> conda activate coquiTTStest
+(coquiTTStest) PS C:\Users\Taha> cd TTS
+(coquiTTStest) PS C:\Users\Taha\TTS> pip install -e .[all,dev,notebooks]
+Obtaining file:///C:/Users/Taha/TTS
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Requirement already satisfied: cython==0.29.30 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.29.30)
+Requirement already satisfied: scipy>=1.11.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (1.11.4)
+Requirement already satisfied: torch>=2.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (2.4.1)
+Requirement already satisfied: torchaudio in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (2.4.1)
+Requirement already satisfied: soundfile>=0.12.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.12.1)
+Requirement already satisfied: librosa>=0.10.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.10.0)
+Requirement already satisfied: scikit-learn>=1.3.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (1.5.2)
+Requirement already satisfied: inflect>=5.6.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (7.4.0)
+Requirement already satisfied: tqdm>=4.64.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (4.66.5)
+Requirement already satisfied: anyascii>=0.3.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.3.2)
+Requirement already satisfied: pyyaml>=6.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (6.0.1)
+Requirement already satisfied: fsspec>=2023.6.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (2024.9.0)
+Requirement already satisfied: aiohttp>=3.8.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (3.10.8)
+Requirement already satisfied: packaging>=23.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (24.1)
+Requirement already satisfied: mutagen==1.47.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (1.47.0)
+Requirement already satisfied: flask>=2.0.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (3.0.3)
+Requirement already satisfied: pysbd>=0.3.4 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.3.4)
+Requirement already satisfied: umap-learn>=0.5.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.5.6)
+Requirement already satisfied: pandas<2.0,>=1.4 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (1.5.3)
+Requirement already satisfied: matplotlib>=3.7.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (3.8.4)
+Requirement already satisfied: trainer>=0.0.36 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.0.36)
+Requirement already satisfied: coqpit>=0.0.16 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.0.17)
+Requirement already satisfied: jieba in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.42.1)
+Requirement already satisfied: pypinyin in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.53.0)
+Requirement already satisfied: hangul-romanize in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.1.0)
+Requirement already satisfied: gruut==2.2.3 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.2.3)
+Requirement already satisfied: jamo in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.4.1)
+Requirement already satisfied: nltk in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (3.9.1)
+Requirement already satisfied: g2pkk>=0.1.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.1.2)
+Requirement already satisfied: bangla in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.0.2)
+Requirement already satisfied: bnnumerizer in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.0.2)
+Requirement already satisfied: bnunicodenormalizer in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.1.7)
+Requirement already satisfied: einops>=0.6.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.8.0)
+Requirement already satisfied: transformers>=4.33.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (4.45.1)
+Requirement already satisfied: encodec>=0.1.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.1.1)
+Requirement already satisfied: unidecode>=1.3.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (1.3.8)
+Requirement already satisfied: num2words in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.5.13)
+Requirement already satisfied: spacy==2.3.9 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy[ja]==2.3.9->TTS==0.22.0) (2.3.9)
+Requirement already satisfied: numpy==1.22.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (1.22.0)
+Requirement already satisfied: numba>=0.57.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from TTS==0.22.0) (0.60.0)
+Requirement already satisfied: Babel<3.0.0,>=2.8.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.16.0)
+Requirement already satisfied: dateparser~=1.1.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (1.1.8)
+Requirement already satisfied: gruut-ipa<1.0,>=0.12.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (0.13.0)
+Requirement already satisfied: gruut-lang-en~=2.0.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.1)
+Requirement already satisfied: jsonlines~=1.2.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (1.2.0)
+Requirement already satisfied: networkx<3.0.0,>=2.5.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.8.8)
+Requirement already satisfied: python-crfsuite~=0.9.7 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (0.9.11)
+Requirement already satisfied: gruut-lang-fr~=2.0.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.2)
+Requirement already satisfied: gruut-lang-es~=2.0.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.1)
+Requirement already satisfied: gruut-lang-de~=2.0.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.1)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.0.10)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.0.8)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.0.9)
+Requirement already satisfied: thinc<7.5.0,>=7.4.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (7.4.6)
+Requirement already satisfied: blis<0.8.0,>=0.4.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (0.7.11)
+Requirement already satisfied: wasabi<1.1.0,>=0.4.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (0.10.1)
+Requirement already satisfied: srsly<1.1.0,>=1.0.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.0.7)
+Requirement already satisfied: catalogue<1.1.0,>=0.0.7 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.0.2)
+Requirement already satisfied: setuptools in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (75.1.0)
+Requirement already satisfied: plac<1.2.0,>=0.9.6 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.1.3)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.32.3)
+Requirement already satisfied: sudachipy>=0.4.5 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy[ja]==2.3.9->TTS==0.22.0) (0.6.8)
+Requirement already satisfied: sudachidict-core>=20200330 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from spacy[ja]==2.3.9->TTS==0.22.0) (20240716)
+Collecting black (from TTS==0.22.0)
+  Using cached black-24.8.0-cp310-cp310-win_amd64.whl.metadata (78 kB)
+Collecting coverage (from TTS==0.22.0)
+  Using cached coverage-7.6.1-cp310-cp310-win_amd64.whl.metadata (8.5 kB)
+Collecting isort (from TTS==0.22.0)
+  Using cached isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting nose2 (from TTS==0.22.0)
+  Using cached nose2-0.15.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting pylint==2.10.2 (from TTS==0.22.0)
+  Using cached pylint-2.10.2-py3-none-any.whl.metadata (7.7 kB)
+Collecting bokeh==1.4.0 (from TTS==0.22.0)
+  Using cached bokeh-1.4.0-py3-none-any.whl
+Collecting mecab-python3==1.0.6 (from TTS==0.22.0)
+  Using cached mecab_python3-1.0.6-cp310-cp310-win_amd64.whl.metadata (6.3 kB)
+Collecting unidic-lite==1.0.8 (from TTS==0.22.0)
+  Using cached unidic_lite-1.0.8-py3-none-any.whl
+Collecting cutlet (from TTS==0.22.0)
+  Using cached cutlet-0.4.0-py3-none-any.whl
+Requirement already satisfied: six>=1.5.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (1.16.0)
+Requirement already satisfied: python-dateutil>=2.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (2.9.0.post0)
+Requirement already satisfied: Jinja2>=2.7 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (3.1.4)
+Requirement already satisfied: pillow>=4.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (10.4.0)
+Collecting tornado>=4.3 (from bokeh==1.4.0->TTS==0.22.0)
+  Using cached tornado-6.4.1-cp38-abi3-win_amd64.whl.metadata (2.6 kB)
+Requirement already satisfied: platformdirs>=2.2.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from pylint==2.10.2->TTS==0.22.0) (4.3.6)
+Collecting astroid<2.8,>=2.7.2 (from pylint==2.10.2->TTS==0.22.0)
+  Using cached astroid-2.7.3-py3-none-any.whl.metadata (4.7 kB)
+Collecting mccabe<0.7,>=0.6 (from pylint==2.10.2->TTS==0.22.0)
+  Using cached mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 kB)
+Collecting toml>=0.7.1 (from pylint==2.10.2->TTS==0.22.0)
+  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: colorama in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from pylint==2.10.2->TTS==0.22.0) (0.4.6)
+Requirement already satisfied: aiohappyeyeballs>=2.3.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (2.4.3)
+Requirement already satisfied: aiosignal>=1.1.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (1.3.1)
+Requirement already satisfied: attrs>=17.3.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (24.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (1.4.1)
+Requirement already satisfied: multidict<7.0,>=4.5 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (6.1.0)
+Requirement already satisfied: yarl<2.0,>=1.12.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (1.13.1)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (4.0.3)
+Requirement already satisfied: Werkzeug>=3.0.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (3.0.4)
+Requirement already satisfied: itsdangerous>=2.1.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (2.2.0)
+Requirement already satisfied: click>=8.1.3 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (8.1.7)
+Requirement already satisfied: blinker>=1.6.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (1.8.2)
+Requirement already satisfied: more-itertools>=8.5.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from inflect>=5.6.0->TTS==0.22.0) (10.5.0)
+Requirement already satisfied: typeguard>=4.0.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from inflect>=5.6.0->TTS==0.22.0) (4.3.0)
+Requirement already satisfied: audioread>=2.1.9 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (3.0.1)
+Requirement already satisfied: joblib>=0.14 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (1.4.2)
+Requirement already satisfied: decorator>=4.3.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (5.1.1)
+Requirement already satisfied: pooch>=1.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (1.8.2)
+Requirement already satisfied: soxr>=0.3.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (0.5.0.post1)
+Requirement already satisfied: typing-extensions>=4.1.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (4.11.0)
+Requirement already satisfied: lazy-loader>=0.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (0.4)
+Requirement already satisfied: msgpack>=1.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (1.1.0)
+Requirement already satisfied: contourpy>=1.0.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (1.2.1)
+Requirement already satisfied: cycler>=0.10 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (4.54.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (1.4.7)
+Requirement already satisfied: pyparsing>=2.3.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (3.1.4)
+Requirement already satisfied: docopt>=0.6.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from num2words->TTS==0.22.0) (0.6.2)
+Requirement already satisfied: llvmlite<0.44,>=0.43.0dev0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from numba>=0.57.0->TTS==0.22.0) (0.43.0)
+Requirement already satisfied: pytz>=2020.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from pandas<2.0,>=1.4->TTS==0.22.0) (2024.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from scikit-learn>=1.3.0->TTS==0.22.0) (3.5.0)
+Requirement already satisfied: cffi>=1.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from soundfile>=0.12.0->TTS==0.22.0) (1.17.1)
+Requirement already satisfied: filelock in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from torch>=2.1->TTS==0.22.0) (3.13.1)
+Requirement already satisfied: sympy in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from torch>=2.1->TTS==0.22.0) (1.13.2)
+Requirement already satisfied: psutil in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from trainer>=0.0.36->TTS==0.22.0) (6.0.0)
+Requirement already satisfied: tensorboard in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from trainer>=0.0.36->TTS==0.22.0) (2.18.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (0.25.1)
+Requirement already satisfied: regex!=2019.12.17 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (2024.9.11)
+Requirement already satisfied: safetensors>=0.4.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (0.4.5)
+Requirement already satisfied: tokenizers<0.21,>=0.20 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (0.20.0)
+Requirement already satisfied: pynndescent>=0.5 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from umap-learn>=0.5.1->TTS==0.22.0) (0.5.13)
+Collecting mypy-extensions>=0.4.3 (from black->TTS==0.22.0)
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=0.9.0 (from black->TTS==0.22.0)
+  Using cached pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Collecting tomli>=1.1.0 (from black->TTS==0.22.0)
+  Using cached tomli-2.0.2-py3-none-any.whl.metadata (10.0 kB)
+Collecting jaconv (from cutlet->TTS==0.22.0)
+  Using cached jaconv-0.4.0-py3-none-any.whl
+Collecting fugashi (from cutlet->TTS==0.22.0)
+  Using cached fugashi-1.3.2-cp310-cp310-win_amd64.whl.metadata (7.1 kB)
+Collecting mojimoji (from cutlet->TTS==0.22.0)
+  Using cached mojimoji-0.0.13-cp310-cp310-win_amd64.whl.metadata (3.6 kB)
+Collecting lazy-object-proxy>=1.4.0 (from astroid<2.8,>=2.7.2->pylint==2.10.2->TTS==0.22.0)
+  Using cached lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.whl.metadata (8.1 kB)
+Collecting wrapt<1.13,>=1.11 (from astroid<2.8,>=2.7.2->pylint==2.10.2->TTS==0.22.0)
+  Using cached wrapt-1.12.1-py3-none-any.whl
+Requirement already satisfied: pycparser in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from cffi>=1.0->soundfile>=0.12.0->TTS==0.22.0) (2.22)
+Requirement already satisfied: tzlocal in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from dateparser~=1.1.0->gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (5.2)
+Requirement already satisfied: MarkupSafe>=2.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from Jinja2>=2.7->bokeh==1.4.0->TTS==0.22.0) (2.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2024.8.30)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from sympy->torch>=2.1->TTS==0.22.0) (1.3.0)
+Requirement already satisfied: absl-py>=0.4 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (2.1.0)
+Requirement already satisfied: grpcio>=1.48.2 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (1.66.2)
+Requirement already satisfied: markdown>=2.6.8 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (3.7)
+Requirement already satisfied: protobuf!=4.24.0,>=3.19.6 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (5.28.2)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (0.7.2)
+Requirement already satisfied: tzdata in c:\programdata\anaconda3\envs\coquittstest\lib\site-packages (from tzlocal->dateparser~=1.1.0->gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2024.2)
+Using cached mecab_python3-1.0.6-cp310-cp310-win_amd64.whl (501 kB)
+Using cached pylint-2.10.2-py3-none-any.whl (392 kB)
+Using cached isort-5.13.2-py3-none-any.whl (92 kB)
+Using cached black-24.8.0-cp310-cp310-win_amd64.whl (1.4 MB)
+Using cached coverage-7.6.1-cp310-cp310-win_amd64.whl (210 kB)
+Using cached nose2-0.15.1-py3-none-any.whl (211 kB)
+Using cached astroid-2.7.3-py3-none-any.whl (240 kB)
+Using cached mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Using cached pathspec-0.12.1-py3-none-any.whl (31 kB)
+Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Using cached tomli-2.0.2-py3-none-any.whl (13 kB)
+Using cached tornado-6.4.1-cp38-abi3-win_amd64.whl (438 kB)
+Using cached fugashi-1.3.2-cp310-cp310-win_amd64.whl (499 kB)
+Using cached mojimoji-0.0.13-cp310-cp310-win_amd64.whl (43 kB)
+Using cached lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.whl (27 kB)
+Building wheels for collected packages: TTS
+  Building editable for TTS (pyproject.toml) ... done
+  Created wheel for TTS: filename=TTS-0.22.0-0.editable-cp310-cp310-win_amd64.whl size=15171 sha256=c6b31b4fa08c8a844d33a808e88b6bda1bf99c18de820499d31e45dae583d914
+  Stored in directory: C:\Users\Taha\AppData\Local\Temp\pip-ephem-wheel-cache-z2l8txx7\wheels\18\4d\32\01e1799c7dabc2b65e102a8063584821386c15c210b24d760f
+Successfully built TTS
+Installing collected packages: wrapt, unidic-lite, mecab-python3, mccabe, jaconv, tornado, tomli, toml, pathspec, nose2, mypy-extensions, mojimoji, lazy-object-proxy, isort, fugashi, coverage, cutlet, bokeh, black, astroid, pylint, TTS
+Successfully installed TTS-0.22.0 astroid-2.7.3 black-24.8.0 bokeh-1.4.0 coverage-7.6.1 cutlet-0.4.0 fugashi-1.3.2 isort-5.13.2 jaconv-0.4.0 lazy-object-proxy-1.10.0 mccabe-0.6.1 mecab-python3-1.0.6 mojimoji-0.0.13 mypy-extensions-1.0.0 nose2-0.15.1 pathspec-0.12.1 pylint-2.10.2 toml-0.10.2 tomli-2.0.2 tornado-6.4.1 unidic-lite-1.0.8 wrapt-1.12.1
+(coquiTTStest) PS C:\Users\Taha\TTS> python setup.py develop
+running develop
+C:\ProgramData\anaconda3\envs\coquiTTStest\lib\site-packages\setuptools\command\develop.py:41: EasyInstallDeprecationWarning: easy_install command is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` and ``easy_install``.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://github.com/pypa/setuptools/issues/917 for details.
+        ********************************************************************************
+
+!!
+  easy_install.initialize_options(self)
+C:\ProgramData\anaconda3\envs\coquiTTStest\lib\site-packages\setuptools\_distutils\cmd.py:66: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` directly.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+running egg_info
+writing TTS.egg-info\PKG-INFO
+writing dependency_links to TTS.egg-info\dependency_links.txt
+writing entry points to TTS.egg-info\entry_points.txt
+writing requirements to TTS.egg-info\requires.txt
+writing top-level names to TTS.egg-info\top_level.txt
+reading manifest file 'TTS.egg-info\SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*' found under directory 'tests'
+no previously-included directories found matching 'tests*'
+adding license file 'LICENSE.txt'
+writing manifest file 'TTS.egg-info\SOURCES.txt'
+running build_ext
+building 'TTS.tts.utils.monotonic_align.core' extension
+creating build\temp.win-amd64-cpython-310\Release\TTS\tts\utils\monotonic_align
+"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\cl.exe" /c /nologo /O2 /W3 /GL /DNDEBUG /MD -IC:\ProgramData\anaconda3\envs\coquiTTStest\lib\site-packages\numpy\core\include -IC:\ProgramData\anaconda3\envs\coquiTTStest\include -IC:\ProgramData\anaconda3\envs\coquiTTStest\Include "-IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\INCLUDE" "-IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\INCLUDE" "-IC:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt" "-IC:\Program Files (x86)\Windows Kits\8.1\include\\shared" "-IC:\Program Files (x86)\Windows Kits\8.1\include\\um" "-IC:\Program Files (x86)\Windows Kits\8.1\include\\winrt" /TcTTS/tts/utils/monotonic_align/core.c /Fobuild\temp.win-amd64-cpython-310\Release\TTS/tts/utils/monotonic_align/core.obj
+core.c
+c:\programdata\anaconda3\envs\coquittstest\lib\site-packages\numpy\core\include\numpy\npy_1_7_deprecated_api.h(14) : Warning Msg: Using deprecated NumPy API, disable it with #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
+TTS/tts/utils/monotonic_align/core.c(2997): warning C4244: '=': conversion from 'Py_ssize_t' to 'int', possible loss of data
+creating C:\Users\Taha\TTS\build\lib.win-amd64-cpython-310\TTS\tts\utils\monotonic_align
+"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\BIN\x86_amd64\link.exe" /nologo /INCREMENTAL:NO /LTCG /DLL /MANIFEST:EMBED,ID=2 /MANIFESTUAC:NO /LIBPATH:C:\ProgramData\anaconda3\envs\coquiTTStest\libs /LIBPATH:C:\ProgramData\anaconda3\envs\coquiTTStest /LIBPATH:C:\ProgramData\anaconda3\envs\coquiTTStest\PCbuild\amd64 "/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\LIB\amd64" "/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\ATLMFC\LIB\amd64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.10240.0\ucrt\x64" "/LIBPATH:C:\Program Files (x86)\Windows Kits\8.1\lib\winv6.3\um\x64" /EXPORT:PyInit_core build\temp.win-amd64-cpython-310\Release\TTS/tts/utils/monotonic_align/core.obj /OUT:build\lib.win-amd64-cpython-310\TTS\tts\utils\monotonic_align\core.cp310-win_amd64.pyd /IMPLIB:build\temp.win-amd64-cpython-310\Release\TTS/tts/utils/monotonic_align\core.cp310-win_amd64.lib
+core.obj : warning LNK4197: export 'PyInit_core' specified multiple times; using first specification
+   Creating library build\temp.win-amd64-cpython-310\Release\TTS/tts/utils/monotonic_align\core.cp310-win_amd64.lib and object build\temp.win-amd64-cpython-310\Release\TTS/tts/utils/monotonic_align\core.cp310-win_amd64.exp
+Generating code
+Finished generating code
+copying build\lib.win-amd64-cpython-310\TTS\tts\utils\monotonic_align\core.cp310-win_amd64.pyd -> TTS\tts\utils\monotonic_align
+Creating c:\programdata\anaconda3\envs\coquittstest\lib\site-packages\TTS.egg-link (link to .)
+Adding TTS 0.22.0 to easy-install.pth file
+Installing tts-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing tts.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing tts-server-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing tts-server.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Installed c:\users\taha\tts
+Processing dependencies for TTS==0.22.0
+Searching for numba==0.60.0
+Best match: numba 0.60.0
+Adding numba 0.60.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for numpy==1.22.0
+Best match: numpy 1.22.0
+Adding numpy 1.22.0 to easy-install.pth file
+Installing f2py-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing f2py.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for spacy==2.3.9
+Best match: spacy 2.3.9
+Adding spacy 2.3.9 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for num2words==0.5.13
+Best match: num2words 0.5.13
+Adding num2words 0.5.13 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for Unidecode==1.3.8
+Best match: Unidecode 1.3.8
+Adding Unidecode 1.3.8 to easy-install.pth file
+Installing unidecode-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing unidecode.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for encodec==0.1.1
+Best match: encodec 0.1.1
+Adding encodec 0.1.1 to easy-install.pth file
+Installing encodec-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing encodec.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for transformers==4.45.1
+Best match: transformers 4.45.1
+Adding transformers 4.45.1 to easy-install.pth file
+Installing transformers-cli-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing transformers-cli.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for einops==0.8.0
+Best match: einops 0.8.0
+Adding einops 0.8.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for bnunicodenormalizer==0.1.7
+Best match: bnunicodenormalizer 0.1.7
+Adding bnunicodenormalizer 0.1.7 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for bnnumerizer==0.0.2
+Best match: bnnumerizer 0.0.2
+Adding bnnumerizer 0.0.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for bangla==0.0.2
+Best match: bangla 0.0.2
+Adding bangla 0.0.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for g2pkk==0.1.2
+Best match: g2pkk 0.1.2
+Adding g2pkk 0.1.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for nltk==3.9.1
+Best match: nltk 3.9.1
+Adding nltk 3.9.1 to easy-install.pth file
+Installing nltk-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing nltk.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for jamo==0.4.1
+Best match: jamo 0.4.1
+Adding jamo 0.4.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for gruut==2.2.3
+Best match: gruut 2.2.3
+Adding gruut 2.2.3 to easy-install.pth file
+Installing gruut-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing gruut.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for hangul-romanize==0.1.0
+Best match: hangul-romanize 0.1.0
+Adding hangul-romanize 0.1.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pypinyin==0.53.0
+Best match: pypinyin 0.53.0
+Adding pypinyin 0.53.0 to easy-install.pth file
+Installing pypinyin-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing pypinyin.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for jieba==0.42.1
+Best match: jieba 0.42.1
+Adding jieba 0.42.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for coqpit==0.0.17
+Best match: coqpit 0.0.17
+Adding coqpit 0.0.17 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for trainer==0.0.36
+Best match: trainer 0.0.36
+Adding trainer 0.0.36 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for matplotlib==3.8.4
+Best match: matplotlib 3.8.4
+Adding matplotlib 3.8.4 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pandas==1.5.3
+Best match: pandas 1.5.3
+Adding pandas 1.5.3 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for umap-learn==0.5.6
+Best match: umap-learn 0.5.6
+Adding umap-learn 0.5.6 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pysbd==0.3.4
+Best match: pysbd 0.3.4
+Adding pysbd 0.3.4 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for flask==3.0.3
+Best match: flask 3.0.3
+Adding flask 3.0.3 to easy-install.pth file
+Installing flask-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing flask.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for mutagen==1.47.0
+Best match: mutagen 1.47.0
+Adding mutagen 1.47.0 to easy-install.pth file
+Installing mid3cp-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mid3cp.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mid3iconv-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mid3iconv.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mid3v2-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mid3v2.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing moggsplit-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing moggsplit.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mutagen-inspect-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mutagen-inspect.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mutagen-pony-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing mutagen-pony.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for packaging==24.1
+Best match: packaging 24.1
+Adding packaging 24.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages\setuptools\_vendor
+Searching for aiohttp==3.10.8
+Best match: aiohttp 3.10.8
+Adding aiohttp 3.10.8 to easy-install.pth file
+detected new path './setuptools/_vendor'
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for fsspec==2024.9.0
+Best match: fsspec 2024.9.0
+Adding fsspec 2024.9.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for PyYAML==6.0.1
+Best match: PyYAML 6.0.1
+Adding PyYAML 6.0.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for anyascii==0.3.2
+Best match: anyascii 0.3.2
+Adding anyascii 0.3.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for tqdm==4.66.5
+Best match: tqdm 4.66.5
+Adding tqdm 4.66.5 to easy-install.pth file
+Installing tqdm-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing tqdm.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for inflect==7.4.0
+Best match: inflect 7.4.0
+Adding inflect 7.4.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for scikit-learn==1.5.2
+Best match: scikit-learn 1.5.2
+Adding scikit-learn 1.5.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for librosa==0.10.0
+Best match: librosa 0.10.0
+Adding librosa 0.10.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for soundfile==0.12.1
+Best match: soundfile 0.12.1
+Adding soundfile 0.12.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for torchaudio==2.4.1
+Best match: torchaudio 2.4.1
+Adding torchaudio 2.4.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for torch==2.4.1
+Best match: torch 2.4.1
+Adding torch 2.4.1 to easy-install.pth file
+Installing convert-caffe2-to-onnx-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing convert-caffe2-to-onnx.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing convert-onnx-to-caffe2-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing convert-onnx-to-caffe2.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing torchrun-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing torchrun.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for scipy==1.11.4
+Best match: scipy 1.11.4
+Adding scipy 1.11.4 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for Cython==0.29.30
+Best match: Cython 0.29.30
+Adding Cython 0.29.30 to easy-install.pth file
+Installing cygdb-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing cygdb.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing cython-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing cython.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing cythonize-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing cythonize.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for llvmlite==0.43.0
+Best match: llvmlite 0.43.0
+Adding llvmlite 0.43.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for SudachiDict-core==20240716
+Best match: SudachiDict-core 20240716
+Adding SudachiDict-core 20240716 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for SudachiPy==0.6.8
+Best match: SudachiPy 0.6.8
+Adding SudachiPy 0.6.8 to easy-install.pth file
+Installing sudachipy-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing sudachipy.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for requests==2.32.3
+Best match: requests 2.32.3
+Adding requests 2.32.3 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for plac==1.1.3
+Best match: plac 1.1.3
+Adding plac 1.1.3 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for setuptools==75.1.0
+Best match: setuptools 75.1.0
+Adding setuptools 75.1.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for catalogue==1.0.2
+Best match: catalogue 1.0.2
+Adding catalogue 1.0.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for srsly==1.0.7
+Best match: srsly 1.0.7
+Adding srsly 1.0.7 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for wasabi==0.10.1
+Best match: wasabi 0.10.1
+Adding wasabi 0.10.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for blis==0.7.11
+Best match: blis 0.7.11
+Adding blis 0.7.11 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for thinc==7.4.6
+Best match: thinc 7.4.6
+Adding thinc 7.4.6 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for preshed==3.0.9
+Best match: preshed 3.0.9
+Adding preshed 3.0.9 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for cymem==2.0.8
+Best match: cymem 2.0.8
+Adding cymem 2.0.8 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for murmurhash==1.0.10
+Best match: murmurhash 1.0.10
+Adding murmurhash 1.0.10 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for docopt==0.6.2
+Best match: docopt 0.6.2
+Adding docopt 0.6.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for tokenizers==0.20.0
+Best match: tokenizers 0.20.0
+Adding tokenizers 0.20.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for safetensors==0.4.5
+Best match: safetensors 0.4.5
+Adding safetensors 0.4.5 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for regex==2024.9.11
+Best match: regex 2024.9.11
+Adding regex 2024.9.11 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for huggingface-hub==0.25.1
+Best match: huggingface-hub 0.25.1
+Adding huggingface-hub 0.25.1 to easy-install.pth file
+Installing huggingface-cli-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing huggingface-cli.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for filelock==3.13.1
+Best match: filelock 3.13.1
+Adding filelock 3.13.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for joblib==1.4.2
+Best match: joblib 1.4.2
+Adding joblib 1.4.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for click==8.1.7
+Best match: click 8.1.7
+Adding click 8.1.7 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for gruut-lang-fr==2.0.2
+Best match: gruut-lang-fr 2.0.2
+Adding gruut-lang-fr 2.0.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for gruut-lang-es==2.0.1
+Best match: gruut-lang-es 2.0.1
+Adding gruut-lang-es 2.0.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for gruut-lang-de==2.0.1
+Best match: gruut-lang-de 2.0.1
+Adding gruut-lang-de 2.0.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for python-crfsuite==0.9.11
+Best match: python-crfsuite 0.9.11
+Adding python-crfsuite 0.9.11 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for networkx==2.8.8
+Best match: networkx 2.8.8
+Adding networkx 2.8.8 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for jsonlines==1.2.0
+Best match: jsonlines 1.2.0
+Adding jsonlines 1.2.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for gruut-lang-en==2.0.1
+Best match: gruut-lang-en 2.0.1
+Adding gruut-lang-en 2.0.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for gruut-ipa==0.13.0
+Best match: gruut-ipa 0.13.0
+Adding gruut-ipa 0.13.0 to easy-install.pth file
+Installing gruut-ipa-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing gruut-ipa.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for dateparser==1.1.8
+Best match: dateparser 1.1.8
+Adding dateparser 1.1.8 to easy-install.pth file
+Installing dateparser-download-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing dateparser-download.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for babel==2.16.0
+Best match: babel 2.16.0
+Adding babel 2.16.0 to easy-install.pth file
+Installing pybabel-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing pybabel.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for tensorboard==2.18.0
+Best match: tensorboard 2.18.0
+Adding tensorboard 2.18.0 to easy-install.pth file
+Installing tensorboard-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing tensorboard.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for psutil==6.0.0
+Best match: psutil 6.0.0
+Adding psutil 6.0.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for python-dateutil==2.9.0.post0
+Best match: python-dateutil 2.9.0.post0
+Adding python-dateutil 2.9.0.post0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pyparsing==3.1.4
+Best match: pyparsing 3.1.4
+Adding pyparsing 3.1.4 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pillow==10.4.0
+Best match: pillow 10.4.0
+Adding pillow 10.4.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for kiwisolver==1.4.7
+Best match: kiwisolver 1.4.7
+Adding kiwisolver 1.4.7 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for fonttools==4.54.1
+Best match: fonttools 4.54.1
+Adding fonttools 4.54.1 to easy-install.pth file
+Installing fonttools-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing fonttools.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing pyftmerge-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing pyftmerge.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing pyftsubset-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing pyftsubset.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing ttx-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing ttx.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for cycler==0.12.1
+Best match: cycler 0.12.1
+Adding cycler 0.12.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for contourpy==1.2.1
+Best match: contourpy 1.2.1
+Adding contourpy 1.2.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pytz==2024.2
+Best match: pytz 2024.2
+Adding pytz 2024.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pynndescent==0.5.13
+Best match: pynndescent 0.5.13
+Adding pynndescent 0.5.13 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for blinker==1.8.2
+Best match: blinker 1.8.2
+Adding blinker 1.8.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for itsdangerous==2.2.0
+Best match: itsdangerous 2.2.0
+Adding itsdangerous 2.2.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for jinja2==3.1.4
+Best match: jinja2 3.1.4
+Adding jinja2 3.1.4 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for werkzeug==3.0.4
+Best match: werkzeug 3.0.4
+Adding werkzeug 3.0.4 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for async-timeout==4.0.3
+Best match: async-timeout 4.0.3
+Adding async-timeout 4.0.3 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for yarl==1.13.1
+Best match: yarl 1.13.1
+Adding yarl 1.13.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for multidict==6.1.0
+Best match: multidict 6.1.0
+Adding multidict 6.1.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for frozenlist==1.4.1
+Best match: frozenlist 1.4.1
+Adding frozenlist 1.4.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for attrs==24.2.0
+Best match: attrs 24.2.0
+Adding attrs 24.2.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for aiosignal==1.3.1
+Best match: aiosignal 1.3.1
+Adding aiosignal 1.3.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for aiohappyeyeballs==2.4.3
+Best match: aiohappyeyeballs 2.4.3
+Adding aiohappyeyeballs 2.4.3 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for colorama==0.4.6
+Best match: colorama 0.4.6
+Adding colorama 0.4.6 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for typeguard==4.3.0
+Best match: typeguard 4.3.0
+typeguard 4.3.0 is already the active version in easy-install.pth
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages\setuptools\_vendor
+Searching for more-itertools==10.5.0
+Best match: more-itertools 10.5.0
+Adding more-itertools 10.5.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for threadpoolctl==3.5.0
+Best match: threadpoolctl 3.5.0
+Adding threadpoolctl 3.5.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for msgpack==1.1.0
+Best match: msgpack 1.1.0
+Adding msgpack 1.1.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for lazy-loader==0.4
+Best match: lazy-loader 0.4
+Adding lazy-loader 0.4 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for typing-extensions==4.12.2
+Best match: typing-extensions 4.12.2
+typing-extensions 4.12.2 is already the active version in easy-install.pth
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages\setuptools\_vendor
+Searching for soxr==0.5.0.post1
+Best match: soxr 0.5.0.post1
+Adding soxr 0.5.0.post1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pooch==1.8.2
+Best match: pooch 1.8.2
+Adding pooch 1.8.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for decorator==5.1.1
+Best match: decorator 5.1.1
+Adding decorator 5.1.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for audioread==3.0.1
+Best match: audioread 3.0.1
+Adding audioread 3.0.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for cffi==1.17.1
+Best match: cffi 1.17.1
+Adding cffi 1.17.1 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for sympy==1.13.2
+Best match: sympy 1.13.2
+Adding sympy 1.13.2 to easy-install.pth file
+Installing isympy-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing isympy.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for certifi==2024.8.30
+Best match: certifi 2024.8.30
+Adding certifi 2024.8.30 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for urllib3==2.2.3
+Best match: urllib3 2.2.3
+Adding urllib3 2.2.3 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for idna==3.7
+Best match: idna 3.7
+Adding idna 3.7 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for charset-normalizer==3.3.2
+Best match: charset-normalizer 3.3.2
+Adding charset-normalizer 3.3.2 to easy-install.pth file
+Installing normalizer-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing normalizer.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for six==1.16.0
+Best match: six 1.16.0
+Adding six 1.16.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for tzlocal==5.2
+Best match: tzlocal 5.2
+Adding tzlocal 5.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for tensorboard-data-server==0.7.2
+Best match: tensorboard-data-server 0.7.2
+Adding tensorboard-data-server 0.7.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for protobuf==5.28.2
+Best match: protobuf 5.28.2
+Adding protobuf 5.28.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for Markdown==3.7
+Best match: Markdown 3.7
+Adding Markdown 3.7 to easy-install.pth file
+Installing markdown_py-script.py script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+Installing markdown_py.exe script to C:\ProgramData\anaconda3\envs\coquiTTStest\Scripts
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for grpcio==1.66.2
+Best match: grpcio 1.66.2
+Adding grpcio 1.66.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for absl-py==2.1.0
+Best match: absl-py 2.1.0
+Adding absl-py 2.1.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for MarkupSafe==2.1.3
+Best match: MarkupSafe 2.1.3
+Adding MarkupSafe 2.1.3 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for platformdirs==4.3.6
+Best match: platformdirs 4.3.6
+Adding platformdirs 4.3.6 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for pycparser==2.22
+Best match: pycparser 2.22
+Adding pycparser 2.22 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for mpmath==1.3.0
+Best match: mpmath 1.3.0
+Adding mpmath 1.3.0 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Searching for tzdata==2024.2
+Best match: tzdata 2024.2
+Adding tzdata 2024.2 to easy-install.pth file
+
+Using c:\programdata\anaconda3\envs\coquittstest\lib\site-packages
+Finished processing dependencies for TTS==0.22.0
