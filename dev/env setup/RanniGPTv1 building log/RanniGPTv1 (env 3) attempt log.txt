@@ -1,6 +1,6 @@
 NOTE:
-Same method as XTTSrvcpython3.10 env, we just remade it with a better name since hte environment got messed up.
-- First we set pip to verstion ==24.0 so it can install omegaconf version needed.
+Same method as XTTSrvcpython3.10 env, we just remade it with a better name since the environment got messed up.
+- First we set pip to version ==24.0 so it can install omegaconf version needed.
 
 
 

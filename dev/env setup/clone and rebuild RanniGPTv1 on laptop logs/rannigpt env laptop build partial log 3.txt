@@ -1,0 +1,1430 @@
+So this time we do things in this order:
+- Install build tools and git clone tts repo
+- Install conda-only part, with pip==24.0 (conda env create -f)
+- ACTIVATE ENV !
+- Install pip-only part, WITHOUT tts package in the requirements (we want editable version)
+- cd TTS -> Backup original TTS requirements txt -> drag in modified requirements and rename
+- Install editable version of tts package
+
+
+It worked! thank God. I didn't even have to find the old 2015 C++ build tools this time, just used latest installer.
+
+NOTE: The install is not inside the anaconda env subdirectory since its editable. For some reason, on the laptop python and anaconda CLI python cannot import TTS, they don't know to look for it in the directory in C:\Users\TahaMajid\tts
+
+
+
+
+
+
+
+
+
+
+
+
+#########################################
+
+PART 1: conda and pip parts
+
+#########################################
+
+
+
+(base) PS C:\Users\TahaMajid> conda env list
+
+# conda environments:
+#
+base                 * C:\Users\TahaMajid\anaconda3
+
+(base) PS C:\Users\TahaMajid> conda env create -f "RanniGPTv1-env-pip24.yml" --no-deps
+usage: conda-script.py [-h] [-v] [--no-plugins] [-V] COMMAND ...
+conda-script.py: error: unrecognized arguments: --no-deps
+(base) PS C:\Users\TahaMajid> conda env create -f "RanniGPTv1-conda-only.yml"
+Retrieving notices: done
+Channels:
+ - pytorch
+ - nvidia
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate RanniGPTv1
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+(base) PS C:\Users\TahaMajid> conda env list
+
+# conda environments:
+#
+base                 * C:\Users\TahaMajid\anaconda3
+RanniGPTv1             C:\Users\TahaMajid\anaconda3\envs\RanniGPTv1
+
+(base) PS C:\Users\TahaMajid> conda activate RanniGPTv1
+(RanniGPTv1) PS C:\Users\TahaMajid> pip install --no-deps -r "RanniGPTv1-pip-only-no-tts.txt"
+Collecting absl-py==2.1.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 1))
+  Using cached absl_py-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting aiofiles==23.2.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 2))
+  Using cached aiofiles-23.2.1-py3-none-any.whl.metadata (9.7 kB)
+Collecting aiohappyeyeballs==2.4.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 3))
+  Using cached aiohappyeyeballs-2.4.3-py3-none-any.whl.metadata (6.1 kB)
+Collecting aiohttp==3.10.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 4))
+  Using cached aiohttp-3.10.8-cp310-cp310-win_amd64.whl.metadata (7.8 kB)
+Collecting aiosignal==1.3.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 5))
+  Using cached aiosignal-1.3.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting altair==5.4.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 6))
+  Using cached altair-5.4.1-py3-none-any.whl.metadata (9.4 kB)
+Collecting annotated-types==0.7.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 7))
+  Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting antlr4-python3-runtime==4.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 8))
+  Using cached antlr4_python3_runtime-4.8-py3-none-any.whl
+Collecting anyascii==0.3.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 9))
+  Using cached anyascii-0.3.2-py3-none-any.whl.metadata (1.5 kB)
+Collecting anyio==4.6.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 10))
+  Using cached anyio-4.6.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting astroid==2.7.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 11))
+  Using cached astroid-2.7.3-py3-none-any.whl.metadata (4.7 kB)
+Collecting async-timeout==4.0.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 12))
+  Using cached async_timeout-4.0.3-py3-none-any.whl.metadata (4.2 kB)
+Collecting attrs==24.2.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 13))
+  Using cached attrs-24.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting audioread==3.0.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 14))
+  Using cached audioread-3.0.1-py3-none-any.whl.metadata (8.4 kB)
+Collecting av==10.0.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 15))
+  Using cached av-10.0.0-cp310-cp310-win_amd64.whl.metadata (4.5 kB)
+Collecting babel==2.16.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 16))
+  Using cached babel-2.16.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting bangla==0.0.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 17))
+  Using cached bangla-0.0.2-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting bitarray==3.0.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 18))
+  Using cached bitarray-3.0.0-cp310-cp310-win_amd64.whl.metadata (33 kB)
+Collecting black==24.8.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 19))
+  Using cached black-24.8.0-cp310-cp310-win_amd64.whl.metadata (78 kB)
+Collecting blinker==1.8.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 20))
+  Using cached blinker-1.8.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting blis==0.7.11 (from -r RanniGPTv1-pip-only-no-tts.txt (line 21))
+  Using cached blis-0.7.11-cp310-cp310-win_amd64.whl.metadata (7.6 kB)
+Collecting bnnumerizer==0.0.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 22))
+  Using cached bnnumerizer-0.0.2-py3-none-any.whl
+Collecting bnunicodenormalizer==0.1.7 (from -r RanniGPTv1-pip-only-no-tts.txt (line 23))
+  Using cached bnunicodenormalizer-0.1.7-py3-none-any.whl.metadata (22 kB)
+Collecting bokeh==1.4.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 24))
+  Using cached bokeh-1.4.0-py3-none-any.whl
+Collecting catalogue==1.0.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 25))
+  Using cached catalogue-1.0.2-py2.py3-none-any.whl.metadata (13 kB)
+Collecting cffi==1.17.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 26))
+  Using cached cffi-1.17.1-cp310-cp310-win_amd64.whl.metadata (1.6 kB)
+Collecting click==8.1.7 (from -r RanniGPTv1-pip-only-no-tts.txt (line 27))
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting colorama==0.4.6 (from -r RanniGPTv1-pip-only-no-tts.txt (line 28))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting coloredlogs==15.0.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 29))
+  Using cached coloredlogs-15.0.1-py2.py3-none-any.whl.metadata (12 kB)
+Collecting contourpy==1.2.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 30))
+  Using cached contourpy-1.2.1-cp310-cp310-win_amd64.whl.metadata (5.8 kB)
+Collecting coqpit==0.0.17 (from -r RanniGPTv1-pip-only-no-tts.txt (line 31))
+  Using cached coqpit-0.0.17-py3-none-any.whl.metadata (11 kB)
+Collecting coverage==7.6.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 32))
+  Using cached coverage-7.6.1-cp310-cp310-win_amd64.whl.metadata (8.5 kB)
+Collecting ctranslate2==3.24.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 33))
+  Using cached ctranslate2-3.24.0-cp310-cp310-win_amd64.whl.metadata (10 kB)
+Collecting cutlet==0.4.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 34))
+  Using cached cutlet-0.4.0-py3-none-any.whl
+Collecting cycler==0.12.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 35))
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting cymem==2.0.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 36))
+  Using cached cymem-2.0.8-cp310-cp310-win_amd64.whl.metadata (8.6 kB)
+Collecting cython==0.29.30 (from -r RanniGPTv1-pip-only-no-tts.txt (line 37))
+  Using cached Cython-0.29.30-py2.py3-none-any.whl.metadata (2.8 kB)
+Collecting dateparser==1.1.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 38))
+  Using cached dateparser-1.1.8-py2.py3-none-any.whl.metadata (27 kB)
+Collecting decorator==5.1.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 39))
+  Using cached decorator-5.1.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting docopt==0.6.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 40))
+  Using cached docopt-0.6.2-py2.py3-none-any.whl
+Collecting einops==0.8.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 41))
+  Using cached einops-0.8.0-py3-none-any.whl.metadata (12 kB)
+Collecting encodec==0.1.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 42))
+  Using cached encodec-0.1.1-py3-none-any.whl
+Collecting exceptiongroup==1.2.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 43))
+  Using cached exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Collecting fairseq==0.12.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 44))
+  Using cached fairseq-0.12.2.tar.gz (9.6 MB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Installing backend dependencies ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting faiss-cpu==1.7.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 45))
+  Using cached faiss_cpu-1.7.3-cp310-cp310-win_amd64.whl.metadata (1.4 kB)
+Collecting fastapi==0.110.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 46))
+  Using cached fastapi-0.110.0-py3-none-any.whl.metadata (25 kB)
+Collecting faster-whisper==0.9.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 47))
+  Using cached faster_whisper-0.9.0-py3-none-any.whl.metadata (11 kB)
+Collecting ffmpeg-python==0.2.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 48))
+  Using cached ffmpeg_python-0.2.0-py3-none-any.whl.metadata (1.7 kB)
+Collecting ffmpy==0.4.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 49))
+  Using cached ffmpy-0.4.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting flask==3.0.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 50))
+  Using cached flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting flatbuffers==24.3.25 (from -r RanniGPTv1-pip-only-no-tts.txt (line 51))
+  Using cached flatbuffers-24.3.25-py2.py3-none-any.whl.metadata (850 bytes)
+Collecting fonttools==4.54.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 52))
+  Using cached fonttools-4.54.1-cp310-cp310-win_amd64.whl.metadata (167 kB)
+Collecting frozenlist==1.4.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 53))
+  Using cached frozenlist-1.4.1-cp310-cp310-win_amd64.whl.metadata (12 kB)
+Collecting fsspec==2024.9.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 54))
+  Using cached fsspec-2024.9.0-py3-none-any.whl.metadata (11 kB)
+Collecting fugashi==1.3.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 55))
+  Using cached fugashi-1.3.2-cp310-cp310-win_amd64.whl.metadata (7.1 kB)
+Collecting future==1.0.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 56))
+  Using cached future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting g2pkk==0.1.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 57))
+  Using cached g2pkk-0.1.2-py3-none-any.whl.metadata (2.0 kB)
+Collecting gradio==4.7.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 58))
+  Using cached gradio-4.7.1-py3-none-any.whl.metadata (17 kB)
+Collecting gradio-client==0.7.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 59))
+  Using cached gradio_client-0.7.0-py3-none-any.whl.metadata (7.1 kB)
+Collecting grpcio==1.66.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 60))
+  Using cached grpcio-1.66.2-cp310-cp310-win_amd64.whl.metadata (4.0 kB)
+Collecting gruut==2.2.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 61))
+  Using cached gruut-2.2.3-py3-none-any.whl
+Collecting gruut-ipa==0.13.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 62))
+  Using cached gruut_ipa-0.13.0-py3-none-any.whl
+Collecting gruut-lang-de==2.0.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 63))
+  Using cached gruut_lang_de-2.0.1-py3-none-any.whl
+Collecting gruut-lang-en==2.0.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 64))
+  Using cached gruut_lang_en-2.0.1-py3-none-any.whl
+Collecting gruut-lang-es==2.0.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 65))
+  Using cached gruut_lang_es-2.0.1-py3-none-any.whl
+Collecting gruut-lang-fr==2.0.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 66))
+  Using cached gruut_lang_fr-2.0.2-py3-none-any.whl
+Collecting h11==0.14.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 67))
+  Using cached h11-0.14.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting hangul-romanize==0.1.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 68))
+  Using cached hangul_romanize-0.1.0-py3-none-any.whl.metadata (1.2 kB)
+Collecting httpcore==1.0.7 (from -r RanniGPTv1-pip-only-no-tts.txt (line 69))
+  Using cached httpcore-1.0.7-py3-none-any.whl.metadata (21 kB)
+Collecting httpx==0.27.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 70))
+  Using cached httpx-0.27.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting huggingface-hub==0.26.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 71))
+  Using cached huggingface_hub-0.26.2-py3-none-any.whl.metadata (13 kB)
+Collecting humanfriendly==10.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 72))
+  Using cached humanfriendly-10.0-py2.py3-none-any.whl.metadata (9.2 kB)
+Collecting hydra-core==1.0.7 (from -r RanniGPTv1-pip-only-no-tts.txt (line 73))
+  Using cached hydra_core-1.0.7-py3-none-any.whl.metadata (3.7 kB)
+Collecting inflect==7.4.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 74))
+  Using cached inflect-7.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting isort==5.13.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 75))
+  Using cached isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting itsdangerous==2.2.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 76))
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting jaconv==0.4.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 77))
+  Using cached jaconv-0.4.0-py3-none-any.whl
+Collecting jamo==0.4.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 78))
+  Using cached jamo-0.4.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting jieba==0.42.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 79))
+  Using cached jieba-0.42.1-py3-none-any.whl
+Collecting joblib==1.4.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 80))
+  Using cached joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting jsonlines==1.2.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 81))
+  Using cached jsonlines-1.2.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting jsonschema==4.23.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 82))
+  Using cached jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jsonschema-specifications==2024.10.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 83))
+  Using cached jsonschema_specifications-2024.10.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting kiwisolver==1.4.7 (from -r RanniGPTv1-pip-only-no-tts.txt (line 84))
+  Using cached kiwisolver-1.4.7-cp310-cp310-win_amd64.whl.metadata (6.4 kB)
+Collecting lazy-loader==0.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 85))
+  Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Collecting lazy-object-proxy==1.10.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 86))
+  Using cached lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.whl.metadata (8.1 kB)
+Collecting librosa==0.10.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 87))
+  Using cached librosa-0.10.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting llvmlite==0.43.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 88))
+  Using cached llvmlite-0.43.0-cp310-cp310-win_amd64.whl.metadata (4.9 kB)
+Collecting loguru==0.7.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 89))
+  Using cached loguru-0.7.3-py3-none-any.whl.metadata (22 kB)
+Collecting lxml==5.3.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 90))
+  Using cached lxml-5.3.1-cp310-cp310-win_amd64.whl.metadata (3.8 kB)
+Collecting markdown==3.7 (from -r RanniGPTv1-pip-only-no-tts.txt (line 91))
+  Using cached Markdown-3.7-py3-none-any.whl.metadata (7.0 kB)
+Collecting markdown-it-py==3.0.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 92))
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting matplotlib==3.8.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 93))
+  Using cached matplotlib-3.8.4-cp310-cp310-win_amd64.whl.metadata (5.9 kB)
+Collecting mccabe==0.6.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 94))
+  Using cached mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 kB)
+Collecting mdurl==0.1.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 95))
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting mecab-python3==1.0.6 (from -r RanniGPTv1-pip-only-no-tts.txt (line 96))
+  Using cached mecab_python3-1.0.6-cp310-cp310-win_amd64.whl.metadata (6.3 kB)
+Collecting mojimoji==0.0.13 (from -r RanniGPTv1-pip-only-no-tts.txt (line 97))
+  Using cached mojimoji-0.0.13-cp310-cp310-win_amd64.whl.metadata (3.6 kB)
+Collecting more-itertools==10.5.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 98))
+  Using cached more_itertools-10.5.0-py3-none-any.whl.metadata (36 kB)
+Collecting msgpack==1.1.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 99))
+  Using cached msgpack-1.1.0-cp310-cp310-win_amd64.whl.metadata (8.6 kB)
+Collecting multidict==6.1.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 100))
+  Using cached multidict-6.1.0-cp310-cp310-win_amd64.whl.metadata (5.1 kB)
+Collecting murmurhash==1.0.10 (from -r RanniGPTv1-pip-only-no-tts.txt (line 101))
+  Using cached murmurhash-1.0.10-cp310-cp310-win_amd64.whl.metadata (2.0 kB)
+Collecting mutagen==1.47.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 102))
+  Using cached mutagen-1.47.0-py3-none-any.whl.metadata (1.7 kB)
+Collecting mypy-extensions==1.0.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 103))
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting narwhals==1.13.5 (from -r RanniGPTv1-pip-only-no-tts.txt (line 104))
+  Using cached narwhals-1.13.5-py3-none-any.whl.metadata (7.4 kB)
+Collecting networkx==2.8.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 105))
+  Using cached networkx-2.8.8-py3-none-any.whl.metadata (5.1 kB)
+Collecting nltk==3.9.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 106))
+  Using cached nltk-3.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting nose2==0.15.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 107))
+  Using cached nose2-0.15.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting num2words==0.5.13 (from -r RanniGPTv1-pip-only-no-tts.txt (line 108))
+  Using cached num2words-0.5.13-py3-none-any.whl.metadata (12 kB)
+Collecting numba==0.60.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 109))
+  Using cached numba-0.60.0-cp310-cp310-win_amd64.whl.metadata (2.8 kB)
+Collecting numpy==1.22.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 110))
+  Using cached numpy-1.22.0-cp310-cp310-win_amd64.whl.metadata (2.1 kB)
+Collecting omegaconf==2.0.6 (from -r RanniGPTv1-pip-only-no-tts.txt (line 111))
+  Using cached omegaconf-2.0.6-py3-none-any.whl.metadata (3.0 kB)
+Collecting onnxruntime==1.20.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 112))
+  Using cached onnxruntime-1.20.0-cp310-cp310-win_amd64.whl.metadata (4.6 kB)
+Collecting orjson==3.10.11 (from -r RanniGPTv1-pip-only-no-tts.txt (line 113))
+  Using cached orjson-3.10.11-cp310-none-win_amd64.whl.metadata (52 kB)
+Collecting packaging==24.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 114))
+  Using cached packaging-24.1-py3-none-any.whl.metadata (3.2 kB)
+Collecting pandas==1.5.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 115))
+  Using cached pandas-1.5.3-cp310-cp310-win_amd64.whl.metadata (12 kB)
+Collecting pathspec==0.12.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 116))
+  Using cached pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: pip==24.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from -r RanniGPTv1-pip-only-no-tts.txt (line 117)) (24.0)
+Collecting plac==1.1.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 118))
+  Using cached plac-1.1.3-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting platformdirs==4.3.6 (from -r RanniGPTv1-pip-only-no-tts.txt (line 119))
+  Using cached platformdirs-4.3.6-py3-none-any.whl.metadata (11 kB)
+Collecting pooch==1.8.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 120))
+  Using cached pooch-1.8.2-py3-none-any.whl.metadata (10 kB)
+Collecting portalocker==3.1.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 121))
+  Using cached portalocker-3.1.1-py3-none-any.whl.metadata (8.6 kB)
+Collecting praat-parselmouth==0.4.5 (from -r RanniGPTv1-pip-only-no-tts.txt (line 122))
+  Using cached praat_parselmouth-0.4.5-cp310-cp310-win_amd64.whl.metadata (2.9 kB)
+Collecting preshed==3.0.9 (from -r RanniGPTv1-pip-only-no-tts.txt (line 123))
+  Using cached preshed-3.0.9-cp310-cp310-win_amd64.whl.metadata (2.2 kB)
+Collecting protobuf==5.28.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 124))
+  Using cached protobuf-5.28.2-cp310-abi3-win_amd64.whl.metadata (592 bytes)
+Collecting psutil==6.0.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 125))
+  Using cached psutil-6.0.0-cp37-abi3-win_amd64.whl.metadata (22 kB)
+Collecting pycparser==2.22 (from -r RanniGPTv1-pip-only-no-tts.txt (line 126))
+  Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Collecting pydantic==2.9.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 127))
+  Using cached pydantic-2.9.2-py3-none-any.whl.metadata (149 kB)
+Collecting pydantic-core==2.23.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 128))
+  Using cached pydantic_core-2.23.4-cp310-none-win_amd64.whl.metadata (6.7 kB)
+Collecting pydub==0.25.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 129))
+  Using cached pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting pygments==2.18.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 130))
+  Using cached pygments-2.18.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pylint==2.10.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 131))
+  Using cached pylint-2.10.2-py3-none-any.whl.metadata (7.7 kB)
+Collecting pynndescent==0.5.13 (from -r RanniGPTv1-pip-only-no-tts.txt (line 132))
+  Using cached pynndescent-0.5.13-py3-none-any.whl.metadata (6.8 kB)
+Collecting pyparsing==3.1.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 133))
+  Using cached pyparsing-3.1.4-py3-none-any.whl.metadata (5.1 kB)
+Collecting pypinyin==0.53.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 134))
+  Using cached pypinyin-0.53.0-py2.py3-none-any.whl.metadata (12 kB)
+Collecting pyreadline3==3.5.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 135))
+  Using cached pyreadline3-3.5.4-py3-none-any.whl.metadata (4.7 kB)
+Collecting pysbd==0.3.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 136))
+  Using cached pysbd-0.3.4-py3-none-any.whl.metadata (6.1 kB)
+Collecting python-crfsuite==0.9.11 (from -r RanniGPTv1-pip-only-no-tts.txt (line 137))
+  Using cached python_crfsuite-0.9.11-cp310-cp310-win_amd64.whl.metadata (4.4 kB)
+Collecting python-dateutil==2.9.0.post0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 138))
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting python-multipart==0.0.17 (from -r RanniGPTv1-pip-only-no-tts.txt (line 139))
+  Using cached python_multipart-0.0.17-py3-none-any.whl.metadata (1.8 kB)
+Collecting pytz==2024.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 140))
+  Using cached pytz-2024.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pywin32==308 (from -r RanniGPTv1-pip-only-no-tts.txt (line 141))
+  Using cached pywin32-308-cp310-cp310-win_amd64.whl.metadata (8.3 kB)
+Collecting pyworld==0.3.5 (from -r RanniGPTv1-pip-only-no-tts.txt (line 142))
+  Using cached pyworld-0.3.5-cp310-cp310-win_amd64.whl.metadata (6.6 kB)
+Collecting referencing==0.35.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 143))
+  Using cached referencing-0.35.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting regex==2024.9.11 (from -r RanniGPTv1-pip-only-no-tts.txt (line 144))
+  Using cached regex-2024.9.11-cp310-cp310-win_amd64.whl.metadata (41 kB)
+Collecting resampy==0.4.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 145))
+  Using cached resampy-0.4.3-py3-none-any.whl.metadata (3.0 kB)
+Collecting rich==13.9.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 146))
+  Using cached rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+Collecting rpds-py==0.21.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 147))
+  Using cached rpds_py-0.21.0-cp310-none-win_amd64.whl.metadata (4.2 kB)
+Collecting rvc-python==0.1.5 (from -r RanniGPTv1-pip-only-no-tts.txt (line 148))
+  Using cached rvc_python-0.1.5-py3-none-any.whl.metadata (8.6 kB)
+Collecting sacrebleu==2.5.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 149))
+  Using cached sacrebleu-2.5.1-py3-none-any.whl.metadata (51 kB)
+Collecting safetensors==0.4.5 (from -r RanniGPTv1-pip-only-no-tts.txt (line 150))
+  Using cached safetensors-0.4.5-cp310-none-win_amd64.whl.metadata (3.9 kB)
+Collecting scikit-learn==1.5.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 151))
+  Using cached scikit_learn-1.5.2-cp310-cp310-win_amd64.whl.metadata (13 kB)
+Collecting scipy==1.11.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 152))
+  Using cached scipy-1.11.4-cp310-cp310-win_amd64.whl.metadata (60 kB)
+Collecting semantic-version==2.10.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 153))
+  Using cached semantic_version-2.10.0-py2.py3-none-any.whl.metadata (9.7 kB)
+Collecting shellingham==1.5.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 154))
+  Using cached shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting six==1.16.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 155))
+  Using cached six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting sniffio==1.3.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 156))
+  Using cached sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting soundfile==0.12.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 157))
+  Using cached soundfile-0.12.1-py2.py3-none-win_amd64.whl.metadata (14 kB)
+Collecting soxr==0.5.0.post1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 158))
+  Using cached soxr-0.5.0.post1-cp310-cp310-win_amd64.whl.metadata (5.6 kB)
+Collecting spacy==2.3.9 (from -r RanniGPTv1-pip-only-no-tts.txt (line 159))
+  Using cached spacy-2.3.9-cp310-cp310-win_amd64.whl.metadata (16 kB)
+Collecting srsly==1.0.7 (from -r RanniGPTv1-pip-only-no-tts.txt (line 160))
+  Using cached srsly-1.0.7-cp310-cp310-win_amd64.whl.metadata (14 kB)
+Collecting starlette==0.36.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 161))
+  Using cached starlette-0.36.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting sudachidict-core==20240716 (from -r RanniGPTv1-pip-only-no-tts.txt (line 162))
+  Using cached SudachiDict_core-20240716-py3-none-any.whl.metadata (2.5 kB)
+Collecting sudachipy==0.6.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 163))
+  Using cached SudachiPy-0.6.8-cp310-cp310-win_amd64.whl.metadata (13 kB)
+Collecting tabulate==0.9.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 164))
+  Using cached tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+Collecting tensorboard==2.18.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 165))
+  Using cached tensorboard-2.18.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting tensorboard-data-server==0.7.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 166))
+  Using cached tensorboard_data_server-0.7.2-py3-none-any.whl.metadata (1.1 kB)
+Collecting thinc==7.4.6 (from -r RanniGPTv1-pip-only-no-tts.txt (line 167))
+  Using cached thinc-7.4.6-cp310-cp310-win_amd64.whl.metadata (23 kB)
+Collecting threadpoolctl==3.5.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 168))
+  Using cached threadpoolctl-3.5.0-py3-none-any.whl.metadata (13 kB)
+Collecting tokenizers==0.20.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 169))
+  Using cached tokenizers-0.20.3-cp310-none-win_amd64.whl.metadata (6.9 kB)
+Collecting toml==0.10.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 170))
+  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting tomli==2.0.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 171))
+  Using cached tomli-2.0.2-py3-none-any.whl.metadata (10.0 kB)
+Collecting tomlkit==0.12.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 172))
+  Using cached tomlkit-0.12.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting torchaudio==2.4.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 173))
+  Using cached torchaudio-2.4.1-cp310-cp310-win_amd64.whl.metadata (6.5 kB)
+Collecting torchcrepe==0.0.23 (from -r RanniGPTv1-pip-only-no-tts.txt (line 174))
+  Using cached torchcrepe-0.0.23-py3-none-any.whl.metadata (7.8 kB)
+Collecting torchvision==0.19.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 175))
+  Using cached torchvision-0.19.1-cp310-cp310-win_amd64.whl.metadata (6.1 kB)
+Collecting tornado==6.4.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 176))
+  Using cached tornado-6.4.1-cp38-abi3-win_amd64.whl.metadata (2.6 kB)
+Collecting tqdm==4.66.5 (from -r RanniGPTv1-pip-only-no-tts.txt (line 177))
+  Using cached tqdm-4.66.5-py3-none-any.whl.metadata (57 kB)
+Collecting trainer==0.0.36 (from -r RanniGPTv1-pip-only-no-tts.txt (line 178))
+  Using cached trainer-0.0.36-py3-none-any.whl.metadata (8.1 kB)
+Collecting transformers==4.46.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 179))
+  Using cached transformers-4.46.2-py3-none-any.whl.metadata (44 kB)
+Collecting typeguard==4.3.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 180))
+  Using cached typeguard-4.3.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting typer==0.13.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 181))
+  Using cached typer-0.13.0-py3-none-any.whl.metadata (15 kB)
+Collecting tzdata==2024.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 182))
+  Using cached tzdata-2024.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting tzlocal==5.2 (from -r RanniGPTv1-pip-only-no-tts.txt (line 183))
+  Using cached tzlocal-5.2-py3-none-any.whl.metadata (7.8 kB)
+Collecting umap-learn==0.5.6 (from -r RanniGPTv1-pip-only-no-tts.txt (line 184))
+  Using cached umap_learn-0.5.6-py3-none-any.whl.metadata (21 kB)
+Collecting unidecode==1.3.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 185))
+  Using cached Unidecode-1.3.8-py3-none-any.whl.metadata (13 kB)
+Collecting unidic-lite==1.0.8 (from -r RanniGPTv1-pip-only-no-tts.txt (line 186))
+  Using cached unidic_lite-1.0.8-py3-none-any.whl
+Collecting uvicorn==0.32.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 187))
+  Using cached uvicorn-0.32.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting wasabi==0.10.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 188))
+  Using cached wasabi-0.10.1-py3-none-any.whl.metadata (28 kB)
+Collecting websockets==11.0.3 (from -r RanniGPTv1-pip-only-no-tts.txt (line 189))
+  Using cached websockets-11.0.3-cp310-cp310-win_amd64.whl.metadata (6.8 kB)
+Collecting werkzeug==3.0.4 (from -r RanniGPTv1-pip-only-no-tts.txt (line 190))
+  Using cached werkzeug-3.0.4-py3-none-any.whl.metadata (3.7 kB)
+Collecting win32-setctime==1.2.0 (from -r RanniGPTv1-pip-only-no-tts.txt (line 191))
+  Using cached win32_setctime-1.2.0-py3-none-any.whl.metadata (2.4 kB)
+Collecting wrapt==1.12.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 192))
+  Using cached wrapt-1.12.1-py3-none-any.whl
+Collecting yarl==1.13.1 (from -r RanniGPTv1-pip-only-no-tts.txt (line 193))
+  Using cached yarl-1.13.1-cp310-cp310-win_amd64.whl.metadata (52 kB)
+Using cached absl_py-2.1.0-py3-none-any.whl (133 kB)
+Using cached aiofiles-23.2.1-py3-none-any.whl (15 kB)
+Using cached aiohappyeyeballs-2.4.3-py3-none-any.whl (14 kB)
+Using cached aiohttp-3.10.8-cp310-cp310-win_amd64.whl (380 kB)
+Using cached aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
+Using cached altair-5.4.1-py3-none-any.whl (658 kB)
+Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Using cached anyascii-0.3.2-py3-none-any.whl (289 kB)
+Using cached anyio-4.6.0-py3-none-any.whl (89 kB)
+Using cached astroid-2.7.3-py3-none-any.whl (240 kB)
+Using cached async_timeout-4.0.3-py3-none-any.whl (5.7 kB)
+Using cached attrs-24.2.0-py3-none-any.whl (63 kB)
+Using cached audioread-3.0.1-py3-none-any.whl (23 kB)
+Using cached av-10.0.0-cp310-cp310-win_amd64.whl (25.3 MB)
+Using cached babel-2.16.0-py3-none-any.whl (9.6 MB)
+Using cached bangla-0.0.2-py2.py3-none-any.whl (6.2 kB)
+Using cached bitarray-3.0.0-cp310-cp310-win_amd64.whl (121 kB)
+Using cached black-24.8.0-cp310-cp310-win_amd64.whl (1.4 MB)
+Using cached blinker-1.8.2-py3-none-any.whl (9.5 kB)
+Using cached blis-0.7.11-cp310-cp310-win_amd64.whl (6.6 MB)
+Using cached bnunicodenormalizer-0.1.7-py3-none-any.whl (23 kB)
+Using cached catalogue-1.0.2-py2.py3-none-any.whl (16 kB)
+Using cached cffi-1.17.1-cp310-cp310-win_amd64.whl (181 kB)
+Using cached click-8.1.7-py3-none-any.whl (97 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+Using cached contourpy-1.2.1-cp310-cp310-win_amd64.whl (187 kB)
+Using cached coqpit-0.0.17-py3-none-any.whl (13 kB)
+Using cached coverage-7.6.1-cp310-cp310-win_amd64.whl (210 kB)
+Using cached ctranslate2-3.24.0-cp310-cp310-win_amd64.whl (20.2 MB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Using cached cymem-2.0.8-cp310-cp310-win_amd64.whl (39 kB)
+Using cached Cython-0.29.30-py2.py3-none-any.whl (985 kB)
+Using cached dateparser-1.1.8-py2.py3-none-any.whl (293 kB)
+Using cached decorator-5.1.1-py3-none-any.whl (9.1 kB)
+Using cached einops-0.8.0-py3-none-any.whl (43 kB)
+Using cached exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Using cached faiss_cpu-1.7.3-cp310-cp310-win_amd64.whl (10.4 MB)
+Using cached fastapi-0.110.0-py3-none-any.whl (92 kB)
+Using cached faster_whisper-0.9.0-py3-none-any.whl (1.5 MB)
+Using cached ffmpeg_python-0.2.0-py3-none-any.whl (25 kB)
+Using cached ffmpy-0.4.0-py3-none-any.whl (5.8 kB)
+Using cached flask-3.0.3-py3-none-any.whl (101 kB)
+Using cached flatbuffers-24.3.25-py2.py3-none-any.whl (26 kB)
+Using cached fonttools-4.54.1-cp310-cp310-win_amd64.whl (2.2 MB)
+Using cached frozenlist-1.4.1-cp310-cp310-win_amd64.whl (50 kB)
+Using cached fsspec-2024.9.0-py3-none-any.whl (179 kB)
+Using cached fugashi-1.3.2-cp310-cp310-win_amd64.whl (499 kB)
+Using cached future-1.0.0-py3-none-any.whl (491 kB)
+Using cached g2pkk-0.1.2-py3-none-any.whl (25 kB)
+Using cached gradio-4.7.1-py3-none-any.whl (16.5 MB)
+Using cached gradio_client-0.7.0-py3-none-any.whl (302 kB)
+Using cached grpcio-1.66.2-cp310-cp310-win_amd64.whl (4.3 MB)
+Using cached h11-0.14.0-py3-none-any.whl (58 kB)
+Using cached hangul_romanize-0.1.0-py3-none-any.whl (4.6 kB)
+Using cached httpcore-1.0.7-py3-none-any.whl (78 kB)
+Using cached httpx-0.27.2-py3-none-any.whl (76 kB)
+Using cached huggingface_hub-0.26.2-py3-none-any.whl (447 kB)
+Using cached humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+Using cached hydra_core-1.0.7-py3-none-any.whl (123 kB)
+Using cached inflect-7.4.0-py3-none-any.whl (34 kB)
+Using cached isort-5.13.2-py3-none-any.whl (92 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached jamo-0.4.1-py3-none-any.whl (9.5 kB)
+Using cached joblib-1.4.2-py3-none-any.whl (301 kB)
+Using cached jsonlines-1.2.0-py2.py3-none-any.whl (7.6 kB)
+Using cached jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Using cached jsonschema_specifications-2024.10.1-py3-none-any.whl (18 kB)
+Using cached kiwisolver-1.4.7-cp310-cp310-win_amd64.whl (55 kB)
+Using cached lazy_loader-0.4-py3-none-any.whl (12 kB)
+Using cached lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.whl (27 kB)
+Using cached librosa-0.10.0-py3-none-any.whl (252 kB)
+Using cached llvmlite-0.43.0-cp310-cp310-win_amd64.whl (28.1 MB)
+Using cached loguru-0.7.3-py3-none-any.whl (61 kB)
+Using cached lxml-5.3.1-cp310-cp310-win_amd64.whl (3.8 MB)
+Using cached Markdown-3.7-py3-none-any.whl (106 kB)
+Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Using cached matplotlib-3.8.4-cp310-cp310-win_amd64.whl (7.7 MB)
+Using cached mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Using cached mecab_python3-1.0.6-cp310-cp310-win_amd64.whl (501 kB)
+Using cached mojimoji-0.0.13-cp310-cp310-win_amd64.whl (43 kB)
+Using cached more_itertools-10.5.0-py3-none-any.whl (60 kB)
+Using cached msgpack-1.1.0-cp310-cp310-win_amd64.whl (74 kB)
+Using cached multidict-6.1.0-cp310-cp310-win_amd64.whl (28 kB)
+Using cached murmurhash-1.0.10-cp310-cp310-win_amd64.whl (25 kB)
+Using cached mutagen-1.47.0-py3-none-any.whl (194 kB)
+Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
+Using cached narwhals-1.13.5-py3-none-any.whl (208 kB)
+Using cached networkx-2.8.8-py3-none-any.whl (2.0 MB)
+Using cached nltk-3.9.1-py3-none-any.whl (1.5 MB)
+Using cached nose2-0.15.1-py3-none-any.whl (211 kB)
+Using cached num2words-0.5.13-py3-none-any.whl (143 kB)
+Using cached numba-0.60.0-cp310-cp310-win_amd64.whl (2.7 MB)
+Using cached numpy-1.22.0-cp310-cp310-win_amd64.whl (14.7 MB)
+Using cached omegaconf-2.0.6-py3-none-any.whl (36 kB)
+Using cached onnxruntime-1.20.0-cp310-cp310-win_amd64.whl (11.3 MB)
+Using cached orjson-3.10.11-cp310-none-win_amd64.whl (136 kB)
+Using cached packaging-24.1-py3-none-any.whl (53 kB)
+Using cached pandas-1.5.3-cp310-cp310-win_amd64.whl (10.4 MB)
+Using cached pathspec-0.12.1-py3-none-any.whl (31 kB)
+Using cached plac-1.1.3-py2.py3-none-any.whl (20 kB)
+Using cached platformdirs-4.3.6-py3-none-any.whl (18 kB)
+Using cached pooch-1.8.2-py3-none-any.whl (64 kB)
+Using cached portalocker-3.1.1-py3-none-any.whl (19 kB)
+Using cached praat_parselmouth-0.4.5-cp310-cp310-win_amd64.whl (8.9 MB)
+Using cached preshed-3.0.9-cp310-cp310-win_amd64.whl (122 kB)
+Using cached protobuf-5.28.2-cp310-abi3-win_amd64.whl (431 kB)
+Using cached psutil-6.0.0-cp37-abi3-win_amd64.whl (257 kB)
+Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+Using cached pydantic-2.9.2-py3-none-any.whl (434 kB)
+Using cached pydantic_core-2.23.4-cp310-none-win_amd64.whl (1.9 MB)
+Using cached pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Using cached pygments-2.18.0-py3-none-any.whl (1.2 MB)
+Using cached pylint-2.10.2-py3-none-any.whl (392 kB)
+Using cached pynndescent-0.5.13-py3-none-any.whl (56 kB)
+Using cached pyparsing-3.1.4-py3-none-any.whl (104 kB)
+Using cached pypinyin-0.53.0-py2.py3-none-any.whl (834 kB)
+Using cached pyreadline3-3.5.4-py3-none-any.whl (83 kB)
+Using cached pysbd-0.3.4-py3-none-any.whl (71 kB)
+Using cached python_crfsuite-0.9.11-cp310-cp310-win_amd64.whl (301 kB)
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Using cached python_multipart-0.0.17-py3-none-any.whl (24 kB)
+Using cached pytz-2024.2-py2.py3-none-any.whl (508 kB)
+Using cached pywin32-308-cp310-cp310-win_amd64.whl (6.6 MB)
+Using cached pyworld-0.3.5-cp310-cp310-win_amd64.whl (224 kB)
+Using cached referencing-0.35.1-py3-none-any.whl (26 kB)
+Using cached regex-2024.9.11-cp310-cp310-win_amd64.whl (274 kB)
+Using cached resampy-0.4.3-py3-none-any.whl (3.1 MB)
+Using cached rich-13.9.4-py3-none-any.whl (242 kB)
+Using cached rpds_py-0.21.0-cp310-none-win_amd64.whl (218 kB)
+Using cached rvc_python-0.1.5-py3-none-any.whl (85 kB)
+Using cached sacrebleu-2.5.1-py3-none-any.whl (104 kB)
+Using cached safetensors-0.4.5-cp310-none-win_amd64.whl (285 kB)
+Using cached scikit_learn-1.5.2-cp310-cp310-win_amd64.whl (11.0 MB)
+Using cached scipy-1.11.4-cp310-cp310-win_amd64.whl (44.1 MB)
+Using cached semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Using cached shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Using cached six-1.16.0-py2.py3-none-any.whl (11 kB)
+Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+Using cached soundfile-0.12.1-py2.py3-none-win_amd64.whl (1.0 MB)
+Using cached soxr-0.5.0.post1-cp310-cp310-win_amd64.whl (166 kB)
+Using cached spacy-2.3.9-cp310-cp310-win_amd64.whl (9.1 MB)
+Using cached srsly-1.0.7-cp310-cp310-win_amd64.whl (356 kB)
+Using cached starlette-0.36.3-py3-none-any.whl (71 kB)
+Using cached SudachiDict_core-20240716-py3-none-any.whl (72.0 MB)
+Using cached SudachiPy-0.6.8-cp310-cp310-win_amd64.whl (1.3 MB)
+Using cached tabulate-0.9.0-py3-none-any.whl (35 kB)
+Using cached tensorboard-2.18.0-py3-none-any.whl (5.5 MB)
+Using cached tensorboard_data_server-0.7.2-py3-none-any.whl (2.4 kB)
+Using cached thinc-7.4.6-cp310-cp310-win_amd64.whl (812 kB)
+Using cached threadpoolctl-3.5.0-py3-none-any.whl (18 kB)
+Using cached tokenizers-0.20.3-cp310-none-win_amd64.whl (2.4 MB)
+Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Using cached tomli-2.0.2-py3-none-any.whl (13 kB)
+Using cached tomlkit-0.12.0-py3-none-any.whl (37 kB)
+Using cached torchaudio-2.4.1-cp310-cp310-win_amd64.whl (2.4 MB)
+Using cached torchcrepe-0.0.23-py3-none-any.whl (72.3 MB)
+Using cached torchvision-0.19.1-cp310-cp310-win_amd64.whl (1.3 MB)
+Using cached tornado-6.4.1-cp38-abi3-win_amd64.whl (438 kB)
+Using cached tqdm-4.66.5-py3-none-any.whl (78 kB)
+Using cached trainer-0.0.36-py3-none-any.whl (51 kB)
+Using cached transformers-4.46.2-py3-none-any.whl (10.0 MB)
+Using cached typeguard-4.3.0-py3-none-any.whl (35 kB)
+Using cached typer-0.13.0-py3-none-any.whl (44 kB)
+Using cached tzdata-2024.2-py2.py3-none-any.whl (346 kB)
+Using cached tzlocal-5.2-py3-none-any.whl (17 kB)
+Using cached umap_learn-0.5.6-py3-none-any.whl (85 kB)
+Using cached Unidecode-1.3.8-py3-none-any.whl (235 kB)
+Using cached uvicorn-0.32.0-py3-none-any.whl (63 kB)
+Using cached wasabi-0.10.1-py3-none-any.whl (26 kB)
+Using cached websockets-11.0.3-cp310-cp310-win_amd64.whl (124 kB)
+Using cached werkzeug-3.0.4-py3-none-any.whl (227 kB)
+Using cached win32_setctime-1.2.0-py3-none-any.whl (4.1 kB)
+Using cached yarl-1.13.1-cp310-cp310-win_amd64.whl (111 kB)
+Building wheels for collected packages: fairseq
+  Building wheel for fairseq (pyproject.toml) ... done
+  Created wheel for fairseq: filename=fairseq-0.12.2-cp310-cp310-win_amd64.whl size=10348804 sha256=345475a49510ab455dc21e4af3a126ae1c48bd4c4cafb4abb62677f9e2c3dd68
+  Stored in directory: c:\users\tahamajid\appdata\local\pip\cache\wheels\e4\35\55\9c66f65ec7c83fd6fbc2b9502a0ac81b2448a1196159dacc32
+Successfully built fairseq
+Installing collected packages: wrapt, wasabi, unidic-lite, umap-learn, torchcrepe, torchaudio, thinc, sudachipy, sudachidict-core, soundfile, resampy, pyworld, pywin32, pytz, pynndescent, pydub, plac, onnxruntime, num2words, mecab-python3, mccabe, jsonlines, jieba, jamo, jaconv, hydra-core, hangul-romanize, gruut-lang-fr, gruut-lang-es, gruut-lang-en, gruut-lang-de, flatbuffers, ffmpeg-python, faiss-cpu, fairseq, docopt, cymem, bokeh, bnunicodenormalizer, bnnumerizer, blis, bitarray, bangla, av, antlr4-python3-runtime, yarl, win32-setctime, werkzeug, websockets, uvicorn, unidecode, tzlocal, tzdata, typer, typeguard, transformers, trainer, tqdm, tornado, torchvision, tomlkit, tomli, toml, tokenizers, threadpoolctl, tensorboard-data-server, tensorboard, tabulate, starlette, srsly, spacy, soxr, sniffio, six, shellingham, semantic-version, scipy, scikit-learn, safetensors, sacrebleu, rvc-python, rpds-py, rich, regex, referencing, python-multipart, python-dateutil, python-crfsuite, pysbd, pyreadline3, pypinyin, pyparsing, pylint, pygments, pydantic-core, pydantic, pycparser, psutil, protobuf, preshed, praat-parselmouth, portalocker, pooch, platformdirs, pathspec, pandas, packaging, orjson, omegaconf, numpy, numba, nose2, nltk, networkx, narwhals, mypy-extensions, mutagen, murmurhash, multidict, msgpack, more-itertools, mojimoji, mdurl, matplotlib, markdown-it-py, markdown, lxml, loguru, llvmlite, librosa, lazy-object-proxy, lazy-loader, kiwisolver, jsonschema-specifications, jsonschema, joblib, itsdangerous, isort, inflect, humanfriendly, huggingface-hub, httpx, httpcore, h11, gruut-ipa, gruut, grpcio, gradio-client, gradio, g2pkk, future, fugashi, fsspec, frozenlist, fonttools, flask, ffmpy, faster-whisper, fastapi, exceptiongroup, encodec, einops, decorator, dateparser, cython, cycler, cutlet, ctranslate2, coverage, coqpit, contourpy, coloredlogs, colorama, click, cffi, catalogue, blinker, black, babel, audioread, attrs, async-timeout, astroid, anyio, anyascii, annotated-types, altair, aiosignal, aiohttp, aiohappyeyeballs, aiofiles, absl-py
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.0.1
+    Uninstalling numpy-2.0.1:
+      Successfully uninstalled numpy-2.0.1
+  Attempting uninstall: networkx
+    Found existing installation: networkx 3.4.2
+    Uninstalling networkx-3.4.2:
+      Successfully uninstalled networkx-3.4.2
+Successfully installed absl-py-2.1.0 aiofiles-23.2.1 aiohappyeyeballs-2.4.3 aiohttp-3.10.8 aiosignal-1.3.1 altair-5.4.1 annotated-types-0.7.0 antlr4-python3-runtime-4.8 anyascii-0.3.2 anyio-4.6.0 astroid-2.7.3 async-timeout-4.0.3 attrs-24.2.0 audioread-3.0.1 av-10.0.0 babel-2.16.0 bangla-0.0.2 bitarray-3.0.0 black-24.8.0 blinker-1.8.2 blis-0.7.11 bnnumerizer-0.0.2 bnunicodenormalizer-0.1.7 bokeh-1.4.0 catalogue-1.0.2 cffi-1.17.1 click-8.1.7 colorama-0.4.6 coloredlogs-15.0.1 contourpy-1.2.1 coqpit-0.0.17 coverage-7.6.1 ctranslate2-3.24.0 cutlet-0.4.0 cycler-0.12.1 cymem-2.0.8 cython-0.29.30 dateparser-1.1.8 decorator-5.1.1 docopt-0.6.2 einops-0.8.0 encodec-0.1.1 exceptiongroup-1.2.2 fairseq-0.12.2 faiss-cpu-1.7.3 fastapi-0.110.0 faster-whisper-0.9.0 ffmpeg-python-0.2.0 ffmpy-0.4.0 flask-3.0.3 flatbuffers-24.3.25 fonttools-4.54.1 frozenlist-1.4.1 fsspec-2024.9.0 fugashi-1.3.2 future-1.0.0 g2pkk-0.1.2 gradio-4.7.1 gradio-client-0.7.0 grpcio-1.66.2 gruut-2.2.3 gruut-ipa-0.13.0 gruut-lang-de-2.0.1 gruut-lang-en-2.0.1 gruut-lang-es-2.0.1 gruut-lang-fr-2.0.2 h11-0.14.0 hangul-romanize-0.1.0 httpcore-1.0.7 httpx-0.27.2 huggingface-hub-0.26.2 humanfriendly-10.0 hydra-core-1.0.7 inflect-7.4.0 isort-5.13.2 itsdangerous-2.2.0 jaconv-0.4.0 jamo-0.4.1 jieba-0.42.1 joblib-1.4.2 jsonlines-1.2.0 jsonschema-4.23.0 jsonschema-specifications-2024.10.1 kiwisolver-1.4.7 lazy-loader-0.4 lazy-object-proxy-1.10.0 librosa-0.10.0 llvmlite-0.43.0 loguru-0.7.3 lxml-5.3.1 markdown-3.7 markdown-it-py-3.0.0 matplotlib-3.8.4 mccabe-0.6.1 mdurl-0.1.2 mecab-python3-1.0.6 mojimoji-0.0.13 more-itertools-10.5.0 msgpack-1.1.0 multidict-6.1.0 murmurhash-1.0.10 mutagen-1.47.0 mypy-extensions-1.0.0 narwhals-1.13.5 networkx-2.8.8 nltk-3.9.1 nose2-0.15.1 num2words-0.5.13 numba-0.60.0 numpy-1.22.0 omegaconf-2.0.6 onnxruntime-1.20.0 orjson-3.10.11 packaging-24.1 pandas-1.5.3 pathspec-0.12.1 plac-1.1.3 platformdirs-4.3.6 pooch-1.8.2 portalocker-3.1.1 praat-parselmouth-0.4.5 preshed-3.0.9 protobuf-5.28.2 psutil-6.0.0 pycparser-2.22 pydantic-2.9.2 pydantic-core-2.23.4 pydub-0.25.1 pygments-2.18.0 pylint-2.10.2 pynndescent-0.5.13 pyparsing-3.1.4 pypinyin-0.53.0 pyreadline3-3.5.4 pysbd-0.3.4 python-crfsuite-0.9.11 python-dateutil-2.9.0.post0 python-multipart-0.0.17 pytz-2024.2 pywin32-308 pyworld-0.3.5 referencing-0.35.1 regex-2024.9.11 resampy-0.4.3 rich-13.9.4 rpds-py-0.21.0 rvc-python-0.1.5 sacrebleu-2.5.1 safetensors-0.4.5 scikit-learn-1.5.2 scipy-1.11.4 semantic-version-2.10.0 shellingham-1.5.4 six-1.16.0 sniffio-1.3.1 soundfile-0.12.1 soxr-0.5.0.post1 spacy-2.3.9 srsly-1.0.7 starlette-0.36.3 sudachidict-core-20240716 sudachipy-0.6.8 tabulate-0.9.0 tensorboard-2.18.0 tensorboard-data-server-0.7.2 thinc-7.4.6 threadpoolctl-3.5.0 tokenizers-0.20.3 toml-0.10.2 tomli-2.0.2 tomlkit-0.12.0 torchaudio-2.4.1 torchcrepe-0.0.23 torchvision-0.19.1 tornado-6.4.1 tqdm-4.66.5 trainer-0.0.36 transformers-4.46.2 typeguard-4.3.0 typer-0.13.0 tzdata-2024.2 tzlocal-5.2 umap-learn-0.5.6 unidecode-1.3.8 unidic-lite-1.0.8 uvicorn-0.32.0 wasabi-0.10.1 websockets-11.0.3 werkzeug-3.0.4 win32-setctime-1.2.0 wrapt-1.12.1 yarl-1.13.1
+(RanniGPTv1) PS C:\Users\TahaMajid> conda list
+# packages in environment at C:\Users\TahaMajid\anaconda3\envs\RanniGPTv1:
+#
+# Name                    Version                   Build  Channel
+absl-py                   2.1.0                    pypi_0    pypi
+aiofiles                  23.2.1                   pypi_0    pypi
+aiohappyeyeballs          2.4.3                    pypi_0    pypi
+aiohttp                   3.10.8                   pypi_0    pypi
+aiosignal                 1.3.1                    pypi_0    pypi
+altair                    5.4.1                    pypi_0    pypi
+annotated-types           0.7.0                    pypi_0    pypi
+antlr4-python3-runtime    4.8                      pypi_0    pypi
+anyascii                  0.3.2                    pypi_0    pypi
+anyio                     4.6.0                    pypi_0    pypi
+astroid                   2.7.3                    pypi_0    pypi
+async-timeout             4.0.3                    pypi_0    pypi
+attrs                     24.2.0                   pypi_0    pypi
+audioread                 3.0.1                    pypi_0    pypi
+av                        10.0.0                   pypi_0    pypi
+babel                     2.16.0                   pypi_0    pypi
+bangla                    0.0.2                    pypi_0    pypi
+bitarray                  3.0.0                    pypi_0    pypi
+black                     24.8.0                   pypi_0    pypi
+blas                      1.0                         mkl
+blinker                   1.8.2                    pypi_0    pypi
+blis                      0.7.11                   pypi_0    pypi
+bnnumerizer               0.0.2                    pypi_0    pypi
+bnunicodenormalizer       0.1.7                    pypi_0    pypi
+bokeh                     1.4.0                    pypi_0    pypi
+brotli-python             1.0.9           py310hd77b12b_8
+bzip2                     1.0.8                h2bbff1b_6
+ca-certificates           2024.9.24            haa95532_0
+catalogue                 1.0.2                    pypi_0    pypi
+certifi                   2024.8.30       py310haa95532_0
+cffi                      1.17.1                   pypi_0    pypi
+charset-normalizer        3.3.2              pyhd3eb1b0_0
+click                     8.1.7                    pypi_0    pypi
+colorama                  0.4.6                    pypi_0    pypi
+coloredlogs               15.0.1                   pypi_0    pypi
+contourpy                 1.2.1                    pypi_0    pypi
+coqpit                    0.0.17                   pypi_0    pypi
+coverage                  7.6.1                    pypi_0    pypi
+ctranslate2               3.24.0                   pypi_0    pypi
+cuda-cccl                 12.6.77                       0    nvidia
+cuda-cccl_win-64          12.6.77                       0    nvidia
+cuda-cudart               12.1.105                      0    nvidia
+cuda-cudart-dev           12.1.105                      0    nvidia
+cuda-cupti                12.1.105                      0    nvidia
+cuda-libraries            12.1.0                        0    nvidia
+cuda-libraries-dev        12.1.0                        0    nvidia
+cuda-nvrtc                12.1.105                      0    nvidia
+cuda-nvrtc-dev            12.1.105                      0    nvidia
+cuda-nvtx                 12.1.105                      0    nvidia
+cuda-opencl               12.6.77                       0    nvidia
+cuda-opencl-dev           12.6.77                       0    nvidia
+cuda-profiler-api         12.6.77                       0    nvidia
+cuda-runtime              12.1.0                        0    nvidia
+cuda-version              12.6                          3    nvidia
+cutlet                    0.4.0                    pypi_0    pypi
+cycler                    0.12.1                   pypi_0    pypi
+cymem                     2.0.8                    pypi_0    pypi
+cython                    0.29.30                  pypi_0    pypi
+dateparser                1.1.8                    pypi_0    pypi
+decorator                 5.1.1                    pypi_0    pypi
+docopt                    0.6.2                    pypi_0    pypi
+einops                    0.8.0                    pypi_0    pypi
+encodec                   0.1.1                    pypi_0    pypi
+exceptiongroup            1.2.2                    pypi_0    pypi
+fairseq                   0.12.2                   pypi_0    pypi
+faiss-cpu                 1.7.3                    pypi_0    pypi
+fastapi                   0.110.0                  pypi_0    pypi
+faster-whisper            0.9.0                    pypi_0    pypi
+ffmpeg-python             0.2.0                    pypi_0    pypi
+ffmpy                     0.4.0                    pypi_0    pypi
+filelock                  3.13.1          py310haa95532_0
+flask                     3.0.3                    pypi_0    pypi
+flatbuffers               24.3.25                  pypi_0    pypi
+fonttools                 4.54.1                   pypi_0    pypi
+freetype                  2.12.1               ha860e81_0
+frozenlist                1.4.1                    pypi_0    pypi
+fsspec                    2024.9.0                 pypi_0    pypi
+fugashi                   1.3.2                    pypi_0    pypi
+future                    1.0.0                    pypi_0    pypi
+g2pkk                     0.1.2                    pypi_0    pypi
+gmpy2                     2.1.2           py310h7f96b67_0
+gradio                    4.7.1                    pypi_0    pypi
+gradio-client             0.7.0                    pypi_0    pypi
+grpcio                    1.66.2                   pypi_0    pypi
+gruut                     2.2.3                    pypi_0    pypi
+gruut-ipa                 0.13.0                   pypi_0    pypi
+gruut-lang-de             2.0.1                    pypi_0    pypi
+gruut-lang-en             2.0.1                    pypi_0    pypi
+gruut-lang-es             2.0.1                    pypi_0    pypi
+gruut-lang-fr             2.0.2                    pypi_0    pypi
+h11                       0.14.0                   pypi_0    pypi
+hangul-romanize           0.1.0                    pypi_0    pypi
+httpcore                  1.0.7                    pypi_0    pypi
+httpx                     0.27.2                   pypi_0    pypi
+huggingface-hub           0.26.2                   pypi_0    pypi
+humanfriendly             10.0                     pypi_0    pypi
+hydra-core                1.0.7                    pypi_0    pypi
+idna                      3.7             py310haa95532_0
+inflect                   7.4.0                    pypi_0    pypi
+intel-openmp              2023.1.0         h59b6b97_46320
+isort                     5.13.2                   pypi_0    pypi
+itsdangerous              2.2.0                    pypi_0    pypi
+jaconv                    0.4.0                    pypi_0    pypi
+jamo                      0.4.1                    pypi_0    pypi
+jieba                     0.42.1                   pypi_0    pypi
+jinja2                    3.1.4           py310haa95532_0
+joblib                    1.4.2                    pypi_0    pypi
+jpeg                      9e                   h827c3e9_3
+jsonlines                 1.2.0                    pypi_0    pypi
+jsonschema                4.23.0                   pypi_0    pypi
+jsonschema-specifications 2024.10.1                pypi_0    pypi
+kiwisolver                1.4.7                    pypi_0    pypi
+lazy-loader               0.4                      pypi_0    pypi
+lazy-object-proxy         1.10.0                   pypi_0    pypi
+lcms2                     2.12                 h83e58a3_0
+lerc                      3.0                  hd77b12b_0
+libcublas                 12.1.0.26                     0    nvidia
+libcublas-dev             12.1.0.26                     0    nvidia
+libcufft                  11.0.2.4                      0    nvidia
+libcufft-dev              11.0.2.4                      0    nvidia
+libcurand                 10.3.7.77                     0    nvidia
+libcurand-dev             10.3.7.77                     0    nvidia
+libcusolver               11.4.4.55                     0    nvidia
+libcusolver-dev           11.4.4.55                     0    nvidia
+libcusparse               12.0.2.55                     0    nvidia
+libcusparse-dev           12.0.2.55                     0    nvidia
+libdeflate                1.17                 h2bbff1b_1
+libffi                    3.4.4                hd77b12b_1
+libjpeg-turbo             2.0.0                h196d8e1_0
+libnpp                    12.0.2.50                     0    nvidia
+libnpp-dev                12.0.2.50                     0    nvidia
+libnvjitlink              12.1.105                      0    nvidia
+libnvjitlink-dev          12.1.105                      0    nvidia
+libnvjpeg                 12.1.1.14                     0    nvidia
+libnvjpeg-dev             12.1.1.14                     0    nvidia
+libpng                    1.6.39               h8cc25b3_0
+librosa                   0.10.0                   pypi_0    pypi
+libtiff                   4.5.1                hd77b12b_0
+libuv                     1.48.0               h827c3e9_0
+libwebp-base              1.3.2                h2bbff1b_0
+llvmlite                  0.43.0                   pypi_0    pypi
+loguru                    0.7.3                    pypi_0    pypi
+lxml                      5.3.1                    pypi_0    pypi
+lz4-c                     1.9.4                h2bbff1b_1
+markdown                  3.7                      pypi_0    pypi
+markdown-it-py            3.0.0                    pypi_0    pypi
+markupsafe                2.1.3           py310h2bbff1b_0
+matplotlib                3.8.4                    pypi_0    pypi
+mccabe                    0.6.1                    pypi_0    pypi
+mdurl                     0.1.2                    pypi_0    pypi
+mecab-python3             1.0.6                    pypi_0    pypi
+mkl                       2023.1.0         h6b88ed4_46358
+mkl-service               2.4.0           py310h2bbff1b_1
+mkl_fft                   1.3.10          py310h827c3e9_0
+mkl_random                1.2.7           py310hc64d2fc_0
+mojimoji                  0.0.13                   pypi_0    pypi
+more-itertools            10.5.0                   pypi_0    pypi
+mpc                       1.1.0                h7edee0f_1
+mpfr                      4.0.2                h62dcd97_1
+mpir                      3.0.0                hec2e145_1
+mpmath                    1.3.0           py310haa95532_0
+msgpack                   1.1.0                    pypi_0    pypi
+multidict                 6.1.0                    pypi_0    pypi
+murmurhash                1.0.10                   pypi_0    pypi
+mutagen                   1.47.0                   pypi_0    pypi
+mypy-extensions           1.0.0                    pypi_0    pypi
+narwhals                  1.13.5                   pypi_0    pypi
+networkx                  2.8.8                    pypi_0    pypi
+nltk                      3.9.1                    pypi_0    pypi
+nose2                     0.15.1                   pypi_0    pypi
+num2words                 0.5.13                   pypi_0    pypi
+numba                     0.60.0                   pypi_0    pypi
+numpy                     1.22.0                   pypi_0    pypi
+omegaconf                 2.0.6                    pypi_0    pypi
+onnxruntime               1.20.0                   pypi_0    pypi
+openjpeg                  2.5.2                hae555c5_0
+openssl                   3.0.15               h827c3e9_0
+orjson                    3.10.11                  pypi_0    pypi
+packaging                 24.1                     pypi_0    pypi
+pandas                    1.5.3                    pypi_0    pypi
+pathspec                  0.12.1                   pypi_0    pypi
+pillow                    10.4.0          py310h827c3e9_0
+pip                       24.0            py310haa95532_0
+plac                      1.1.3                    pypi_0    pypi
+platformdirs              4.3.6                    pypi_0    pypi
+pooch                     1.8.2                    pypi_0    pypi
+portalocker               3.1.1                    pypi_0    pypi
+praat-parselmouth         0.4.5                    pypi_0    pypi
+preshed                   3.0.9                    pypi_0    pypi
+protobuf                  5.28.2                   pypi_0    pypi
+psutil                    6.0.0                    pypi_0    pypi
+pycparser                 2.22                     pypi_0    pypi
+pydantic                  2.9.2                    pypi_0    pypi
+pydantic-core             2.23.4                   pypi_0    pypi
+pydub                     0.25.1                   pypi_0    pypi
+pygments                  2.18.0                   pypi_0    pypi
+pylint                    2.10.2                   pypi_0    pypi
+pynndescent               0.5.13                   pypi_0    pypi
+pyparsing                 3.1.4                    pypi_0    pypi
+pypinyin                  0.53.0                   pypi_0    pypi
+pyreadline3               3.5.4                    pypi_0    pypi
+pysbd                     0.3.4                    pypi_0    pypi
+pysocks                   1.7.1           py310haa95532_0
+python                    3.10.14              he1021f5_1
+python-crfsuite           0.9.11                   pypi_0    pypi
+python-dateutil           2.9.0.post0              pypi_0    pypi
+python-multipart          0.0.17                   pypi_0    pypi
+pytorch                   2.4.1           py3.10_cuda12.1_cudnn9_0    pytorch
+pytorch-cuda              12.1                 hde6ce7c_5    pytorch
+pytorch-mutex             1.0                        cuda    pytorch
+pytz                      2024.2                   pypi_0    pypi
+pywin32                   308                      pypi_0    pypi
+pyworld                   0.3.5                    pypi_0    pypi
+pyyaml                    6.0.1           py310h2bbff1b_0
+referencing               0.35.1                   pypi_0    pypi
+regex                     2024.9.11                pypi_0    pypi
+requests                  2.32.3          py310haa95532_0
+resampy                   0.4.3                    pypi_0    pypi
+rich                      13.9.4                   pypi_0    pypi
+rpds-py                   0.21.0                   pypi_0    pypi
+rvc-python                0.1.5                    pypi_0    pypi
+sacrebleu                 2.5.1                    pypi_0    pypi
+safetensors               0.4.5                    pypi_0    pypi
+scikit-learn              1.5.2                    pypi_0    pypi
+scipy                     1.11.4                   pypi_0    pypi
+semantic-version          2.10.0                   pypi_0    pypi
+setuptools                75.1.0          py310haa95532_0
+shellingham               1.5.4                    pypi_0    pypi
+six                       1.16.0                   pypi_0    pypi
+sniffio                   1.3.1                    pypi_0    pypi
+soundfile                 0.12.1                   pypi_0    pypi
+soxr                      0.5.0.post1              pypi_0    pypi
+spacy                     2.3.9                    pypi_0    pypi
+sqlite                    3.45.3               h2bbff1b_0
+srsly                     1.0.7                    pypi_0    pypi
+starlette                 0.36.3                   pypi_0    pypi
+sudachidict-core          20240716                 pypi_0    pypi
+sudachipy                 0.6.8                    pypi_0    pypi
+sympy                     1.13.2          py310haa95532_0
+tabulate                  0.9.0                    pypi_0    pypi
+tbb                       2021.8.0             h59b6b97_0
+tensorboard               2.18.0                   pypi_0    pypi
+tensorboard-data-server   0.7.2                    pypi_0    pypi
+thinc                     7.4.6                    pypi_0    pypi
+threadpoolctl             3.5.0                    pypi_0    pypi
+tk                        8.6.14               h0416ee5_0
+tokenizers                0.20.3                   pypi_0    pypi
+toml                      0.10.2                   pypi_0    pypi
+tomli                     2.0.2                    pypi_0    pypi
+tomlkit                   0.12.0                   pypi_0    pypi
+torchaudio                2.4.1                    pypi_0    pypi
+torchcrepe                0.0.23                   pypi_0    pypi
+torchvision               0.19.1                   pypi_0    pypi
+tornado                   6.4.1                    pypi_0    pypi
+tqdm                      4.66.5                   pypi_0    pypi
+trainer                   0.0.36                   pypi_0    pypi
+transformers              4.46.2                   pypi_0    pypi
+typeguard                 4.3.0                    pypi_0    pypi
+typer                     0.13.0                   pypi_0    pypi
+typing_extensions         4.11.0          py310haa95532_0
+tzdata                    2024.2                   pypi_0    pypi
+tzlocal                   5.2                      pypi_0    pypi
+umap-learn                0.5.6                    pypi_0    pypi
+unidecode                 1.3.8                    pypi_0    pypi
+unidic-lite               1.0.8                    pypi_0    pypi
+urllib3                   2.2.3           py310haa95532_0
+uvicorn                   0.32.0                   pypi_0    pypi
+vc                        14.40                h2eaa2aa_1
+vs2015_runtime            14.40.33807          h98bb1dd_1
+wasabi                    0.10.1                   pypi_0    pypi
+websockets                11.0.3                   pypi_0    pypi
+werkzeug                  3.0.4                    pypi_0    pypi
+wheel                     0.44.0          py310haa95532_0
+win32-setctime            1.2.0                    pypi_0    pypi
+win_inet_pton             1.1.0           py310haa95532_0
+wrapt                     1.12.1                   pypi_0    pypi
+xz                        5.4.6                h8cc25b3_1
+yaml                      0.2.5                he774522_0
+yarl                      1.13.1                   pypi_0    pypi
+zlib                      1.2.13               h8cc25b3_1
+zstd                      1.5.5                hd43e919_2
+(RanniGPTv1) PS C:\Users\TahaMajid> ^C
+(RanniGPTv1) PS C:\Users\TahaMajid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+########################################
+
+PART 2: Install editable tts
+
+########################################
+
+
+
+(RanniGPTv1) PS C:\Users\TahaMajid> cd TTS
+(RanniGPTv1) PS C:\Users\TahaMajid\TTS> pip install -e .[all,dev,notebooks]
+Obtaining file:///C:/Users/TahaMajid/TTS
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Requirement already satisfied: numpy==1.22.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.22.0)
+Requirement already satisfied: cython==0.29.30 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.29.30)
+Requirement already satisfied: scipy>=1.11.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.11.4)
+Requirement already satisfied: torch>=2.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (2.4.1)
+Requirement already satisfied: torchaudio in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (2.4.1)
+Requirement already satisfied: soundfile>=0.12.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.12.1)
+Requirement already satisfied: librosa>=0.10.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.10.0)
+Requirement already satisfied: scikit-learn>=1.3.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.5.2)
+Requirement already satisfied: numba>=0.57.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.60.0)
+Requirement already satisfied: inflect>=5.6.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (7.4.0)
+Requirement already satisfied: tqdm>=4.64.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (4.66.5)
+Requirement already satisfied: anyascii>=0.3.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.3.2)
+Requirement already satisfied: pyyaml>=6.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (6.0.1)
+Requirement already satisfied: fsspec>=2023.6.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (2024.9.0)
+Requirement already satisfied: aiohttp>=3.8.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (3.10.8)
+Requirement already satisfied: packaging>=23.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (24.1)
+Requirement already satisfied: mutagen==1.47.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.47.0)
+Requirement already satisfied: flask>=2.0.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (3.0.3)
+Requirement already satisfied: pysbd>=0.3.4 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.3.4)
+Requirement already satisfied: umap-learn>=0.5.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.5.6)
+Requirement already satisfied: pandas<2.0,>=1.4 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.5.3)
+Requirement already satisfied: matplotlib>=3.7.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (3.8.4)
+Requirement already satisfied: trainer>=0.0.36 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.0.36)
+Requirement already satisfied: coqpit>=0.0.16 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.0.17)
+Requirement already satisfied: jieba in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.42.1)
+Requirement already satisfied: pypinyin in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.53.0)
+Requirement already satisfied: hangul_romanize in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.1.0)
+Requirement already satisfied: gruut==2.2.3 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.2.3)
+Requirement already satisfied: jamo in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.4.1)
+Requirement already satisfied: nltk in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (3.9.1)
+Requirement already satisfied: g2pkk>=0.1.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.1.2)
+Requirement already satisfied: bangla in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.0.2)
+Requirement already satisfied: bnnumerizer in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.0.2)
+Requirement already satisfied: bnunicodenormalizer in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.1.7)
+Requirement already satisfied: einops>=0.6.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.8.0)
+Requirement already satisfied: transformers>=4.33.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (4.46.2)
+Requirement already satisfied: encodec>=0.1.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.1.1)
+Requirement already satisfied: unidecode>=1.3.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.3.8)
+Requirement already satisfied: num2words in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.5.13)
+Requirement already satisfied: spacy==2.3.9 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy[ja]==2.3.9->TTS==0.22.0) (2.3.9)
+Requirement already satisfied: Babel<3.0.0,>=2.8.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.16.0)
+Requirement already satisfied: dateparser~=1.1.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (1.1.8)
+Requirement already satisfied: gruut-ipa<1.0,>=0.12.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (0.13.0)
+Requirement already satisfied: gruut-lang-en~=2.0.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.1)
+Requirement already satisfied: jsonlines~=1.2.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (1.2.0)
+Requirement already satisfied: networkx<3.0.0,>=2.5.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.8.8)
+Requirement already satisfied: python-crfsuite~=0.9.7 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (0.9.11)
+Requirement already satisfied: gruut-lang-de~=2.0.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.1)
+Requirement already satisfied: gruut-lang-fr~=2.0.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.2)
+Requirement already satisfied: gruut-lang-es~=2.0.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2.0.1)
+Requirement already satisfied: murmurhash<1.1.0,>=0.28.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.0.10)
+Requirement already satisfied: cymem<2.1.0,>=2.0.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.0.8)
+Requirement already satisfied: preshed<3.1.0,>=3.0.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.0.9)
+Requirement already satisfied: thinc<7.5.0,>=7.4.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (7.4.6)
+Requirement already satisfied: blis<0.8.0,>=0.4.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (0.7.11)
+Requirement already satisfied: wasabi<1.1.0,>=0.4.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (0.10.1)
+Requirement already satisfied: srsly<1.1.0,>=1.0.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.0.7)
+Requirement already satisfied: catalogue<1.1.0,>=0.0.7 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.0.2)
+Requirement already satisfied: setuptools in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (75.1.0)
+Requirement already satisfied: plac<1.2.0,>=0.9.6 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (1.1.3)
+Requirement already satisfied: requests<3.0.0,>=2.13.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.32.3)
+Requirement already satisfied: sudachipy>=0.4.5 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy[ja]==2.3.9->TTS==0.22.0) (0.6.8)
+Requirement already satisfied: sudachidict-core>=20200330 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from spacy[ja]==2.3.9->TTS==0.22.0) (20240716)
+Requirement already satisfied: black in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (24.8.0)
+Requirement already satisfied: coverage in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (7.6.1)
+Requirement already satisfied: isort in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (5.13.2)
+Requirement already satisfied: nose2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.15.1)
+Requirement already satisfied: pylint==2.10.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (2.10.2)
+Requirement already satisfied: bokeh==1.4.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.4.0)
+Requirement already satisfied: mecab-python3==1.0.6 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.0.6)
+Requirement already satisfied: unidic-lite==1.0.8 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (1.0.8)
+Requirement already satisfied: cutlet in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from TTS==0.22.0) (0.4.0)
+Requirement already satisfied: six>=1.5.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (1.16.0)
+Requirement already satisfied: python-dateutil>=2.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (2.9.0.post0)
+Requirement already satisfied: Jinja2>=2.7 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (3.1.4)
+Requirement already satisfied: pillow>=4.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (10.4.0)
+Requirement already satisfied: tornado>=4.3 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from bokeh==1.4.0->TTS==0.22.0) (6.4.1)
+Requirement already satisfied: platformdirs>=2.2.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from pylint==2.10.2->TTS==0.22.0) (4.3.6)
+Requirement already satisfied: astroid<2.8,>=2.7.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from pylint==2.10.2->TTS==0.22.0) (2.7.3)
+Requirement already satisfied: mccabe<0.7,>=0.6 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from pylint==2.10.2->TTS==0.22.0) (0.6.1)
+Requirement already satisfied: toml>=0.7.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from pylint==2.10.2->TTS==0.22.0) (0.10.2)
+Requirement already satisfied: colorama in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from pylint==2.10.2->TTS==0.22.0) (0.4.6)
+Requirement already satisfied: aiohappyeyeballs>=2.3.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (2.4.3)
+Requirement already satisfied: aiosignal>=1.1.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (1.3.1)
+Requirement already satisfied: attrs>=17.3.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (24.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (1.4.1)
+Requirement already satisfied: multidict<7.0,>=4.5 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (6.1.0)
+Requirement already satisfied: yarl<2.0,>=1.12.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (1.13.1)
+Requirement already satisfied: async-timeout<5.0,>=4.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from aiohttp>=3.8.1->TTS==0.22.0) (4.0.3)
+Requirement already satisfied: Werkzeug>=3.0.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (3.0.4)
+Requirement already satisfied: itsdangerous>=2.1.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (2.2.0)
+Requirement already satisfied: click>=8.1.3 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (8.1.7)
+Requirement already satisfied: blinker>=1.6.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from flask>=2.0.1->TTS==0.22.0) (1.8.2)
+Requirement already satisfied: more-itertools>=8.5.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from inflect>=5.6.0->TTS==0.22.0) (10.5.0)
+Requirement already satisfied: typeguard>=4.0.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from inflect>=5.6.0->TTS==0.22.0) (4.3.0)
+Requirement already satisfied: audioread>=2.1.9 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (3.0.1)
+Requirement already satisfied: joblib>=0.14 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (1.4.2)
+Requirement already satisfied: decorator>=4.3.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (5.1.1)
+Requirement already satisfied: pooch>=1.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (1.8.2)
+Requirement already satisfied: soxr>=0.3.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (0.5.0.post1)
+Requirement already satisfied: typing-extensions>=4.1.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (4.11.0)
+Requirement already satisfied: lazy-loader>=0.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (0.4)
+Requirement already satisfied: msgpack>=1.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from librosa>=0.10.0->TTS==0.22.0) (1.1.0)
+Requirement already satisfied: contourpy>=1.0.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (1.2.1)
+Requirement already satisfied: cycler>=0.10 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (4.54.1)
+Requirement already satisfied: kiwisolver>=1.3.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (1.4.7)
+Requirement already satisfied: pyparsing>=2.3.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from matplotlib>=3.7.0->TTS==0.22.0) (3.1.4)
+Requirement already satisfied: docopt>=0.6.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from num2words->TTS==0.22.0) (0.6.2)
+Requirement already satisfied: llvmlite<0.44,>=0.43.0dev0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from numba>=0.57.0->TTS==0.22.0) (0.43.0)
+Requirement already satisfied: pytz>=2020.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from pandas<2.0,>=1.4->TTS==0.22.0) (2024.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from scikit-learn>=1.3.0->TTS==0.22.0) (3.5.0)
+Requirement already satisfied: cffi>=1.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from soundfile>=0.12.0->TTS==0.22.0) (1.17.1)
+Requirement already satisfied: filelock in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from torch>=2.1->TTS==0.22.0) (3.13.1)
+Requirement already satisfied: sympy in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from torch>=2.1->TTS==0.22.0) (1.13.2)
+Requirement already satisfied: psutil in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from trainer>=0.0.36->TTS==0.22.0) (6.0.0)
+Requirement already satisfied: tensorboard in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from trainer>=0.0.36->TTS==0.22.0) (2.18.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (0.26.2)
+Requirement already satisfied: regex!=2019.12.17 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (2024.9.11)
+Requirement already satisfied: safetensors>=0.4.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (0.4.5)
+Requirement already satisfied: tokenizers<0.21,>=0.20 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from transformers>=4.33.0->TTS==0.22.0) (0.20.3)
+Requirement already satisfied: pynndescent>=0.5 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from umap-learn>=0.5.1->TTS==0.22.0) (0.5.13)
+Requirement already satisfied: mypy-extensions>=0.4.3 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from black->TTS==0.22.0) (1.0.0)
+Requirement already satisfied: pathspec>=0.9.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from black->TTS==0.22.0) (0.12.1)
+Requirement already satisfied: tomli>=1.1.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from black->TTS==0.22.0) (2.0.2)
+Requirement already satisfied: jaconv in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from cutlet->TTS==0.22.0) (0.4.0)
+Requirement already satisfied: fugashi in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from cutlet->TTS==0.22.0) (1.3.2)
+Requirement already satisfied: mojimoji in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from cutlet->TTS==0.22.0) (0.0.13)
+Requirement already satisfied: lazy-object-proxy>=1.4.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from astroid<2.8,>=2.7.2->pylint==2.10.2->TTS==0.22.0) (1.10.0)
+Requirement already satisfied: wrapt<1.13,>=1.11 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from astroid<2.8,>=2.7.2->pylint==2.10.2->TTS==0.22.0) (1.12.1)
+Requirement already satisfied: pycparser in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from cffi>=1.0->soundfile>=0.12.0->TTS==0.22.0) (2.22)
+Requirement already satisfied: tzlocal in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from dateparser~=1.1.0->gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (5.2)
+Requirement already satisfied: MarkupSafe>=2.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from Jinja2>=2.7->bokeh==1.4.0->TTS==0.22.0) (2.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (3.7)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from requests<3.0.0,>=2.13.0->spacy==2.3.9->spacy[ja]==2.3.9->TTS==0.22.0) (2024.8.30)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from sympy->torch>=2.1->TTS==0.22.0) (1.3.0)
+Requirement already satisfied: absl-py>=0.4 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (2.1.0)
+Requirement already satisfied: grpcio>=1.48.2 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (1.66.2)
+Requirement already satisfied: markdown>=2.6.8 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (3.7)
+Requirement already satisfied: protobuf!=4.24.0,>=3.19.6 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (5.28.2)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from tensorboard->trainer>=0.0.36->TTS==0.22.0) (0.7.2)
+Requirement already satisfied: tzdata in c:\users\tahamajid\anaconda3\envs\rannigptv1\lib\site-packages (from tzlocal->dateparser~=1.1.0->gruut==2.2.3->gruut[de,es,fr]==2.2.3->TTS==0.22.0) (2024.2)
+Checking if build backend supports build_editable ... done
+Building wheels for collected packages: TTS
+  Building editable for TTS (pyproject.toml) ... done
+  Created wheel for TTS: filename=tts-0.22.0-0.editable-cp310-cp310-win_amd64.whl size=15277 sha256=98277bd1295f1a8e7b2cbb2d951fdc3c79590897f2ad8c52965caaec34511e60
+  Stored in directory: C:\Users\TahaMajid\AppData\Local\Temp\pip-ephem-wheel-cache-plajbb0s\wheels\fb\08\b0\f155bc5f2028df31b903580a17d5f0dc097a772e218a47e23d
+Successfully built TTS
+DEPRECATION: omegaconf 2.0.6 has a non-standard dependency specifier PyYAML>=5.1.*. pip 24.1 will enforce this behaviour change. A possible replacement is to upgrade to a newer version of omegaconf or contact the author to suggest that they release a version with a conforming dependency specifiers. Discussion can be found at https://github.com/pypa/pip/issues/12063
+Installing collected packages: TTS
+Successfully installed TTS-0.22.0
+(RanniGPTv1) PS C:\Users\TahaMajid\TTS>
+
+
+
+
+
+
+
+
+
+
+
+
+
+############################
+
+FINAL ENV LIST
+
+############################
+
+
+
+(RanniGPTv1) PS C:\Users\TahaMajid\TTS> conda list
+# packages in environment at C:\Users\TahaMajid\anaconda3\envs\RanniGPTv1:
+#
+# Name                    Version                   Build  Channel
+absl-py                   2.1.0                    pypi_0    pypi
+aiofiles                  23.2.1                   pypi_0    pypi
+aiohappyeyeballs          2.4.3                    pypi_0    pypi
+aiohttp                   3.10.8                   pypi_0    pypi
+aiosignal                 1.3.1                    pypi_0    pypi
+altair                    5.4.1                    pypi_0    pypi
+annotated-types           0.7.0                    pypi_0    pypi
+antlr4-python3-runtime    4.8                      pypi_0    pypi
+anyascii                  0.3.2                    pypi_0    pypi
+anyio                     4.6.0                    pypi_0    pypi
+astroid                   2.7.3                    pypi_0    pypi
+async-timeout             4.0.3                    pypi_0    pypi
+attrs                     24.2.0                   pypi_0    pypi
+audioread                 3.0.1                    pypi_0    pypi
+av                        10.0.0                   pypi_0    pypi
+babel                     2.16.0                   pypi_0    pypi
+bangla                    0.0.2                    pypi_0    pypi
+bitarray                  3.0.0                    pypi_0    pypi
+black                     24.8.0                   pypi_0    pypi
+blas                      1.0                         mkl
+blinker                   1.8.2                    pypi_0    pypi
+blis                      0.7.11                   pypi_0    pypi
+bnnumerizer               0.0.2                    pypi_0    pypi
+bnunicodenormalizer       0.1.7                    pypi_0    pypi
+bokeh                     1.4.0                    pypi_0    pypi
+brotli-python             1.0.9           py310hd77b12b_8
+bzip2                     1.0.8                h2bbff1b_6
+ca-certificates           2024.9.24            haa95532_0
+catalogue                 1.0.2                    pypi_0    pypi
+certifi                   2024.8.30       py310haa95532_0
+cffi                      1.17.1                   pypi_0    pypi
+charset-normalizer        3.3.2              pyhd3eb1b0_0
+click                     8.1.7                    pypi_0    pypi
+colorama                  0.4.6                    pypi_0    pypi
+coloredlogs               15.0.1                   pypi_0    pypi
+contourpy                 1.2.1                    pypi_0    pypi
+coqpit                    0.0.17                   pypi_0    pypi
+coverage                  7.6.1                    pypi_0    pypi
+ctranslate2               3.24.0                   pypi_0    pypi
+cuda-cccl                 12.6.77                       0    nvidia
+cuda-cccl_win-64          12.6.77                       0    nvidia
+cuda-cudart               12.1.105                      0    nvidia
+cuda-cudart-dev           12.1.105                      0    nvidia
+cuda-cupti                12.1.105                      0    nvidia
+cuda-libraries            12.1.0                        0    nvidia
+cuda-libraries-dev        12.1.0                        0    nvidia
+cuda-nvrtc                12.1.105                      0    nvidia
+cuda-nvrtc-dev            12.1.105                      0    nvidia
+cuda-nvtx                 12.1.105                      0    nvidia
+cuda-opencl               12.6.77                       0    nvidia
+cuda-opencl-dev           12.6.77                       0    nvidia
+cuda-profiler-api         12.6.77                       0    nvidia
+cuda-runtime              12.1.0                        0    nvidia
+cuda-version              12.6                          3    nvidia
+cutlet                    0.4.0                    pypi_0    pypi
+cycler                    0.12.1                   pypi_0    pypi
+cymem                     2.0.8                    pypi_0    pypi
+cython                    0.29.30                  pypi_0    pypi
+dateparser                1.1.8                    pypi_0    pypi
+decorator                 5.1.1                    pypi_0    pypi
+docopt                    0.6.2                    pypi_0    pypi
+einops                    0.8.0                    pypi_0    pypi
+encodec                   0.1.1                    pypi_0    pypi
+exceptiongroup            1.2.2                    pypi_0    pypi
+fairseq                   0.12.2                   pypi_0    pypi
+faiss-cpu                 1.7.3                    pypi_0    pypi
+fastapi                   0.110.0                  pypi_0    pypi
+faster-whisper            0.9.0                    pypi_0    pypi
+ffmpeg-python             0.2.0                    pypi_0    pypi
+ffmpy                     0.4.0                    pypi_0    pypi
+filelock                  3.13.1          py310haa95532_0
+flask                     3.0.3                    pypi_0    pypi
+flatbuffers               24.3.25                  pypi_0    pypi
+fonttools                 4.54.1                   pypi_0    pypi
+freetype                  2.12.1               ha860e81_0
+frozenlist                1.4.1                    pypi_0    pypi
+fsspec                    2024.9.0                 pypi_0    pypi
+fugashi                   1.3.2                    pypi_0    pypi
+future                    1.0.0                    pypi_0    pypi
+g2pkk                     0.1.2                    pypi_0    pypi
+gmpy2                     2.1.2           py310h7f96b67_0
+gradio                    4.7.1                    pypi_0    pypi
+gradio-client             0.7.0                    pypi_0    pypi
+grpcio                    1.66.2                   pypi_0    pypi
+gruut                     2.2.3                    pypi_0    pypi
+gruut-ipa                 0.13.0                   pypi_0    pypi
+gruut-lang-de             2.0.1                    pypi_0    pypi
+gruut-lang-en             2.0.1                    pypi_0    pypi
+gruut-lang-es             2.0.1                    pypi_0    pypi
+gruut-lang-fr             2.0.2                    pypi_0    pypi
+h11                       0.14.0                   pypi_0    pypi
+hangul-romanize           0.1.0                    pypi_0    pypi
+httpcore                  1.0.7                    pypi_0    pypi
+httpx                     0.27.2                   pypi_0    pypi
+huggingface-hub           0.26.2                   pypi_0    pypi
+humanfriendly             10.0                     pypi_0    pypi
+hydra-core                1.0.7                    pypi_0    pypi
+idna                      3.7             py310haa95532_0
+inflect                   7.4.0                    pypi_0    pypi
+intel-openmp              2023.1.0         h59b6b97_46320
+isort                     5.13.2                   pypi_0    pypi
+itsdangerous              2.2.0                    pypi_0    pypi
+jaconv                    0.4.0                    pypi_0    pypi
+jamo                      0.4.1                    pypi_0    pypi
+jieba                     0.42.1                   pypi_0    pypi
+jinja2                    3.1.4           py310haa95532_0
+joblib                    1.4.2                    pypi_0    pypi
+jpeg                      9e                   h827c3e9_3
+jsonlines                 1.2.0                    pypi_0    pypi
+jsonschema                4.23.0                   pypi_0    pypi
+jsonschema-specifications 2024.10.1                pypi_0    pypi
+kiwisolver                1.4.7                    pypi_0    pypi
+lazy-loader               0.4                      pypi_0    pypi
+lazy-object-proxy         1.10.0                   pypi_0    pypi
+lcms2                     2.12                 h83e58a3_0
+lerc                      3.0                  hd77b12b_0
+libcublas                 12.1.0.26                     0    nvidia
+libcublas-dev             12.1.0.26                     0    nvidia
+libcufft                  11.0.2.4                      0    nvidia
+libcufft-dev              11.0.2.4                      0    nvidia
+libcurand                 10.3.7.77                     0    nvidia
+libcurand-dev             10.3.7.77                     0    nvidia
+libcusolver               11.4.4.55                     0    nvidia
+libcusolver-dev           11.4.4.55                     0    nvidia
+libcusparse               12.0.2.55                     0    nvidia
+libcusparse-dev           12.0.2.55                     0    nvidia
+libdeflate                1.17                 h2bbff1b_1
+libffi                    3.4.4                hd77b12b_1
+libjpeg-turbo             2.0.0                h196d8e1_0
+libnpp                    12.0.2.50                     0    nvidia
+libnpp-dev                12.0.2.50                     0    nvidia
+libnvjitlink              12.1.105                      0    nvidia
+libnvjitlink-dev          12.1.105                      0    nvidia
+libnvjpeg                 12.1.1.14                     0    nvidia
+libnvjpeg-dev             12.1.1.14                     0    nvidia
+libpng                    1.6.39               h8cc25b3_0
+librosa                   0.10.0                   pypi_0    pypi
+libtiff                   4.5.1                hd77b12b_0
+libuv                     1.48.0               h827c3e9_0
+libwebp-base              1.3.2                h2bbff1b_0
+llvmlite                  0.43.0                   pypi_0    pypi
+loguru                    0.7.3                    pypi_0    pypi
+lxml                      5.3.1                    pypi_0    pypi
+lz4-c                     1.9.4                h2bbff1b_1
+markdown                  3.7                      pypi_0    pypi
+markdown-it-py            3.0.0                    pypi_0    pypi
+markupsafe                2.1.3           py310h2bbff1b_0
+matplotlib                3.8.4                    pypi_0    pypi
+mccabe                    0.6.1                    pypi_0    pypi
+mdurl                     0.1.2                    pypi_0    pypi
+mecab-python3             1.0.6                    pypi_0    pypi
+mkl                       2023.1.0         h6b88ed4_46358
+mkl-service               2.4.0           py310h2bbff1b_1
+mkl_fft                   1.3.10          py310h827c3e9_0
+mkl_random                1.2.7           py310hc64d2fc_0
+mojimoji                  0.0.13                   pypi_0    pypi
+more-itertools            10.5.0                   pypi_0    pypi
+mpc                       1.1.0                h7edee0f_1
+mpfr                      4.0.2                h62dcd97_1
+mpir                      3.0.0                hec2e145_1
+mpmath                    1.3.0           py310haa95532_0
+msgpack                   1.1.0                    pypi_0    pypi
+multidict                 6.1.0                    pypi_0    pypi
+murmurhash                1.0.10                   pypi_0    pypi
+mutagen                   1.47.0                   pypi_0    pypi
+mypy-extensions           1.0.0                    pypi_0    pypi
+narwhals                  1.13.5                   pypi_0    pypi
+networkx                  2.8.8                    pypi_0    pypi
+nltk                      3.9.1                    pypi_0    pypi
+nose2                     0.15.1                   pypi_0    pypi
+num2words                 0.5.13                   pypi_0    pypi
+numba                     0.60.0                   pypi_0    pypi
+numpy                     1.22.0                   pypi_0    pypi
+omegaconf                 2.0.6                    pypi_0    pypi
+onnxruntime               1.20.0                   pypi_0    pypi
+openjpeg                  2.5.2                hae555c5_0
+openssl                   3.0.15               h827c3e9_0
+orjson                    3.10.11                  pypi_0    pypi
+packaging                 24.1                     pypi_0    pypi
+pandas                    1.5.3                    pypi_0    pypi
+pathspec                  0.12.1                   pypi_0    pypi
+pillow                    10.4.0          py310h827c3e9_0
+pip                       24.0            py310haa95532_0
+plac                      1.1.3                    pypi_0    pypi
+platformdirs              4.3.6                    pypi_0    pypi
+pooch                     1.8.2                    pypi_0    pypi
+portalocker               3.1.1                    pypi_0    pypi
+praat-parselmouth         0.4.5                    pypi_0    pypi
+preshed                   3.0.9                    pypi_0    pypi
+protobuf                  5.28.2                   pypi_0    pypi
+psutil                    6.0.0                    pypi_0    pypi
+pycparser                 2.22                     pypi_0    pypi
+pydantic                  2.9.2                    pypi_0    pypi
+pydantic-core             2.23.4                   pypi_0    pypi
+pydub                     0.25.1                   pypi_0    pypi
+pygments                  2.18.0                   pypi_0    pypi
+pylint                    2.10.2                   pypi_0    pypi
+pynndescent               0.5.13                   pypi_0    pypi
+pyparsing                 3.1.4                    pypi_0    pypi
+pypinyin                  0.53.0                   pypi_0    pypi
+pyreadline3               3.5.4                    pypi_0    pypi
+pysbd                     0.3.4                    pypi_0    pypi
+pysocks                   1.7.1           py310haa95532_0
+python                    3.10.14              he1021f5_1
+python-crfsuite           0.9.11                   pypi_0    pypi
+python-dateutil           2.9.0.post0              pypi_0    pypi
+python-multipart          0.0.17                   pypi_0    pypi
+pytorch                   2.4.1           py3.10_cuda12.1_cudnn9_0    pytorch
+pytorch-cuda              12.1                 hde6ce7c_5    pytorch
+pytorch-mutex             1.0                        cuda    pytorch
+pytz                      2024.2                   pypi_0    pypi
+pywin32                   308                      pypi_0    pypi
+pyworld                   0.3.5                    pypi_0    pypi
+pyyaml                    6.0.1           py310h2bbff1b_0
+referencing               0.35.1                   pypi_0    pypi
+regex                     2024.9.11                pypi_0    pypi
+requests                  2.32.3          py310haa95532_0
+resampy                   0.4.3                    pypi_0    pypi
+rich                      13.9.4                   pypi_0    pypi
+rpds-py                   0.21.0                   pypi_0    pypi
+rvc-python                0.1.5                    pypi_0    pypi
+sacrebleu                 2.5.1                    pypi_0    pypi
+safetensors               0.4.5                    pypi_0    pypi
+scikit-learn              1.5.2                    pypi_0    pypi
+scipy                     1.11.4                   pypi_0    pypi
+semantic-version          2.10.0                   pypi_0    pypi
+setuptools                75.1.0          py310haa95532_0
+shellingham               1.5.4                    pypi_0    pypi
+six                       1.16.0                   pypi_0    pypi
+sniffio                   1.3.1                    pypi_0    pypi
+soundfile                 0.12.1                   pypi_0    pypi
+soxr                      0.5.0.post1              pypi_0    pypi
+spacy                     2.3.9                    pypi_0    pypi
+sqlite                    3.45.3               h2bbff1b_0
+srsly                     1.0.7                    pypi_0    pypi
+starlette                 0.36.3                   pypi_0    pypi
+sudachidict-core          20240716                 pypi_0    pypi
+sudachipy                 0.6.8                    pypi_0    pypi
+sympy                     1.13.2          py310haa95532_0
+tabulate                  0.9.0                    pypi_0    pypi
+tbb                       2021.8.0             h59b6b97_0
+tensorboard               2.18.0                   pypi_0    pypi
+tensorboard-data-server   0.7.2                    pypi_0    pypi
+thinc                     7.4.6                    pypi_0    pypi
+threadpoolctl             3.5.0                    pypi_0    pypi
+tk                        8.6.14               h0416ee5_0
+tokenizers                0.20.3                   pypi_0    pypi
+toml                      0.10.2                   pypi_0    pypi
+tomli                     2.0.2                    pypi_0    pypi
+tomlkit                   0.12.0                   pypi_0    pypi
+torchaudio                2.4.1                    pypi_0    pypi
+torchcrepe                0.0.23                   pypi_0    pypi
+torchvision               0.19.1                   pypi_0    pypi
+tornado                   6.4.1                    pypi_0    pypi
+tqdm                      4.66.5                   pypi_0    pypi
+trainer                   0.0.36                   pypi_0    pypi
+transformers              4.46.2                   pypi_0    pypi
+tts                       0.22.0                   pypi_0    pypi
+typeguard                 4.3.0                    pypi_0    pypi
+typer                     0.13.0                   pypi_0    pypi
+typing_extensions         4.11.0          py310haa95532_0
+tzdata                    2024.2                   pypi_0    pypi
+tzlocal                   5.2                      pypi_0    pypi
+umap-learn                0.5.6                    pypi_0    pypi
+unidecode                 1.3.8                    pypi_0    pypi
+unidic-lite               1.0.8                    pypi_0    pypi
+urllib3                   2.2.3           py310haa95532_0
+uvicorn                   0.32.0                   pypi_0    pypi
+vc                        14.40                h2eaa2aa_1
+vs2015_runtime            14.40.33807          h98bb1dd_1
+wasabi                    0.10.1                   pypi_0    pypi
+websockets                11.0.3                   pypi_0    pypi
+werkzeug                  3.0.4                    pypi_0    pypi
+wheel                     0.44.0          py310haa95532_0
+win32-setctime            1.2.0                    pypi_0    pypi
+win_inet_pton             1.1.0           py310haa95532_0
+wrapt                     1.12.1                   pypi_0    pypi
+xz                        5.4.6                h8cc25b3_1
+yaml                      0.2.5                he774522_0
+yarl                      1.13.1                   pypi_0    pypi
+zlib                      1.2.13               h8cc25b3_1
+zstd                      1.5.5                hd43e919_2
+(RanniGPTv1) PS C:\Users\TahaMajid\TTS>

@@ -1,0 +1,518 @@
+Attempt 1:
+- added pip==24.0 at top of environment file and used create env
+	- It said "requirement already satisfied pip==24.0" (as it was in there twice) and "collecting omegaconf" (previous error) did not cause a problem this time, so I guess that issue is sorted.
+- note that it did also install tts on its own here. I guess the manual install will override this hopefully so that I have the full editable version from coqui's repo directly.
+- different error to the usual, says mismatch between faster-whisper and tokenizer. maybe this has come up before and it auto solved or doing it another way (in multiple steps) solved the issue and created a match. It didn't here however.
+	- "The conflict is caused by:
+   	The user requested tokenizers==0.20.3
+    	faster-whisper 0.9.0 depends on tokenizers<0.15 and >=0.13"
+	- However reviewing my final package list from when RanniGPTv1 was 
+made on my desktop PC, it lists versions: faster-whisper v0.9.0 and tokenizers 0.20.3
+
+
+Options to proceed:
+- Find a command to force versions/ignore dependencies during initial install
+- Split conda and pip packages into a separate env.yml and requirements.txt file
+	- conda installs forced pip version and potentially the stuff that's already in spec-file
+- mehhh… I don't like it but we could try splitting it up into an extra step (adding in forced faster-whisper after install)
+
+
+
+((base) PS C:\Users\TahaMajid> conda env list
+
+# conda environments:
+#
+base                 * C:\Users\TahaMajid\anaconda3
+
+(base) PS C:\Users\TahaMajid> conda env create -f "RanniGPTv1-env-pip24.yml"
+Channels:
+ - pytorch
+ - nvidia
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Installing pip dependencies: \ Ran pip subprocess with argument:
+['C:\\Users\\TahaMajid\\anaconda3\\envs\\RanniGPTv1\\python.exe]
+Pip subprocess output:
+Collecting absl-py==2.1.0 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached absl_py-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting aiofiles==23.2.1 (from -r C:\Users\TahaMajid\condaen)
+  Using cached aiofiles-23.2.1-py3-none-any.whl.metadata (9.7 k)
+Collecting aiohappyeyeballs==2.4.3 (from -r C:\Users\TahaMajid\)
+  Using cached aiohappyeyeballs-2.4.3-py3-none-any.whl.metadata)
+Collecting aiohttp==3.10.8 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached aiohttp-3.10.8-cp310-cp310-win_amd64.whl.metadat)
+Collecting aiosignal==1.3.1 (from -r C:\Users\TahaMajid\condaen)
+  Using cached aiosignal-1.3.1-py3-none-any.whl.metadata (4.0 k)
+Collecting altair==5.4.1 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached altair-5.4.1-py3-none-any.whl.metadata (9.4 kB)
+Collecting annotated-types==0.7.0 (from -r C:\Users\TahaMajid\c)
+  Using cached annotated_types-0.7.0-py3-none-any.whl.metadata )
+Collecting antlr4-python3-runtime==4.8 (from -r C:\Users\TahaMa)
+  Using cached antlr4-python3-runtime-4.8.tar.gz (112 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting anyascii==0.3.2 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached anyascii-0.3.2-py3-none-any.whl.metadata (1.5 kB)
+Collecting anyio==4.6.0 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached anyio-4.6.0-py3-none-any.whl.metadata (4.6 kB)
+Collecting astroid==2.7.3 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached astroid-2.7.3-py3-none-any.whl.metadata (4.7 kB)
+Collecting async-timeout==4.0.3 (from -r C:\Users\TahaMajid\con)
+  Using cached async_timeout-4.0.3-py3-none-any.whl.metadata (4)
+Collecting attrs==24.2.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached attrs-24.2.0-py3-none-any.whl.metadata (11 kB)
+Collecting audioread==3.0.1 (from -r C:\Users\TahaMajid\condaen)
+  Using cached audioread-3.0.1-py3-none-any.whl.metadata (8.4 k)
+Collecting av==10.0.0 (from -r C:\Users\TahaMajid\condaenv.dzk2)
+  Using cached av-10.0.0-cp310-cp310-win_amd64.whl.metadata (4.)
+Collecting babel==2.16.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached babel-2.16.0-py3-none-any.whl.metadata (1.5 kB)
+Collecting bangla==0.0.2 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached bangla-0.0.2-py2.py3-none-any.whl.metadata (4.5 )
+Collecting bitarray==3.0.0 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached bitarray-3.0.0-cp310-cp310-win_amd64.whl.metadat)
+Collecting black==24.8.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached black-24.8.0-cp310-cp310-win_amd64.whl.metadata )
+Collecting blinker==1.8.2 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached blinker-1.8.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting blis==0.7.11 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached blis-0.7.11-cp310-cp310-win_amd64.whl.metadata ()
+Collecting bnnumerizer==0.0.2 (from -r C:\Users\TahaMajid\conda)
+  Using cached bnnumerizer-0.0.2.tar.gz (4.7 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting bnunicodenormalizer==0.1.7 (from -r C:\Users\TahaMaj)
+  Using cached bnunicodenormalizer-0.1.7-py3-none-any.whl.metad)
+Collecting bokeh==1.4.0 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached bokeh-1.4.0.tar.gz (32.4 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting catalogue==1.0.2 (from -r C:\Users\TahaMajid\condaen)
+  Using cached catalogue-1.0.2-py2.py3-none-any.whl.metadata (1)
+Collecting cffi==1.17.1 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached cffi-1.17.1-cp310-cp310-win_amd64.whl.metadata ()
+Collecting click==8.1.7 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached click-8.1.7-py3-none-any.whl.metadata (3.0 kB)
+Collecting colorama==0.4.6 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17)
+Collecting coloredlogs==15.0.1 (from -r C:\Users\TahaMajid\cond)
+  Using cached coloredlogs-15.0.1-py2.py3-none-any.whl.metadata)
+Collecting contourpy==1.2.1 (from -r C:\Users\TahaMajid\condaen)
+  Using cached contourpy-1.2.1-cp310-cp310-win_amd64.whl.metada)
+Collecting coqpit==0.0.17 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached coqpit-0.0.17-py3-none-any.whl.metadata (11 kB)
+Collecting coverage==7.6.1 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached coverage-7.6.1-cp310-cp310-win_amd64.whl.metadat)
+Collecting ctranslate2==3.24.0 (from -r C:\Users\TahaMajid\cond)
+  Using cached ctranslate2-3.24.0-cp310-cp310-win_amd64.whl.met)
+Collecting cutlet==0.4.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached cutlet-0.4.0.tar.gz (412 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'do'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'do'
+Collecting cycler==0.12.1 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting cymem==2.0.8 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached cymem-2.0.8-cp310-cp310-win_amd64.whl.metadata ()
+Collecting cython==0.29.30 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached Cython-0.29.30-py2.py3-none-any.whl.metadata (2.)
+Collecting dateparser==1.1.8 (from -r C:\Users\TahaMajid\condae)
+  Using cached dateparser-1.1.8-py2.py3-none-any.whl.metadata ()
+Collecting decorator==5.1.1 (from -r C:\Users\TahaMajid\condaen)
+  Using cached decorator-5.1.1-py3-none-any.whl.metadata (4.0 k)
+Collecting docopt==0.6.2 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached docopt-0.6.2.tar.gz (25 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting einops==0.8.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached einops-0.8.0-py3-none-any.whl.metadata (12 kB)
+Collecting encodec==0.1.1 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached encodec-0.1.1.tar.gz (3.7 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting exceptiongroup==1.2.2 (from -r C:\Users\TahaMajid\co)
+  Using cached exceptiongroup-1.2.2-py3-none-any.whl.metadata ()
+Collecting fairseq==0.12.2 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached fairseq-0.12.2.tar.gz (9.6 MB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'do'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'do'
+Collecting faiss-cpu==1.7.3 (from -r C:\Users\TahaMajid\condaen)
+  Using cached faiss_cpu-1.7.3-cp310-cp310-win_amd64.whl.metada)
+Collecting fastapi==0.110.0 (from -r C:\Users\TahaMajid\condaen)
+  Using cached fastapi-0.110.0-py3-none-any.whl.metadata (25 kB)
+Collecting faster-whisper==0.9.0 (from -r C:\Users\TahaMajid\co)
+  Using cached faster_whisper-0.9.0-py3-none-any.whl.metadata ()
+Collecting ffmpeg-python==0.2.0 (from -r C:\Users\TahaMajid\con)
+  Using cached ffmpeg_python-0.2.0-py3-none-any.whl.metadata (1)
+Collecting ffmpy==0.4.0 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached ffmpy-0.4.0-py3-none-any.whl.metadata (2.9 kB)
+Collecting flask==3.0.3 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting flatbuffers==24.3.25 (from -r C:\Users\TahaMajid\con)
+  Using cached flatbuffers-24.3.25-py2.py3-none-any.whl.metadat)
+Collecting fonttools==4.54.1 (from -r C:\Users\TahaMajid\condae)
+  Using cached fonttools-4.54.1-cp310-cp310-win_amd64.whl.metad)
+Collecting frozenlist==1.4.1 (from -r C:\Users\TahaMajid\condae)
+  Using cached frozenlist-1.4.1-cp310-cp310-win_amd64.whl.metad)
+Collecting fsspec==2024.9.0 (from -r C:\Users\TahaMajid\condaen)
+  Using cached fsspec-2024.9.0-py3-none-any.whl.metadata (11 kB)
+Collecting fugashi==1.3.2 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached fugashi-1.3.2-cp310-cp310-win_amd64.whl.metadata)
+Collecting future==1.0.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached future-1.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting g2pkk==0.1.2 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached g2pkk-0.1.2-py3-none-any.whl.metadata (2.0 kB)
+Collecting gradio==4.7.1 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached gradio-4.7.1-py3-none-any.whl.metadata (17 kB)
+Collecting gradio-client==0.7.0 (from -r C:\Users\TahaMajid\con)
+  Using cached gradio_client-0.7.0-py3-none-any.whl.metadata (7)
+Collecting grpcio==1.66.2 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached grpcio-1.66.2-cp310-cp310-win_amd64.whl.metadata)
+Collecting gruut==2.2.3 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached gruut-2.2.3.tar.gz (73 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting gruut-ipa==0.13.0 (from -r C:\Users\TahaMajid\condae)
+  Using cached gruut-ipa-0.13.0.tar.gz (101 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting gruut-lang-de==2.0.1 (from -r C:\Users\TahaMajid\con)
+  Using cached gruut_lang_de-2.0.1.tar.gz (18.1 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting gruut-lang-en==2.0.1 (from -r C:\Users\TahaMajid\con)
+  Using cached gruut_lang_en-2.0.1.tar.gz (15.3 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting gruut-lang-es==2.0.1 (from -r C:\Users\TahaMajid\con)
+  Using cached gruut_lang_es-2.0.1.tar.gz (31.4 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting gruut-lang-fr==2.0.2 (from -r C:\Users\TahaMajid\con)
+  Using cached gruut_lang_fr-2.0.2.tar.gz (10.9 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting h11==0.14.0 (from -r C:\Users\TahaMajid\condaenv.dzk)
+  Using cached h11-0.14.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting hangul-romanize==0.1.0 (from -r C:\Users\TahaMajid\c)
+  Using cached hangul_romanize-0.1.0-py3-none-any.whl.metadata )
+Collecting httpcore==1.0.7 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached httpcore-1.0.7-py3-none-any.whl.metadata (21 kB)
+Collecting httpx==0.27.2 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached httpx-0.27.2-py3-none-any.whl.metadata (7.1 kB)
+Collecting huggingface-hub==0.26.2 (from -r C:\Users\TahaMajid\)
+  Using cached huggingface_hub-0.26.2-py3-none-any.whl.metadata)
+Collecting humanfriendly==10.0 (from -r C:\Users\TahaMajid\cond)
+  Using cached humanfriendly-10.0-py2.py3-none-any.whl.metadata)
+Collecting hydra-core==1.0.7 (from -r C:\Users\TahaMajid\condae)
+  Using cached hydra_core-1.0.7-py3-none-any.whl.metadata (3.7 )
+Collecting inflect==7.4.0 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached inflect-7.4.0-py3-none-any.whl.metadata (21 kB)
+Collecting isort==5.13.2 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+Collecting itsdangerous==2.2.0 (from -r C:\Users\TahaMajid\cond)
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.)
+Collecting jaconv==0.4.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached jaconv-0.4.0.tar.gz (17 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting jamo==0.4.1 (from -r C:\Users\TahaMajid\condaenv.dzk)
+  Using cached jamo-0.4.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting jieba==0.42.1 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached jieba-0.42.1.tar.gz (19.2 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting joblib==1.4.2 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached joblib-1.4.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting jsonlines==1.2.0 (from -r C:\Users\TahaMajid\condaen)
+  Using cached jsonlines-1.2.0-py2.py3-none-any.whl.metadata (1)
+Collecting jsonschema==4.23.0 (from -r C:\Users\TahaMajid\conda)
+  Using cached jsonschema-4.23.0-py3-none-any.whl.metadata (7.9)
+Collecting jsonschema-specifications==2024.10.1 (from -r C:\Use)
+  Using cached jsonschema_specifications-2024.10.1-py3-none-any)
+Collecting kiwisolver==1.4.7 (from -r C:\Users\TahaMajid\condae)
+  Using cached kiwisolver-1.4.7-cp310-cp310-win_amd64.whl.metad)
+Collecting lazy-loader==0.4 (from -r C:\Users\TahaMajid\condaen)
+  Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 k)
+Collecting lazy-object-proxy==1.10.0 (from -r C:\Users\TahaMaji)
+  Using cached lazy_object_proxy-1.10.0-cp310-cp310-win_amd64.w)
+Collecting librosa==0.10.0 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached librosa-0.10.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting llvmlite==0.43.0 (from -r C:\Users\TahaMajid\condaen)
+  Using cached llvmlite-0.43.0-cp310-cp310-win_amd64.whl.metada)
+Collecting loguru==0.7.3 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached loguru-0.7.3-py3-none-any.whl.metadata (22 kB)
+Collecting lxml==5.3.1 (from -r C:\Users\TahaMajid\condaenv.dzk)
+  Using cached lxml-5.3.1-cp310-cp310-win_amd64.whl.metadata (3)
+Collecting markdown==3.7 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached Markdown-3.7-py3-none-any.whl.metadata (7.0 kB)
+Collecting markdown-it-py==3.0.0 (from -r C:\Users\TahaMajid\co)
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata ()
+Collecting matplotlib==3.8.4 (from -r C:\Users\TahaMajid\condae)
+  Using cached matplotlib-3.8.4-cp310-cp310-win_amd64.whl.metad)
+Collecting mccabe==0.6.1 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached mccabe-0.6.1-py2.py3-none-any.whl.metadata (4.3 )
+Collecting mdurl==0.1.2 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting mecab-python3==1.0.6 (from -r C:\Users\TahaMajid\con)
+  Using cached mecab_python3-1.0.6-cp310-cp310-win_amd64.whl.me)
+Collecting mojimoji==0.0.13 (from -r C:\Users\TahaMajid\condaen)
+  Using cached mojimoji-0.0.13-cp310-cp310-win_amd64.whl.metada)
+Collecting more-itertools==10.5.0 (from -r C:\Users\TahaMajid\c)
+  Using cached more_itertools-10.5.0-py3-none-any.whl.metadata )
+Collecting msgpack==1.1.0 (from -r C:\Users\TahaMajid\condaenv.)
+  Using cached msgpack-1.1.0-cp310-cp310-win_amd64.whl.metadata)
+Collecting multidict==6.1.0 (from -r C:\Users\TahaMajid\condaen)
+  Using cached multidict-6.1.0-cp310-cp310-win_amd64.whl.metada)
+Collecting murmurhash==1.0.10 (from -r C:\Users\TahaMajid\conda)
+  Using cached murmurhash-1.0.10-cp310-cp310-win_amd64.whl.meta)
+Collecting mutagen==1.47.0 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached mutagen-1.47.0-py3-none-any.whl.metadata (1.7 kB)
+Collecting mypy-extensions==1.0.0 (from -r C:\Users\TahaMajid\c)
+  Using cached mypy_extensions-1.0.0-py3-none-any.whl.metadata )
+Collecting narwhals==1.13.5 (from -r C:\Users\TahaMajid\condaen)
+  Using cached narwhals-1.13.5-py3-none-any.whl.metadata (7.4 k)
+Collecting networkx==2.8.8 (from -r C:\Users\TahaMajid\condaenv)
+  Using cached networkx-2.8.8-py3-none-any.whl.metadata (5.1 kB)
+Collecting nltk==3.9.1 (from -r C:\Users\TahaMajid\condaenv.dzk)
+  Using cached nltk-3.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting nose2==0.15.1 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached nose2-0.15.1-py3-none-any.whl.metadata (7.3 kB)
+Collecting num2words==0.5.13 (from -r C:\Users\TahaMajid\condae)
+  Using cached num2words-0.5.13-py3-none-any.whl.metadata (12 k)
+Collecting numba==0.60.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached numba-0.60.0-cp310-cp310-win_amd64.whl.metadata )
+Collecting numpy==1.22.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Using cached numpy-1.22.0-cp310-cp310-win_amd64.whl.metadata )
+Collecting omegaconf==2.0.6 (from -r C:\Users\TahaMajid\condaen)
+  Using cached omegaconf-2.0.6-py3-none-any.whl.metadata (3.0 k)
+Collecting onnxruntime==1.20.0 (from -r C:\Users\TahaMajid\cond)
+  Downloading onnxruntime-1.20.0-cp310-cp310-win_amd64.whl.meta)
+Collecting orjson==3.10.11 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading orjson-3.10.11-cp310-none-win_amd64.whl.metadata )
+     -------------------------------------- 52.0/52.0 kB 206.0 0
+Collecting packaging==24.1 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading packaging-24.1-py3-none-any.whl.metadata (3.2 kB)
+Collecting pandas==1.5.3 (from -r C:\Users\TahaMajid\condaenv.d)
+  Downloading pandas-1.5.3-cp310-cp310-win_amd64.whl.metadata ()
+Collecting pathspec==0.12.1 (from -r C:\Users\TahaMajid\condaen)
+  Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: pip==24.0 in c:\users\tahamajid\)
+Collecting plac==1.1.3 (from -r C:\Users\TahaMajid\condaenv.dzk)
+  Downloading plac-1.1.3-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting platformdirs==4.3.6 (from -r C:\Users\TahaMajid\cond)
+  Downloading platformdirs-4.3.6-py3-none-any.whl.metadata (11 )
+Collecting pooch==1.8.2 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading pooch-1.8.2-py3-none-any.whl.metadata (10 kB)
+Collecting portalocker==3.1.1 (from -r C:\Users\TahaMajid\conda)
+  Downloading portalocker-3.1.1-py3-none-any.whl.metadata (8.6 )
+Collecting praat-parselmouth==0.4.5 (from -r C:\Users\TahaMajid)
+  Downloading praat_parselmouth-0.4.5-cp310-cp310-win_amd64.whl)
+Collecting preshed==3.0.9 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading preshed-3.0.9-cp310-cp310-win_amd64.whl.metadata )
+Collecting protobuf==5.28.2 (from -r C:\Users\TahaMajid\condaen)
+  Downloading protobuf-5.28.2-cp310-abi3-win_amd64.whl.metadata)
+Collecting psutil==6.0.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Downloading psutil-6.0.0-cp37-abi3-win_amd64.whl.metadata (22)
+Collecting pycparser==2.22 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading pycparser-2.22-py3-none-any.whl.metadata (943 byt)
+Collecting pydantic==2.9.2 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading pydantic-2.9.2-py3-none-any.whl.metadata (149 kB)
+     -------------------------------------- 149.4/149.4 kB 2.2 0
+Collecting pydantic-core==2.23.4 (from -r C:\Users\TahaMajid\co)
+  Downloading pydantic_core-2.23.4-cp310-none-win_amd64.whl.met)
+Collecting pydub==0.25.1 (from -r C:\Users\TahaMajid\condaenv.d)
+  Downloading pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 k)
+Collecting pygments==2.18.0 (from -r C:\Users\TahaMajid\condaen)
+  Downloading pygments-2.18.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pylint==2.10.2 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading pylint-2.10.2-py3-none-any.whl.metadata (7.7 kB)
+Collecting pynndescent==0.5.13 (from -r C:\Users\TahaMajid\cond)
+  Downloading pynndescent-0.5.13-py3-none-any.whl.metadata (6.8)
+Collecting pyparsing==3.1.4 (from -r C:\Users\TahaMajid\condaen)
+  Downloading pyparsing-3.1.4-py3-none-any.whl.metadata (5.1 kB)
+Collecting pypinyin==0.53.0 (from -r C:\Users\TahaMajid\condaen)
+  Downloading pypinyin-0.53.0-py2.py3-none-any.whl.metadata (12)
+Collecting pyreadline3==3.5.4 (from -r C:\Users\TahaMajid\conda)
+  Downloading pyreadline3-3.5.4-py3-none-any.whl.metadata (4.7 )
+Collecting pysbd==0.3.4 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading pysbd-0.3.4-py3-none-any.whl.metadata (6.1 kB)
+Collecting python-crfsuite==0.9.11 (from -r C:\Users\TahaMajid\)
+  Downloading python_crfsuite-0.9.11-cp310-cp310-win_amd64.whl.)
+Collecting python-dateutil==2.9.0.post0 (from -r C:\Users\TahaM)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.)
+Collecting python-multipart==0.0.17 (from -r C:\Users\TahaMajid)
+  Downloading python_multipart-0.0.17-py3-none-any.whl.metadata)
+Collecting pytz==2024.2 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading pytz-2024.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pywin32==308 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading pywin32-308-cp310-cp310-win_amd64.whl.metadata (8)
+Collecting pyworld==0.3.5 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading pyworld-0.3.5-cp310-cp310-win_amd64.whl.metadata )
+Collecting referencing==0.35.1 (from -r C:\Users\TahaMajid\cond)
+  Downloading referencing-0.35.1-py3-none-any.whl.metadata (2.8)
+Collecting regex==2024.9.11 (from -r C:\Users\TahaMajid\condaen)
+  Downloading regex-2024.9.11-cp310-cp310-win_amd64.whl.metadat)
+     -------------------------------------- 41.5/41.5 kB 496.9 0
+Collecting resampy==0.4.3 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading resampy-0.4.3-py3-none-any.whl.metadata (3.0 kB)
+Collecting rich==13.9.4 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+Collecting rpds-py==0.21.0 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading rpds_py-0.21.0-cp310-none-win_amd64.whl.metadata )
+Collecting rvc-python==0.1.5 (from -r C:\Users\TahaMajid\condae)
+  Downloading rvc_python-0.1.5-py3-none-any.whl.metadata (8.6 k)
+Collecting sacrebleu==2.5.1 (from -r C:\Users\TahaMajid\condaen)
+  Downloading sacrebleu-2.5.1-py3-none-any.whl.metadata (51 kB)
+     -------------------------------------- 51.8/51.8 kB 885.0 0
+Collecting safetensors==0.4.5 (from -r C:\Users\TahaMajid\conda)
+  Downloading safetensors-0.4.5-cp310-none-win_amd64.whl.metada)
+Collecting scikit-learn==1.5.2 (from -r C:\Users\TahaMajid\cond)
+  Downloading scikit_learn-1.5.2-cp310-cp310-win_amd64.whl.meta)
+Collecting scipy==1.11.4 (from -r C:\Users\TahaMajid\condaenv.d)
+  Downloading scipy-1.11.4-cp310-cp310-win_amd64.whl.metadata ()
+     -------------------------------------- 60.4/60.4 kB 643.1 0
+Collecting semantic-version==2.10.0 (from -r C:\Users\TahaMajid)
+  Downloading semantic_version-2.10.0-py2.py3-none-any.whl.meta)
+Collecting shellingham==1.5.4 (from -r C:\Users\TahaMajid\conda)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata ()
+Collecting six==1.16.0 (from -r C:\Users\TahaMajid\condaenv.dzk)
+  Downloading six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting sniffio==1.3.1 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting soundfile==0.12.1 (from -r C:\Users\TahaMajid\condae)
+  Downloading soundfile-0.12.1-py2.py3-none-win_amd64.whl.metad)
+Collecting soxr==0.5.0.post1 (from -r C:\Users\TahaMajid\condae)
+  Downloading soxr-0.5.0.post1-cp310-cp310-win_amd64.whl.metada)
+Collecting spacy==2.3.9 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading spacy-2.3.9-cp310-cp310-win_amd64.whl.metadata (1)
+Collecting srsly==1.0.7 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading srsly-1.0.7-cp310-cp310-win_amd64.whl.metadata (1)
+Collecting starlette==0.36.3 (from -r C:\Users\TahaMajid\condae)
+  Downloading starlette-0.36.3-py3-none-any.whl.metadata (5.9 k)
+Collecting sudachidict-core==20240716 (from -r C:\Users\TahaMaj)
+  Downloading SudachiDict_core-20240716-py3-none-any.whl.metada)
+Collecting sudachipy==0.6.8 (from -r C:\Users\TahaMajid\condaen)
+  Downloading SudachiPy-0.6.8-cp310-cp310-win_amd64.whl.metadat)
+Collecting tabulate==0.9.0 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading tabulate-0.9.0-py3-none-any.whl.metadata (34 kB)
+Collecting tensorboard==2.18.0 (from -r C:\Users\TahaMajid\cond)
+  Downloading tensorboard-2.18.0-py3-none-any.whl.metadata (1.6)
+Collecting tensorboard-data-server==0.7.2 (from -r C:\Users\Tah)
+  Downloading tensorboard_data_server-0.7.2-py3-none-any.whl.me)
+Collecting thinc==7.4.6 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading thinc-7.4.6-cp310-cp310-win_amd64.whl.metadata (2)
+Collecting threadpoolctl==3.5.0 (from -r C:\Users\TahaMajid\con)
+  Downloading threadpoolctl-3.5.0-py3-none-any.whl.metadata (13)
+Collecting tokenizers==0.20.3 (from -r C:\Users\TahaMajid\conda)
+  Downloading tokenizers-0.20.3-cp310-none-win_amd64.whl.metada)
+Collecting toml==0.10.2 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting tomli==2.0.2 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading tomli-2.0.2-py3-none-any.whl.metadata (10.0 kB)
+Collecting tomlkit==0.12.0 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading tomlkit-0.12.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting torchaudio==2.4.1 (from -r C:\Users\TahaMajid\condae)
+  Downloading torchaudio-2.4.1-cp310-cp310-win_amd64.whl.metada)
+Collecting torchcrepe==0.0.23 (from -r C:\Users\TahaMajid\conda)
+  Downloading torchcrepe-0.0.23-py3-none-any.whl.metadata (7.8 )
+Collecting torchvision==0.19.1 (from -r C:\Users\TahaMajid\cond)
+  Downloading torchvision-0.19.1-cp310-cp310-win_amd64.whl.meta)
+Collecting tornado==6.4.1 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading tornado-6.4.1-cp38-abi3-win_amd64.whl.metadata (2)
+Collecting tqdm==4.66.5 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading tqdm-4.66.5-py3-none-any.whl.metadata (57 kB)
+     -------------------------------------- 57.6/57.6 kB 607.2 0
+Collecting trainer==0.0.36 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading trainer-0.0.36-py3-none-any.whl.metadata (8.1 kB)
+Collecting transformers==4.46.2 (from -r C:\Users\TahaMajid\con)
+  Downloading transformers-4.46.2-py3-none-any.whl.metadata (44)
+     -------------------------------------- 44.1/44.1 kB 538.0 0
+Collecting tts==0.22.0 (from -r C:\Users\TahaMajid\condaenv.dzk)
+  Downloading TTS-0.22.0.tar.gz (1.7 MB)
+     ---------------------------------------- 1.7/1.7 MB 9.6 MB0
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'do'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'do'
+Collecting typeguard==4.3.0 (from -r C:\Users\TahaMajid\condaen)
+  Downloading typeguard-4.3.0-py3-none-any.whl.metadata (3.7 kB)
+Collecting typer==0.13.0 (from -r C:\Users\TahaMajid\condaenv.d)
+  Downloading typer-0.13.0-py3-none-any.whl.metadata (15 kB)
+Collecting tzdata==2024.2 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading tzdata-2024.2-py2.py3-none-any.whl.metadata (1.4 )
+Collecting tzlocal==5.2 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading tzlocal-5.2-py3-none-any.whl.metadata (7.8 kB)
+Collecting umap-learn==0.5.6 (from -r C:\Users\TahaMajid\condae)
+  Downloading umap_learn-0.5.6-py3-none-any.whl.metadata (21 kB)
+Collecting unidecode==1.3.8 (from -r C:\Users\TahaMajid\condaen)
+  Downloading Unidecode-1.3.8-py3-none-any.whl.metadata (13 kB)
+Collecting unidic-lite==1.0.8 (from -r C:\Users\TahaMajid\conda)
+  Downloading unidic-lite-1.0.8.tar.gz (47.4 MB)
+     --------------------------------------- 47.4/47.4 MB 26.2 0
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting uvicorn==0.32.0 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading uvicorn-0.32.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting wasabi==0.10.1 (from -r C:\Users\TahaMajid\condaenv.)
+  Downloading wasabi-0.10.1-py3-none-any.whl.metadata (28 kB)
+Collecting websockets==11.0.3 (from -r C:\Users\TahaMajid\conda)
+  Downloading websockets-11.0.3-cp310-cp310-win_amd64.whl.metad)
+Collecting werkzeug==3.0.4 (from -r C:\Users\TahaMajid\condaenv)
+  Downloading werkzeug-3.0.4-py3-none-any.whl.metadata (3.7 kB)
+Collecting win32-setctime==1.2.0 (from -r C:\Users\TahaMajid\co)
+  Downloading win32_setctime-1.2.0-py3-none-any.whl.metadata (2)
+Collecting wrapt==1.12.1 (from -r C:\Users\TahaMajid\condaenv.d)
+  Downloading wrapt-1.12.1.tar.gz (27 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting yarl==1.13.1 (from -r C:\Users\TahaMajid\condaenv.dz)
+  Downloading yarl-1.13.1-cp310-cp310-win_amd64.whl.metadata (5)
+     ---------------------------------------- 52.5/52.5 kB 1.4 0
+Requirement already satisfied: jinja2 in c:\users\tahamajid\ana)
+Requirement already satisfied: typing-extensions>=4.10.0 in c:\)
+Requirement already satisfied: idna>=2.8 in c:\users\tahamajid\)
+Requirement already satisfied: setuptools>=20.0 in c:\users\tah)
+Requirement already satisfied: PyYAML>=3.10 in c:\users\tahamaj)
+Requirement already satisfied: pillow>=4.0 in c:\users\tahamaji)
+Requirement already satisfied: torch in c:\users\tahamajid\anac)
+INFO: pip is looking at multiple versions of faster-whisper to .
+
+The conflict is caused by:
+    The user requested tokenizers==0.20.3
+    faster-whisper 0.9.0 depends on tokenizers<0.15 and >=0.13
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the det
+
+
+Pip subprocess error:
+ERROR: Cannot install -r C:\Users\TahaMajid\condaenv.dzk20wid.r.
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.ios
+
+failed
+
+CondaEnvException: Pip failed
+
+(base) PS C:\Users\TahaMajid> ^C
+(base) PS C:\Users\TahaMajid>
